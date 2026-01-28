@@ -1,0 +1,62 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: 'COPRGTB';
+    src: url('./assets/fonts/COPRGTB.TTF');
+}
+@font-face {
+    font-family: 'COOPBL';
+    src: url('./assets/fonts/COOPBL.TTF');
+}
+@font-face {
+    font-family: 'ERASBD';
+    src: url('./assets/fonts/ERASBD.TTF');
+}
+@font-face {
+    font-family: 'georgiab';
+    src: url('./assets//fonts/georgiab.ttf');
+}
+@font-face {
+    font-family: 'ROCKB';
+    src: url('./assets/fonts/ROCKB.TTF');
+}
+@font-face {
+    font-family: 'SCHLBKB';
+    src: url('./assets/fonts/SCHLBKB.TTF');
+}
+@font-face {
+    font-family: 'segoeuiz';
+    src: url('./assets/fonts/segoeuiz.TTF');
+}
+@font-face {
+    font-family: 'seguibl';
+    src: url('./assets/fonts/seguibl.TTF');
+}
+@font-face {
+    font-family: 'SitkaB';
+    src: url('./assets/fonts/SitkaB.TTF');
+}
+@font-face {
+    font-family: 'tahomabd';
+    src: url('./assets/fonts/tahomabd.TTF');
+}
+@font-face {
+    font-family: 'timesbd';
+    src: url('./assets/fonts/timesbd.TTF');
+}
+@font-face {
+    font-family: 'verdanab';
+    src: url('./assets/fonts/verdanab.TTF');
+}
+@font-face {
+    font-family: 'ITC';
+    src: url('./assets/fonts/Elan ITC Std Medium.otf');
+}
+@font-face {
+    font-family: 'ITC2';
+    src: url('./assets/fonts/Elan ITC Std Book.otf');
+}
