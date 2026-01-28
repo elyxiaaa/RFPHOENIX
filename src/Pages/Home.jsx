@@ -503,7 +503,7 @@ function Home() {
     {/* Server Status Section */}
    <div className="w-full lg:w-1/2 py-10 px-4 lg:px-12 border-r border-gray-700">
       <h2 className="text-4xl font-semibold text-center mb-6 text-red-500">
-        RISING FORCE APEX
+        RISING FORCE PHOENIX
       </h2>
       <h3 className="text-2xl text-center mb-4">SERVER STATUS</h3>
       <div className="flex items-center justify-between text-lg">
