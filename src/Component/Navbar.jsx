@@ -161,16 +161,16 @@ function Navbar({ activeTab }) {
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleCombinationClick} >COMBINATION</button>
                 </li>
-                
+                <li className=" hover:text-red-500 p-2">
+                <button onClick={handleDropListClick} >DROPLIST</button>
+                </li>
+                {/**
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleFarmSiteClick} >FARM SITES</button>
                 </li>
                 <li className=" hover:text-red-500 p-2">
-                <button onClick={handleDropListClick} >DROPLIST</button>
-                </li>
-                <li className=" hover:text-red-500 p-2">
                 <button onClick={handleDailyQuestClick} >DAILYQUEST</button>
-                </li>
+                </li> */}
               </ul>
             </li>
             <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
@@ -263,10 +263,10 @@ function Navbar({ activeTab }) {
               </ScrollLink>
             </li>
 
-{/* Apex Set */}
+{/* Apex Set 
 <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
   <button
-    onClick={handleDonationClick} // Use the existing function for Apex Set
+    onClick={handleDonationClick} 
     className="flex gap-2 items-center"
   >
     <FaDonate className={`${getTextClass("apex-set-section")} group-hover:text-red-500`} />
@@ -330,16 +330,17 @@ function Navbar({ activeTab }) {
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleCombinationClick} >COMBINATION</button>
                 </li>
-                
+                <li className=" hover:text-red-500 p-2">
+                <button onClick={handleDropListClick} >DROPLIST</button>
+                </li>
+                {/**
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleFarmSiteClick} >FARM SITES</button>
                 </li>
                 <li className=" hover:text-red-500 p-2">
-                <button onClick={handleDropListClick} >DROPLIST</button>
-                </li>
-                <li className=" hover:text-red-500 p-2">
                 <button onClick={handleDailyQuestClick} >DAILYQUEST</button>
                 </li>
+                 */}
               </ul>
             </li>
             <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">

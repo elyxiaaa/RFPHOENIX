@@ -198,30 +198,7 @@ function Home() {
   };
 
   const spotlightItems = [
-    {
-      image: Winner1, 
-    },
-    {
-      image: Winner2,
-    },
-    {
-      image: Winner3,
-    },
-    {
-      image: Winner4,
-    },
-    {
-      image: Winner5,
-    },
-    {
-      image: Winner6,
-    },
-    {
-      image: Winner7,
-    },
-    {
-      image: Winner8,
-    },
+
   ]
 
   const location = useLocation()
@@ -1049,24 +1026,25 @@ onMouseLeave={() => handleMouseLeave(videoRef2)}
     </div>
   </div>
 </div>
+
+{/** 
 <div className="w-full h-fit p-10 bg-BG6 bg-cover bg-center relative">
-      {/* Dark to Red Overlay */}
+
       <div className="absolute inset-0 bg-black opacity-80"></div>
 
-      {/* Title Section */}
+  
       <div className="text-center relative z-10">
         <h2 className="text-6xl font-ITC text-white text-shadow-red-glow tracking-wider">
           Spotlight
         </h2>
       </div>
 
-      {/* Carousel Container */}
+  
       <div className="w-full mx-auto mt-8 relative z-10">
         <Slider {...settings}>
           {spotlightItems.map((item, index) => (
             <div key={index} className="relative px-3">
               <div className="w-full h-64 md:h-[480px] lg:h-[540px] xl:h-[600px] overflow-hidden flex items-center justify-center rounded-lg">
-                {/* Background Image */}
                 <div
                   className={`w-full h-full bg-cover bg-center transition-all duration-300`}
                   style={{
@@ -1081,7 +1059,7 @@ onMouseLeave={() => handleMouseLeave(videoRef2)}
         </Slider>
       </div>
     </div>
-
+*/}
       
       <Footer />
     </>
