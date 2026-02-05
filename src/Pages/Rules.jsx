@@ -176,7 +176,7 @@ function Rules() {
                      {/* row 13 */}
                      <tr className="border-b border-gray-600">
                       <th>13</th>
-                      <td>Any form of trashtalk relating a person’s family/relatives not connected to the RF Apex server will not be tolerated.</td>
+                      <td>Any form of trashtalk relating a person’s family/relatives not connected to the RF Phoenix server will not be tolerated.</td>
                       <td className="flex flex-col">
                       <td>
                       1st offense: 48 Hours Chat Block</td>

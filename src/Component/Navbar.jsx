@@ -95,7 +95,7 @@ function Navbar({ activeTab }) {
         activeTab === tabName ? "text-red-500" : "text-white";
 
   return (
-    <nav className="bg-black text-white font-COP1 px-6 py-8 sticky top-0 z-50">
+    <nav className="bg-black text-white px-6 py-8 sticky top-0 z-50">
     <div className="container mx-auto flex justify-between items-center relative">
       {/* Logo (Visible on large screens only) */}
       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 hidden lg:block">
@@ -135,63 +135,13 @@ function Navbar({ activeTab }) {
               </ScrollLink>
             </li>
 
-            <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
-  <button className="flex gap-2 items-center">
-    <FaDonate className={`${getTextClass("donation-section")} group-hover:text-red-500`} />
-    <span className={`${getTextClass("donation-section")} group-hover:text-red-500`}>DONATION</span>
-    <span className={getUnderlineClass("donation-section")} />
-  </button>
-  {/* Dropdown for Donation */}
-  <ul
-    className="absolute left-0 hidden group-hover:block bg-black text-white rounded shadow-lg mt-44 w-44 p-2 z-10"
-  >
-     {/* Apex Set Option */}
-     <li className="hover:text-red-500 p-2">
-      <button onClick={handleDonationClick} className="flex items-center">
-        APEX SET
-      </button>
-    </li>
-    {/* Package Option */}
-    <li className="hover:text-red-500 p-2">
-      <ScrollLink
-        to="package-section" // Scroll target ID
-        smooth={true} // Enable smooth scrolling
-        duration={500} // Scroll duration
-        offset={-200} // Adjust scroll offset
-        onClick={handlePackageClick}
-        className="flex items-center"
-      >
-        PACKAGE
-      </ScrollLink>
-    </li>
-    {/* Cash Shop Option */}
-    <li className="hover:text-red-500 p-2">
-      <ScrollLink
-        to="cash-section" // Scroll target ID
-        smooth={true} // Enable smooth scrolling
-        duration={500} // Scroll duration
-        offset={-200} // Adjust scroll offset
-        onClick={handleCashShopClick}
-        className="flex items-center"
-      >
-        CASH SHOP
-      </ScrollLink>
-    </li>
-  </ul>
-</li>
-
-<li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
-  <button
-    onClick={handleBattlepassClick} // Use the existing function for Apex Set
-    className="flex gap-2 items-center"
-  >
-    <FaDonate className={`${getTextClass("battlepass-section")} group-hover:text-red-500`} />
-    <span className={`${getTextClass("battlepass-section")} group-hover:text-red-500`}>
-      BATTLEPASS
-    </span>
-    <span className={getUnderlineClass("battlepass-section")} />
-  </button>
-</li>
+             <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
+            <button onClick={handleCashShopClick} className="flex gap-2 items-center">
+            <FaDonate className={`${getTextClass("donation-section")} group-hover:text-red-500`} /> 
+              <span className={`${getTextClass("donation-section")} group-hover:text-red-500`}>CASH SHOP</span>
+                <span className={getUnderlineClass("donation-section")} />
+              </button>
+            </li>
 
 
             {/* Game Guides Dropdown */}
@@ -237,7 +187,7 @@ function Navbar({ activeTab }) {
 
         <div className="absolute right-0 top-1/2 transform -translate-y-1/2 hidden lg:block">
   {/* DaisyUI Dropdown */}
-  <div className="dropdown dropdown-hover">
+  <div className="dropdown dropdown-hover font-medium">
     <button
       className="px-4 py-2 bg-black text-white border border-red-500 rounded-md transition-all duration-300 hover:bg-red-500 hover:text-black shadow-lg"
     >

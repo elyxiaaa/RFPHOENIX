@@ -57,532 +57,151 @@ function Combination() {
 
   const dropdownData = [
     {
-      title: 'T3 COUPON',
+      title: 'RECYCLED GAMBLE BOX',
       content: (
         <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg mb-2">T3 COUPON</h3>
+        <h3 className="text-red-500 font-bold text-lg mb-2">RECYCLED GAMBLE BOX</h3>
         <p className="text-gray-200 mb-4">
           <strong>Material:</strong>
           <ul className="list-disc list-inside">
-            <li>x1 / x50 / x99 T3 Gem Coupon</li>
+            <li>x1 Empty Cash Point Gamble Box</li>
+             <li className="text-green-500">Chance: 100%</li>
+               <li className="text-red-500">Fee: 10m Race Currency</li>
           </ul>
           <br />
           <strong>Result:</strong>
           <ul className="list-disc list-inside">
-            <li>x1 / x50 / x99 T3 Gems</li>
+            <li>Cash Point Gamble Box</li>
           </ul>
         </p>
-        <img
-          src="/src/assets/SnowSprayGuide.png"
-          alt="T3 Crafting Guide"
-          className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-        />
       </div>
       ),
     },
-    {
-      title: 'T4 COUPON',
-      content: (
-        <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg mb-2">T4 COUPON</h3>
-        <p className="text-gray-200 mb-4">
-          <strong>Material:</strong>
-          <ul className="list-disc list-inside">
-            <li>x1 / x50 / x99 T4 Gem Coupon</li>
-          </ul>
-          <br />
-          <strong>Result:</strong>
-          <ul className="list-disc list-inside">
-            <li>x1 / x50 / x99 T4 Gems</li>
-          </ul>
-        </p>
-        <img
-          src="/src/assets/SnowSprayGuide.png"
-          alt="T4 Crafting Guide"
-          className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-        />
-      </div>
-      ),
-    },
-    {
-      title: 'T5 COUPON',
-      content: (
-        <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg mb-2">T5 COUPON</h3>
-        <p className="text-gray-200 mb-4">
-          <strong>Material:</strong>
-          <ul className="list-disc list-inside">
-            <li>x1 / x50 / x99 T5 Gem Coupon</li>
-          </ul>
-          <br />
-          <strong>Result:</strong>
-          <ul className="list-disc list-inside">
-            <li>x1 / x50 / x99 T5 Gems</li>
-          </ul>
-        </p>
-        <img
-          src={LGS}
-          alt="T5 Crafting Guide"
-          className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-        />
-      </div>
-      ),
-    },
-    {
-      title: 'T6 COUPON',
-      content: (
-        <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg mb-2">T6 COUPON</h3>
-        <p className="text-gray-200 mb-4">
-          <strong>Material:</strong>
-          <ul className="list-disc list-inside">
-            <li>x1 / x50 / x99 T6 Gem Coupon</li>
-          </ul>
-          <br />
-          <strong>Result:</strong>
-          <ul className="list-disc list-inside">
-            <li>x1 / x50 / x99 T6 Gems</li>
-          </ul>
-        </p>
-        <img
-          src={SGS}
-          alt="T5 Crafting Guide"
-          className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-        />
-      </div>
-      ),
-    },
-    {
-      title: 'GOLD POTION',
-      content: (
-        <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-lg mb-2">GOLD POTION +12,375</h3>
-          <p className="text-gray-200 mb-4">
-            <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>x99 Gold Potion +25</li>
-              <li>x99 Gold Potion +25</li>
-              <li>x99 Gold Potion +25</li>
-              <li>x99 Gold Potion +25</li>
-              <li>x99 Gold Potion +25</li>
-            </ul>
-            <br />
-            <strong>Result:</strong>
-            <ul className="list-disc list-inside">
-              <li>x1 Gold Potion +12,375</li>
-            </ul>
-          </p>
-          <img
-            src={GP}
-            alt="Gold Potion Crafting Guide"
-            className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-          />
-          
-          {/* Separator Line */}
-          <hr className="my-8 border-gray-600 border-2 " />
-
-          <h3 className="text-red-500 font-bold text-lg mb-2">GOLD POTION + 1,225,125</h3>
-          <p className="text-gray-200 mb-4">
-            <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>x99 Gold Potion +12 375</li>
-            </ul>
-            <br />
-            <strong>Result:</strong>
-            <ul className="list-disc list-inside">
-              <li>x1 Gold Potion +1,225,125</li>
-            </ul>
-          </p>
-          <img
-            src={GP1m}
-            alt="Gold Potion Crafting Guide"
-            className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-          />
-        </div>
-      ),
-    },
-    {
-      title: 'ENHANCERS UPGRADE',
-      content: (
-        <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-lg mb-2">Brilliant - Epic Enhancer</h3>
-          <p className="text-gray-200 mb-4">
-            <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>x25 Apex Brilliant Enhancer</li>
-              <li>x25 T3 Gems</li>
-              <li>x25 T3 Gems</li>
-              <li>x25 T3 Gems</li>
-              <li>x25 T3 Gems</li>
-              <li className="text-red-500">Chance: 100%</li>
-            </ul>
-            <br />
-            <strong>Result:</strong>
-            <ul className="list-disc list-inside">
-              <li>x1 Apex Epic Enhancer</li>
-            </ul>
-          </p>
-          <hr className="my-8 border-gray-600 border-2 " />
-          <h3 className="text-red-500 font-bold text-lg mb-2">Epic - Mythical Enhancer</h3>
-          <p className="text-gray-200 mb-4">
-            <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>x1 Epic Material Enhancer</li>
-              <li>x1 Epic Armor Enhancer</li>
-              <li>x1 Epic Weapon Enhancer</li>
-              <li className="text-red-500">Fee: 500m</li>
-              <li className="text-red-500">Chance: 30%</li>
-            </ul>
-            <br />
-            <strong>Result:</strong>
-            <ul className="list-disc list-inside">
-              <li>x1 Apex Mythical Enhancer</li>
-            </ul>
-          </p>
-        </div>
-      ),
-    },
-    {
-      title: 'ENHANCER CONVERSION',
-      content: (
-        <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-lg mb-2">Brilliant Enhancer</h3>
-          <p className="text-gray-200 mb-4">
-            <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>x1 Brilliant Enhancer ( Weapon/Armor/Material )</li>
-              <li className="text-red-500">Fee: 150m</li>
-              <li className="text-red-500">Chance: 100%</li>
-            </ul>
-            <br />
-            <strong>Result:</strong>
-            <ul className="list-disc list-inside">
-              <li>Choose 1: x1 Brilliant Enhancer ( Weapon/Armor/Material )</li>
-            </ul>
-          </p>
-          <hr className="my-8 border-gray-600 border-2 " />
-          <h3 className="text-red-500 font-bold text-lg mb-2">Epic Enhancer</h3>
-          <p className="text-gray-200 mb-4">
-            <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>x1 Epic Enhancer ( Weapon/Armor/Material )</li>
-              <li className="text-red-500">Fee: 150m</li>
-              <li className="text-red-500">Chance: 100%</li>
-            </ul>
-            <br />
-            <strong>Result:</strong>
-            <ul className="list-disc list-inside">
-              <li>Choose 1: x1 Epic Enhancer ( Weapon/Armor/Material )</li>
-            </ul>
-          </p>
-        </div>
-      ),
-    },
-    {
-      title: 'BATTLEPASS LEVELUP',
-      content: (
-        <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-lg">Level 1 to 200</h3>
-          <p className="text-gray-200 mb-4">
-            <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>Apex Seasonal Battlepass Blade</li>
-              <li>x10 Nemestice Stone </li>
-              <li>x10 Azure Stone</li>
-              <li>x15 +12,375 Gold Points</li>
-              <li className="text-red-500">SAFE: WEAPON</li>
-              <li className="text-red-500">Chance:</li>
-              <li className="text-orange-500">Brilliant: 50%</li>
-          <li className="text-blue-500">Epic: 75%</li>
-          <li className="text-green-500">Mythical: 100%</li>
-            </ul>
-            <br />
-            <strong>Result:</strong>
-            <ul className="list-disc list-inside">
-              <li>Next Level Battlepass</li>
-            </ul>
-          </p>
-        </div>
-      ),
-    },
-    
-   
   ];
 
   const dropdownData2 = [
     {
-      title: '+5/6 TYPE C WEAPON ➜ APEX PERMANENT',
+      title: 'TYPE C ARMOR',
       content: (
         <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-lg">+5/6 TYPE C WEAPON TO APEX PERMANENT</h3>
+          <h3 className="text-red-500 font-bold text-lg">+3/5 TYPE C ARMOR</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>+5/6 Strong Intense Weapon [C]</li>
-              <li>99pc Gold Potion +12,375 </li>
-              <li>99pc Gold Potion +12,375 </li>
-              <li>1pc Apex Brilliant/Epic/Mythical Weapon Enhancer</li>
-              <li className="text-red-500">SAFE: WEAPON</li>
-              <li className="text-red-500">Chance:</li>
-              <li className="text-orange-500">Brilliant: 10%</li>
-              <li className="text-blue-500">Epic: 50%</li>
-              <li className="text-green-500">Mythical: 100%</li>
+            <ul className="list-inside">
+              <li>+5/5 Intense Lv50 Armor</li>
+              <li>10pcs Armor Blueprint </li>
+              <li>20pcs Ability Reaver </li>
+              <li className="text-green-500">SAFE: Armor</li>
+              <li className="text-red-500">Chance: 50%</li>
+               <li className="text-red-500">Fee: 50m Race Currency</li>
             </ul>
-            <br />
             <strong>Result:</strong>
             <ul className="list-disc list-inside">
-              <li>+5/6 STRONG APEX WEAPON [PERMANENT]</li>
+              <li>+3/5 Type C Lv50 Armor</li>
             </ul>
           </p>
         </div>
       ),
     },
     {
-      title: '+5/6 TYPE C ARMOR ➜ APEX PERMANENT',
+      title: 'TYPE C WEAPON',
       content: (
         <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-lg">+5/6 TYPE C ARMOR TO APEX PERMANENT</h3>
+          <h3 className="text-red-500 font-bold text-lg">+3/5 TYPE C WEAPON</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>+5/6 Strong/Sharp/Strength Armor [C]</li>
-              <li>99pc Gold Potion +12,375 </li>
-              <li>99pc Gold Potion +12,375 </li>
-              <li>1pc Apex Brilliant/Epic/Mythical Weapon Enhancer</li>
-              <li className="text-red-500">SAFE: ARMOR</li>
-              <li className="text-red-500">Chance:</li>
-              <li className="text-orange-500">Brilliant: 10%</li>
-              <li className="text-blue-500">Epic: 50%</li>
-              <li className="text-green-500">Mythical: 100%</li>
+            <ul className="list-inside">
+              <li>+5/5 Intense Lv50 Weapon</li>
+              <li>10pcs Weapon Blueprint </li>
+              <li>20pcs Strong Ability Reaver </li>
+              <li className="text-green-500">SAFE: Weapon</li>
+              <li className="text-red-500">Chance: 50%</li>
+               <li className="text-red-500">Fee: 50m Race Currency</li>
             </ul>
-            <br />
             <strong>Result:</strong>
             <ul className="list-disc list-inside">
-              <li>+5/6 STRONG/SHARP/STRENGTH APEX ARMOR [PERMANENT]</li>
+              <li>+3/5 Type C Lv50 Weapon</li>
             </ul>
           </p>
         </div>
       ),
     },
     {
-      title: '+5/6 INTENSE SHIELD [B] ➜ APEX SHIELD[C]',
+      title: 'PARAGON HELM',
       content: (
         <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-lg mb-2">+5/6 INTENSE SHIELD [B] TO APEX SHIELD [C]</h3>
+          <h3 className="text-red-500 font-bold text-lg">+5/5 Sharp / Strength / Strong Paragon Helm</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>+5/6 Lv45/55 Intense Shield</li>
-              <li>99pc Red Excelsiar C</li>
-              <li>99pc Anti-Sharp / Protection Ability Reaver</li>
-              <li>30pc Talic Crystal</li>
-              <li>30pc Red Stone</li>
-              <li className="text-red-500">SAFE: SHIELD</li>
-              <li className="text-red-500"><strong>Chance: 20%</strong></li>
+            <ul className="list-inside">
+              <li>+5/5 Sharp / Strength / Strong Type C Helm</li>
+              <li>1pc Feathers of the Lost Phoenix </li>
+              <li>10pcs Energizer</li>
+              <li>10pcs Sharp / Strength / Strong Ability Reaver</li>
+               <li>5pcs Red Stone</li>
+              <li className="text-green-500">SAFE: Helm</li>
+              <li className="text-red-500">Chance: 50%</li>
+               <li className="text-red-500">Fee: 100m Race Currency</li>
             </ul>
-            <br />
             <strong>Result:</strong>
             <ul className="list-disc list-inside">
-              <li>+5/6 Anti-Sharp / Protection Apex Shield [C]</li>
+              <li>+5/5 Sharp / Strength / Strong Paragon Helm</li>
             </ul>
           </p>
         </div>
       ),
     },
     {
-      title: '+5/6 PROTOTYPE GLIDER ➜ RACIAL GLIDER',
+      title: 'PARAGON CAPE',
       content: (
         <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-lg mb-2">+5/6 PROTOTYPE GLIDER TO RACIAL GLIDER</h3>
+          <h3 className="text-red-500 font-bold text-lg">+5/5 Paragon Cape</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>+5/6 Prototype Glider</li>
-              <li>99pc Olive Excelsiar C</li>
-              <li>30pc Talic Crystal</li>
-              <li>30pc Red Stone</li>
-              <li className="text-red-500">SAFE: GLIDER</li>
-              <li className="text-red-500"><strong>Chance: 20%</strong></li>
+            <ul className="list-inside">
+              <li>+5/5 Advanced Booster/Panzer Jets</li>
+              <li>1pc Feathers of the Lost Phoenix </li>
+              <li>10pcs Energizer</li>
+              <li>10pcs Phoenix Cape Redeemer Coupon</li>
+               <li>5pcs Red Stone</li>
+              <li className="text-green-500">SAFE: Booster</li>
+              <li className="text-red-500">Chance: 50%</li>
+               <li className="text-red-500">Fee: 100m Race Currency</li>
             </ul>
-            <br />
             <strong>Result:</strong>
             <ul className="list-disc list-inside">
-              <li>+5/6 RACIAL GLIDER</li>
+              <li>+5/5 Paragon Cape</li>
             </ul>
           </p>
         </div>
       ),
     },
     {
-      title: '+5/6 RACIAL GLIDER ➜ ELITE RACIAL GLIDER',
+      title: 'PHOENIX GOLDEN WIND WEAPON',
       content: (
         <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-lg">+5/6 Racial Glider to Elite Racial Glider</h3>
+          <h3 className="text-red-500 font-bold text-lg">PHOENIX GOLDEN WIND WEAPON</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
-            <ul className="list-disc list-inside">
-              <li>+5/6 Racial Glider</li>
-              <li>99pc Gold Potion +12,375 </li>
-              <li>1pc Apex Brilliant/Epic/Mythical Material Enhancer</li>
-              <li className="text-red-500">SAFE: WEAPON</li>
-              <li className="text-red-500">Chance:</li>
-              <li className="text-orange-500">Brilliant: 10%</li>
-              <li className="text-blue-500">Epic: 50%</li>
-              <li className="text-green-500">Mythical: 100%</li>
+            <ul className="list-inside">
+              <li>Legacy Blade</li>
+              <li>Golden Wind Weapon </li>
+              <li>5pcs Seal of Phoenix</li>
+              <li>99pcs Weapon Blueprint</li>
+               <li>5pcs Red Stone</li>
+              <li className="text-green-500">Chance: 100%</li>
+               <li className="text-red-500">Fee: 1.5b Race Currency</li>
             </ul>
-            <br />
             <strong>Result:</strong>
             <ul className="list-disc list-inside">
-              <li>+5/6 Elite Racial Glider</li>
+              <li>Phoenix Golden Weapon</li>
             </ul>
           </p>
-  
         </div>
       ),
     },
 ];
 
-const dropdownData3 =[
-  {
-    title: '+6/6 TYPE C WEAPON ➜ APEX PERMANENT',
-    content: (
-      <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg">TYPE C WEAPON TO APEX PERMANENT</h3>
-        <p className="text-gray-200 mb-4">
-          <strong>Material:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6 Strong Intense Weapon [C]</li>
-            <li>99pc Gold Potion +12,375 </li>
-            <li>1pc Apex Brilliant/Epic/Mythical Weapon Enhancer</li>
-            <li className="text-red-500">SAFE: WEAPON</li>
-            <li className="text-red-500">Chance:</li>
-            <li className="text-orange-500">Brilliant: 10%</li>
-        <li className="text-blue-500">Epic: 50%</li>
-        <li className="text-green-500">Mythical: 100%</li>
-          </ul>
-          <br />
-          <strong>Result:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6 STRONG APEX WEAPON [PERMANENT]</li>
-          </ul>
-        </p>
-      </div>
-    ),
-  },
-{
-    title: '+6/6 TYPE C ARMOR ➜ APEX PERMANENT',
-    content: (
-      <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg">+6/6 TYPE C ARMOR TO APEX PERMANENT</h3>
-        <p className="text-gray-200 mb-4">
-          <strong>Material:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6 Strong/Sharp/Strength Armor [C]</li>
-            <li>99pc Gold Potion +12,375 </li>
-            <li>1pc Apex Brilliant/Epic/Mythical Weapon Enhancer</li>
-            <li className="text-red-500">SAFE: WEAPON</li>
-            <li className="text-red-500">Chance:</li>
-            <li className="text-orange-500">Brilliant: 10%</li>
-            <li className="text-blue-500">Epic: 50%</li>
-            <li className="text-green-500">Mythical: 100%</li>
-          </ul>
-          <br />
-          <strong>Result:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6 STRONG/SHARP/STRENGTH APEX ARMOR [PERMANENT]</li>
-          </ul>
-        </p>
-
-      </div>
-    ),
-  },
-{
-    title: '+6/6 INTENSE SHIELD [B] ➜ APEX SHIELD[C] ',
-    content: (
-      <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg mb-2">+6/6 INTENSE SHIELD [B] TO APEX SHIELD [C]</h3>
-        <p className="text-gray-200 mb-4">
-          <strong>Material:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6/6 Lv45/55 Intense Shield</li>
-            <li>99pc Red Excelsiar C</li>
-            <li>99pc Anti-Sharp / Protection Ability Reaver</li>
-            <li>30pc Talic Crystal</li>
-            <li>30pc Red Stone</li>
-            <li className="text-red-500">SAFE: SHIELD</li>
-            <li className="text-red-500"><strong>Chance: 20%</strong></li>
-          </ul>
-          <br />
-          <strong>Result:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6/6 Anti-Sharp / Protection Apex Shield [C]</li>
-          </ul>
-        </p>
-        <img
-          src={Shield}
-          alt="Apex Armor Crafting Guide"
-          className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-        />
-      </div>
-    ),
-  },
-{
-    title: '+6/6 PROTOTYPE GLIDER ➜ RACIAL GLIDER ',
-    content: (
-      <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg mb-2">+6/6 PROTOTYPE GLIDER TO RACIAL GLIDER</h3>
-        <p className="text-gray-200 mb-4">
-          <strong>Material:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6/6 Prototype Glider</li>
-            <li>99pc Olive Excelsiar C</li>
-            <li>30pc Talic Crystal</li>
-            <li>30pc Red Stone</li>
-            <li className="text-red-500">SAFE: GLIDER</li>
-            <li className="text-red-500"><strong>Chance: 20%</strong></li>
-          </ul>
-          <br />
-          <strong>Result:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6/6 RACIAL GLIDER</li>
-          </ul>
-        </p>
-        <img
-          src="/src/assets/SnowSprayGuide.png"
-          alt="Apex Armor Crafting Guide"
-          className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-        />
-      </div>
-    ),
-  },
-{
-    title: '+6/6 RACIAL GLIDER ➜ ELITE RACIAL GLIDER',
-    content: (
-      <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg">+6/6 Racial Glider to Elite Racial Glider</h3>
-        <p className="text-gray-200 mb-4">
-          <strong>Material:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6/6 Racial Glider</li>
-            <li>99pc Gold Potion +12,375 </li>
-            <li>1pc Apex Brilliant/Epic/Mythical Material Enhancer</li>
-            <li className="text-red-500">SAFE: WEAPON</li>
-            <li className="text-red-500">Chance:</li>
-            <li className="text-orange-500">Brilliant: 10%</li>
-            <li className="text-blue-500">Epic: 50%</li>
-            <li className="text-green-500">Mythical: 100%</li>
-          </ul>
-          <br />
-          <strong>Result:</strong>
-          <ul className="list-disc list-inside">
-            <li>+6/6 Elite Racial Glider</li>
-          </ul>
-        </p>
-
-      </div>
-    ),
-  },
-]
 return (
   <>
     <Navbar activeTab={activeTab} />
@@ -640,7 +259,7 @@ return (
          ref={dropdownRef2}
           className="w-full max-w-4xl bg-gray-900 bg-opacity-90 rounded-lg p-6 shadow-xl space-y-4 mt-5">
           <h1 className="text-2xl md:text-3xl font-extrabold font-COP1 mb-10 text-white text-shadow-red-glow">
-            +5/6 APEX SET
+            PHOENIX GEARS
           </h1>
           {dropdownData2.map((item, index) => (
             <div
@@ -674,43 +293,7 @@ return (
           ))}
         </div>
 
-        <div
-         ref={dropdownRef3}
-          className="w-full max-w-4xl bg-gray-900 bg-opacity-90 rounded-lg p-6 shadow-xl space-y-4 mt-5">
-          <h1 className="text-2xl md:text-3xl font-extrabold font-COP1 mb-10 text-white text-shadow-red-glow">
-            +6/6 APEX SET
-          </h1>
-          {dropdownData3.map((item, index) => (
-            <div
-              key={index}
-              className="border border-red-500 rounded-lg bg-gray-800 bg-opacity-80"
-            >
-              <div
-                className="flex justify-between items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors cursor-pointer"
-                onClick={() => toggleDropdown3(index)}
-              >
-                <h2 className="text-lg font-semibold text-red-400 font-COP1">
-                  {item.title}
-                </h2>
-                <span className="text-red-400">
-                  {openDropdown3 === index ? "▲" : "▼"}
-                </span>
-              </div>
-              {/* Smooth transition for dropdown content */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  openDropdown3 === index ? "max-h-[2000px]" : "max-h-0"
-                }`}
-              >
-                {openDropdown3 === index && (
-                  <div className="p-4 bg-gray-800 rounded-b-lg shadow-inner font-COP1">
-                    {item.content}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+
 
       </div>
     </div>

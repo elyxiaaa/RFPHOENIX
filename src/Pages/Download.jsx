@@ -26,7 +26,7 @@ function Download() {
         {/* Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
         <h1 className="text-6xl sm:text-7xl lg:text-8xl text-white font-bold font-ITC2 mb-4 text-shadow-red-glow">
-          RISING FORCE APEX
+          RISING FORCE PHOENIX
         </h1>
 
 
@@ -39,7 +39,7 @@ function Download() {
           </p>
 
           <div className='flex gap-4'>
-          <a href="https://www.mediafire.com/file/2qf9fy59pd9ap5y/RF_Apex_v1.09.rar/file">
+          <a href="https://www.mediafire.com/file/2qf9fy59pd9ap5y/RF_Phoenix_v1.09.rar/file">
   <button className="flex gap-2 mt-6 bg-red-500 text-black font-bold py-4 px-8 md:px-10 text-2xl rounded hover:bg-red-600 transform hover:scale-105 transition-all duration-300">
     DOWNLOAD CLIENT <SiMediafire className="text-4xl"/>
   </button>
@@ -49,7 +49,7 @@ function Download() {
     DOWNLOAD CLIENT <FaGoogleDrive className="text-4xl"/>
   </button>
 </a>
-<a href="https://www.mediafire.com/file/2qf9fy59pd9ap5y/RF_Apex_v1.09.rar/file">
+<a href="https://www.mediafire.com/file/2qf9fy59pd9ap5y/RF_Phoenix_v1.09.rar/file">
   <button className="flex gap-2 mt-6 bg-red-500 text-black font-bold py-4 px-8 md:px-10 text-2xl rounded hover:bg-red-600 transform hover:scale-105 transition-all duration-300">
     DOWNLOAD CLIENT <SiMega className="text-4xl"/>
   </button>
@@ -79,7 +79,7 @@ function Download() {
     <div className="text-center flex flex-col items-center gap-4"> 
       <div className="flex items-center gap-2 group"> 
         <IoChatboxEllipsesOutline className="text-3xl text-white/70 group-hover:text-white transition-colors duration-300" />
-        <Link to="https://discord.gg/rfonlineapex" className="text-xl font-semibold text-white/70 group-hover:text-white transition-colors duration-300">
+        <Link to="https://discord.gg/rfonlinePhoenix" className="text-xl font-semibold text-white/70 group-hover:text-white transition-colors duration-300">
           COMMUNITY
         </Link>
       </div>
@@ -90,7 +90,7 @@ function Download() {
     <div className="text-center flex flex-col items-center gap-4"> {/* Increased gap from 2 to 4 */}
       <div className="flex items-center gap-2 group"> 
         <BiSupport className="text-3xl text-white/70 group-hover:text-white transition-colors duration-300" />
-        <Link to="https://www.facebook.com/rfonlineapex" className="text-xl font-semibold text-white/70 group-hover:text-white transition-colors duration-300">
+        <Link to="https://www.facebook.com/rfonlinePhoenix" className="text-xl font-semibold text-white/70 group-hover:text-white transition-colors duration-300">
           SUPPORT
         </Link>
       </div>
@@ -179,7 +179,7 @@ function Download() {
           <p>In-game frame rate may vary depending on the hardware manufacturer and personal settings.</p>
           <p>PC performance can also differ due to network connections, PC environment, and management.</p>
           <p>To ensure smooth gameplay, it is recommended to keep all hardware drivers updated to their latest versions.</p>
-          <p>System requirements for RF Apex may change with newly added content.</p>
+          <p>System requirements for RF Phoenix may change with newly added content.</p>
           <p>Please install the latest service pack for the operating system and DirectX for normal installation and operation of the game.</p>
         </div>
       </div>

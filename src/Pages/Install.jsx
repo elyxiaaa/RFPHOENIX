@@ -114,7 +114,7 @@ function Install() {
               <img src={Download} className="w-full h-auto rounded-lg" alt="Step 1" />
             </div>
             <div className="step-description">
-              <p className="text-md">At the landing page of RF Apex official website, Click <strong>Download Now</strong> button.</p>
+              <p className="text-md">At the landing page of RF Phoenix official website, Click <strong>Download Now</strong> button.</p>
             </div>
           </div>
 
@@ -127,7 +127,7 @@ function Install() {
               <img src={Download2} className="w-full h-auto rounded-lg" alt="Step 2" />
             </div>
             <div className="step-description">
-              <p className="text-md">Click the <strong>Download Client</strong> button in the middle of the page to start downloading the client. After the download is finished, double-click the downloaded file to start installing Rising Force Apex.</p>
+              <p className="text-md">Click the <strong>Download Client</strong> button in the middle of the page to start downloading the client. After the download is finished, double-click the downloaded file to start installing Rising Force Phoenix.</p>
             </div>
           </div>
 
@@ -140,7 +140,7 @@ function Install() {
               <img src={Download3} className="w-full h-auto rounded-lg" alt="Step 3" />
             </div>
             <div className="step-description">
-              <p className="text-md">While waiting for the download to finish. Go to your <strong>Local Disk (C) or Local Disk (D) </strong> and create a folder called RF Apex. Then go to your anti-virus settings and proceed with the provided image.</p>
+              <p className="text-md">While waiting for the download to finish. Go to your <strong>Local Disk (C) or Local Disk (D) </strong> and create a folder called RF Phoenix. Then go to your anti-virus settings and proceed with the provided image.</p>
               <p className="text-md font-bold"><span className="text-red-500 font-bold">Note</span>: If you're using Local Disk (C), do not put it inside any folder specially Program Files.</p>
             </div>
           </div>
@@ -167,7 +167,7 @@ function Install() {
               <img src={Download5} className="w-full h-auto rounded-lg" alt="Step 4" />
             </div>
             <div className="step-description">
-              <p className="text-md">After the RF Apex launcher is opened, you'll just need to log in. If don't have an account yet, go to <a href="https://rfapex.gamecp.net/register.php" className="text-blue-500 font-bold underline">RF Apex GameCP</a> and create an account.</p>
+              <p className="text-md">After the RF Phoenix launcher is opened, you'll just need to log in. If don't have an account yet, go to <a href="https://rfPhoenix.gamecp.net/register.php" className="text-blue-500 font-bold underline">RF Phoenix GameCP</a> and create an account.</p>
             </div>
           </div>
 
@@ -179,7 +179,7 @@ function Install() {
               <img src={Download6} className="w-full h-auto rounded-lg" alt="Step 4" />
             </div>
             <div className="step-description">
-              <p className="text-md">First, you'll need to pick your account, then press the Play button to start your adventure in the world of Rising Force: Apex.</p>
+              <p className="text-md">First, you'll need to pick your account, then press the Play button to start your adventure in the world of Rising Force: Phoenix.</p>
             </div>
           </div>
 

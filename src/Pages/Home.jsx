@@ -145,7 +145,44 @@ import Winner5 from '../assets/PVP/Winner5.jpg'
 import Winner6 from '../assets/PVP/Winner6.jpg'
 import Winner7 from '../assets/PVP/Winner7.jpg'
 import Winner8 from '../assets/PVP/Winner8.jpg'
+import backgroundMusic from '../assets/audio/background-music.mp3';
+
 function Home() {
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const audioRef = useRef(null); 
+
+  useEffect(() => {
+    const audio = audioRef.current;
+
+  
+    if (audio) {
+      audio.volume = 0.05; 
+    }
+
+
+    audio.play().catch((error) => {
+      console.log("Autoplay blocked, waiting for user interaction to play music.");
+    });
+
+    const handleUserInteraction = () => {
+      if (audio) {
+        audio.muted = false; 
+        audio.play(); 
+        setIsMusicPlaying(true); 
+      }
+    
+      window.removeEventListener('click', handleUserInteraction);
+    };
+
+
+    window.addEventListener('click', handleUserInteraction);
+
+
+    return () => {
+      window.removeEventListener('click', handleUserInteraction);
+    };
+  }, []); 
+
   const [activeSlide, setActiveSlide] = useState(0);
   const settings = {
     dots: true,
@@ -412,6 +449,10 @@ function Home() {
 
   return (
     <>
+      <audio ref={audioRef} loop muted>
+        <source src={backgroundMusic} type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
       <Navbar activeTab={activeTab}/>
       <div
         id="home-section"
@@ -428,11 +469,11 @@ function Home() {
             className="w-72 h-72 md:w-96 md:h-96 "
           />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-ITC2 font-bold text-shadow-red-glow">
-  Ascend to Glory. Forge your Legacy.
+  Return to the Beginning. Reclaim the Glory
 </h1>
 
           <p className="font-ITC text-xs md:text-sm lg:text-base mt-4 max-w-2xl">
-            Step into the battlefield and dominate in Apex. From relentless challenges to unforgettable victories, your story awaits. Only the strongest will rise—are you ready to claim your place among legends?
+           The fires have never died. After 4 years of l egendary warfare, the king has returned to reclaim the throne. Rise from the ashes and experience the resurgence of the best RF Online server to ever grace the world of Novus
           </p>
 
           <Link to="/download">
@@ -987,28 +1028,6 @@ function Home() {
   <div className="relative inset-0 flex justify-center items-center z-20 px-4 overflow-auto">
     <div className="container mx-auto">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 mb-10">
-        {/* Image 4 */}
-        <div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef1)}
-onMouseLeave={() => handleMouseLeave(videoRef1)}
->
-<Link to="https://www.youtube.com/watch?v=C-Vk99Xx1-0">
-  <img
-    src={Fenris}
-    alt="Gallery Image 1"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-  <img
-    ref={videoRef1}
-    src={FenrisVid}
-    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
-    loop
-    muted
-  />
-</Link>
-</div>
 
 
 <div
@@ -1025,287 +1044,7 @@ onMouseLeave={() => handleMouseLeave(videoRef2)}
   <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
 </Link>
 </div>
-
-
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef3)}
-onMouseLeave={() => handleMouseLeave(videoRef3)}
->
-<Link to="https://www.youtube.com/watch?v=KV1LxXgvuls&t=12s">
-  <img
-    src={Shadow}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-  <img
-    ref={videoRef3}
-    src={ShadowVid} // Change to the appropriate video source
-    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
-    loop
-    muted
-  />
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef4)}
-onMouseLeave={() => handleMouseLeave(videoRef4)}
->
-<Link to="">
-  <img
-    src={BrgyTagay}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef5)}
-onMouseLeave={() => handleMouseLeave(videoRef5)}
->
-<Link to="">
-  <img
-    src={Cerberus}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>
-
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef6)}
-onMouseLeave={() => handleMouseLeave(videoRef6)}
->
-<Link to="https://www.youtube.com/watch?v=9Tz-ymIJVZQ">
-  <img
-    src={ExileRonins}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-  <img
-    ref={videoRef6}
-    src={ExileRoninsVid} // Change to the appropriate video source
-    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
-    loop
-    muted
-  />
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef7)}
-onMouseLeave={() => handleMouseLeave(videoRef7)}
->
-<Link to="https://www.youtube.com/watch?v=Q3sCCPTMC8o">
-  <img
-    src={Cruelty}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-  <img
-    ref={videoRef7}
-    src={CrueltyVid} // Change to the appropriate video source
-    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
-    loop
-    muted
-  />
-</Link>
-</div>
-
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef8)}
-onMouseLeave={() => handleMouseLeave(videoRef8)}
->
-<Link to="">
-  <img
-    src={Kuyraisass}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef9)}
-onMouseLeave={() => handleMouseLeave(videoRef9)}
->
-<Link to="https://www.youtube.com/watch?v=royhLoK3xkQ">
-  <img
-    src={Gotspell}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-  <img
-    ref={videoRef15}
-    src={GotspellVid} // Change to the appropriate video source
-    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
-    loop
-    muted
-  />
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef10)}
-onMouseLeave={() => handleMouseLeave(videoRef10)}
->
-<Link to="https://www.youtube.com/watch?v=coWc0fCYWpY">
-  <img
-    src={Assassins}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef11)}
-onMouseLeave={() => handleMouseLeave(videoRef11)}
->
-<Link to="https://www.youtube.com/watch?v=tcDCZ1reEE4">
-  <img
-    src={BelowJob}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef12)}
-onMouseLeave={() => handleMouseLeave(videoRef12)}
->
-<Link to="">
-  <img
-    src={Hurricane}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
  
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef13)}
-onMouseLeave={() => handleMouseLeave(videoRef13)}
->
-<Link to="https://www.youtube.com/watch?v=FA46Xz6iHdk">
-  <img
-    src={Imperium}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-  <img
-    ref={videoRef13}
-    src={ImperiumVid} // Change to the appropriate video source
-    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
-    loop
-    muted
-  />
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef17)}
-onMouseLeave={() => handleMouseLeave(videoRef17)}
->
-<Link to="">
-  <img
-    src={Invictus}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef19)}
-onMouseLeave={() => handleMouseLeave(videoRef19)}
->
-<Link to="">
-  <img
-    src={Azunites}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef20)}
-onMouseLeave={() => handleMouseLeave(videoRef20)}
->
-<Link to="">
-  <img
-    src={Nemesis}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef21)}
-onMouseLeave={() => handleMouseLeave(videoRef21)}
->
-<Link to="">
-  <img
-    src={Retribution}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>    
-
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef21)}
-onMouseLeave={() => handleMouseLeave(videoRef21)}
->
-<Link to="">
-  <img
-    src={Supremacy}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>    
-
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef22)}
-onMouseLeave={() => handleMouseLeave(videoRef22)}
->
-<Link to="">
-  <img
-    src={SDM}
-    alt="Gallery Image 3"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>    
       </div>
     </div>
   </div>
@@ -1342,44 +1081,6 @@ onMouseLeave={() => handleMouseLeave(videoRef22)}
         </Slider>
       </div>
     </div>
-
-<div className="w-full h-fit bg-BG7 bg-cover bg-center relative">   
-<div className="absolute inset-0 bg-black opacity-80"></div>
-<div className="font-ITC relative z-10 px-4 text-center text-white">
-    <h2 className="text-6xl text-shadow-red-glow">Discord</h2>
-  </div>
-      {/* Content Section */}
-      <div className="relative z-20 px-6 py-2 gap-10 flex flex-col md:flex-row items-center justify-center">
-  {/* Left Side: Minimalist Text */}
-        <WidgetBot
-            server="1311689273304682516" // Replace with your Discord server ID
-            channel="1312434366592450653" // Replace with your channel ID
-            width="30%" // Optional: Customize the width
-            height="400px"
-          />
-           <WidgetBot
-            server="1311689273304682516" // Replace with your Discord server ID
-            channel="1318423435965104179" // Replace with your channel ID
-            width="30%" // Optional: Customize the width
-            height="400px"
-          />
-           {/* Right Side: Discord Widget */}
-        <div className="w-full max-w-md md:max-w-lg bg-gray-900 p-4 rounded-lg shadow-lg">
-          <iframe
-            src="https://discord.com/widget?id=1311689273304682516&theme=dark"
-            width="100%"
-            height="400"
-            allowTransparency="true"
-            frameBorder="0"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-            title="Discord Widget"
-          ></iframe>
-        </div>
-      </div>
-      <div className="font-ITC relative z-10 px-4 text-center text-white">
-      <p className="text-md">Join <a href="https://discord.gg/rfonlineapex" className="text-red-700 font-bold underline">RF Online: Apex</a> Discord server.</p>
-      </div>
-      </div>
 
       
       <Footer />

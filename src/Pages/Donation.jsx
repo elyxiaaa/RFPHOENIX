@@ -93,120 +93,106 @@ function Donation() {
   const data = [
       {
       id: 1,
-      item: '[30D] Talk Jade',
+      item: 'Red Stone Box',
       image: <img src={TalkJade30} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '50,000 CC',
+      price: '2,500 CC',
       category: 'Booty',
     },
     {
       id: 2,
-      item: '[15D] Talk Jade',
+      item: 'Legacy Blade',
       image: <img src={TalkJade30} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '30,000 CC',
+      price: '100,000 CC',
       category: 'Booty',
     },
     {
       id: 3,
       item: '[3D] Loot Magnet',
       image: <img src={Magnet} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '20,000 CC',
-      category: 'Booty',
-    },
-    {
-      id: 4,
-      item: '[5D] Loot Magnet',
-      image: <img src={Magnet} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '30,000 CC',
       category: 'Booty',
     },
     {
-      id: 5,
+      id: 4,
       item: '[7D] Loot Magnet',
       image: <img src={Magnet} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '50,000 CC',
       category: 'Booty',
     },
     {
+      id: 5,
+      item: '[14D] Loot Magnet',
+      image: <img src={Magnet} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '80,000 CC',
+      category: 'Booty',
+    },
+    {
       id: 6,
-      item: '[15D] Apex Attack/Accuracy Elemental ',
+      item: '[30D] Loot Magnet ',
+      image: <img src={AttackAccuracy} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '150,000 CC',
+      category: 'Booty',
+    },
+    {
+      id: 7,
+      item: 'Phoenix Blessing [ATK] [7D]',
       image: <img src={AttackAccuracy} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '30,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
-      id: 7,
-      item: '[30D] Apex Attack/Accuracy Elemental ',
-      image: <img src={AttackAccuracy} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '60,000 CC',
-      category: 'Manufacturing Mat.',
-    },
-    {
       id: 8,
-      item: '[15D] Apex Attack/Avoid Elemental ',
+      item: 'Phoenix Blessing [DEF] [7D]',
       image: <img src={AttackAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '30,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
       id: 9,
-      item: '[30D] Apex Attack/Avoid Elemental ',
+      item: 'Phoenix Blessing [ATK] [14D]',
       image: <img src={AttackAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '60,000 CC',
-      category: 'Manufacturing Mat.',
-    },
-    {
-      id: 10,
-      item: '[15D] Apex Attack/Defense Elemental ',
-      image: <img src={AttackDefense} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '30,000 CC',
-      category: 'Manufacturing Mat.',
-    },
-    {
-      id: 11,
-      item: '[30D] Apex Attack/Defense Elemental ',
-      image: <img src={AttackDefense} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '60,000 CC',
-      category: 'Manufacturing Mat.',
-    },
-    {
-      id: 12,
-      item: '[15D] Apex Defense/Avoid Elemental ',
-      image: <img src={DefenseAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '30,000 CC',
-      category: 'Manufacturing Mat.',
-    },
-    {
-      id: 13,
-      item: '[30D] Apex Defense/Avoid Elemental ',
-      image: <img src={DefenseAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '60,000 CC',
-      category: 'Manufacturing Mat.',
-    },
-    {
-      id: 14,
-      item: 'Lucky Set of Gem x99',
-      image: <img src={LGS} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '40,000 CC',
-      category: 'Manufacturing Mat.',
-    },
-    {
-      id: 15,
-      item: 'Shiny Luck of Gem x99',
-      image: <img src={SGS} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
-      price: '60,000 CC',
-      category: 'Manufacturing Mat.',
-    },
-    {
-      id: 16,
-      item: '[30D] Apex Power (Attack)',
-      image: <img src={Attack} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '50,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
-      id: 17,
-      item: '[30D] Apex Power (Defense)',
-      image: <img src={Defense} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      id: 10,
+      item: 'Phoenix Blessing [DEF] [14D]',
+      image: <img src={AttackDefense} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 11,
+      item: 'Phoenix Blessing [ATK] [30D]',
+      image: <img src={AttackDefense} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '80,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 12,
+      item: 'Phoenix Blessing [DEF] [30D]',
+      image: <img src={DefenseAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '80,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 13,
+      item: 'Infinity HP Potion 3500',
+      image: <img src={DefenseAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 14,
+      item: 'Infinity FP Potion 2000',
+      image: <img src={LGS} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 15,
+      item: 'Infinity SP Potion 1000',
+      image: <img src={SGS} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '50,000 CC',
       category: 'Manufacturing Mat.',
     },
@@ -252,217 +238,6 @@ Object.values(row).some(value =>
   return (
     <>
       <Navbar activeTab={activeTab}/>
-      <div 
-      id="donation-section"
-      className="relative w-full h-full bg-BG1 bg-cover bg-center bg-no-repeat">
-        
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-
-        <div className="relative px-4 py-16 z-10">
-          
-          {/* Donation Preview Header */}
-          <h1 className="mt-15 font-COP1 text-shadow-red-glow text-white text-6xl text-center mb-20">
-            DONATION
-          </h1>
-
-          {/* Accretian Empire Section */}
-          <div className="font-ITC mb-12">
-            <h2 className="text-red-500 text-4xl font-bold text-center mb-8">
-              Accretian Empire
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Melee */}
-              <Link to="/accretiaWarrior">
-              <Card
-                faction="ACCRETIA EMPIRE"
-                title="Melee"
-                power="120,000"
-                class="Warrior"
-                level="65 ・ Advanced Class"
-                server="RF-Apex ・ Warlord"
-                color="bg-red-500"
-                icon={AccretiaWarrior}
-                character={AccretiaWarrior}
-              />
-             </Link>
-              {/* Ranger */}
-              <Link to="/accretiaRanger">
-              <Card
-                faction="ACCRETIA EMPIRE"
-                title="Ranger"
-                power="140,000"
-                class="Gunner"
-                level="70 ・ Elite Class"
-                server="RF-Apex ・ Elite Ranger"
-                color="bg-red-500"
-                icon={AccretiaRanger}
-                character={AccretiaRanger}
-              />
-              </Link>
-              {/* Launcher */}
-              <Link to="/accretiaLauncher">
-              <Card
-                faction="ACCRETIA EMPIRE"
-                title="Launcher"
-                power="200,000"
-                class="Heavy Launcher"
-                level="75 ・ Ultimate Class"
-                server="RF-Apex ・ Commander"
-                color="bg-red-500"
-                icon={AccretiaLauncher}
-                character={AccretiaLauncher}
-              />
-              </Link>
-            </div>
-          </div>
-
-          {/* Bellato Union Section */}
-          <div className="font-ITC mb-12">
-            <h2 className="text-orange-500 text-4xl font-bold text-center mb-8">
-              Bellato Union
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Melee */}
-              
-              <Link to="/bellatoWarrior">
-              <Card
-                faction="BELLATO UNION"
-                title="Melee"
-                power="125,450"
-                class="Warrior"
-                level="70 ・ Advanced Class"
-                server="RF-Apex ・ Commander"
-                color="bg-orange-500"
-                icon={BellatoWarrior}
-                character={BellatoWarrior}
-              />
-              </Link>
-              <Link to="/bellatoRanger">
-              {/* Ranger */}
-              <Card
-                faction="BELLATO UNION"
-                title="Ranger"
-                power="135,000"
-                class="Ranger"
-                level="65 ・ Elite Class"
-                server="RF-Apex ・ Elite Ranger"
-                color="bg-orange-500"
-                icon={BellatoRanger}
-                character={BellatoRanger}
-              />
-              </Link>
-              {/* Force */}
-              <Link to="/bellatoForce">
-              <Card
-                faction="BELLATO UNION"
-                title="Force"
-                power="150,000"
-                class="Force User"
-                level="75 ・ Ultimate Class"
-                server="RF-Apex ・ Grand Summoner"
-                color="bg-orange-500"
-                icon={BellatoForce}
-                character={BellatoForce}
-              />
-              </Link>
-            </div>
-          </div>
-
-          {/* Alliance Cora Section */}
-          <div className="font-ITC mb-12">
-            <h2 className="text-purple-500 font-bold text-4xl text-center mb-8">
-              Alliance Cora
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Melee */}
-              <Link to="/coraWarrior">
-              <Card
-                faction="ALLIANCE CORA"
-                title="Melee"
-                power="110,000"
-                class="Warrior"
-                level="65 ・ Advanced Class"
-                server="RF-Apex ・ Elite Warrior"
-                color="bg-purple-500"
-                icon={CoraWarrior}
-                character={CoraWarrior}
-              />
-              </Link>
-              {/* Ranger */}
-              <Link to="/coraRanger">
-              <Card
-                faction="ALLIANCE CORA"
-                title="Ranger"
-                power="130,000"
-                class="Ranger"
-                level="70 ・ Elite Class"
-                server="RF-Apex ・ Sniper"
-                color="bg-purple-500"
-                icon={CoraRanger}
-                character={CoraRanger}
-              />
-              </Link>
-              {/* Force */}
-              <Link to="/coraForce">
-              <Card
-                faction="ALLIANCE CORA"
-                title="Force"
-                power="160,000"
-                class="Force User"
-                level="75 ・ Grand Summoner"
-                server="RF-Apex ・ Commander"
-                color="bg-purple-500"
-                icon={CoraForce}
-                character={CoraForce}
-              />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* PERMA AND 15D */}
-      <div 
-      id="package-section"
-      className="relative h-full w-full bg-BG6 bg-cover bg-no-repeat p-10 shadow-lg">
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-red-900 to-black opacity-90 pointer-events-none"></div>
-      <div className="relative">
-      <h2 className="font-COP1 text-shadow-red-glow text-white text-6xl text-center mb-8">
-    PACKAGE DONATION
-  </h2>
-  <div className="grid grid-cols-2 gap-10 p-10">
-  {/* Permanent Donation */}
-  <div className="cursor-pointer"> 
-    <img src={MarchPack} alt="Permanent" className="w-1/2 mx-auto h-auto rounded-lg shadow-lg" 
-    onClick={()=>document.getElementById('6_perma_modal').showModal()}/>
-    <h3 className="text-center text-shadow-red-glow text-white font-bold text-3xl mt-4">+6/6 Apex</h3>
-  </div>
-
-  {/* 15 Days Donation */}
-  <div className="cursor-pointer"> 
-    <img src={Perma} alt="15 Days" className="w-1/2 mx-auto h-auto rounded-lg shadow-lg" 
-     onClick={()=>document.getElementById('5_perma_modal').showModal()}/>
-    <h3 className="text-center text-shadow-red-glow text-white font-bold text-3xl mt-4">+5/6 Apex</h3>
-  </div>
-
-    {/* 15 Days Donation */}
-    <div className="cursor-pointer"> 
-    <img src={March6} alt="15 Days" className="w-1/2 mx-auto h-auto rounded-lg shadow-lg" 
-     onClick={()=>document.getElementById('6_retail_modal').showModal()}/>
-    <h3 className="text-center text-shadow-red-glow text-white font-bold text-3xl mt-4">+6 Retail</h3>
-  </div>
-
-    {/* 15 Days Donation */}
-    <div className="cursor-pointer"> 
-    <img src={March5} alt="15 Days" className="w-1/2 mx-auto h-auto rounded-lg shadow-lg" 
-     onClick={()=>document.getElementById('5_retail_modal').showModal()}/>
-    <h3 className="text-center text-shadow-red-glow text-white font-bold text-3xl mt-4">+5 Retail</h3>
-  </div>
-</div>
-
-      </div>
-      </div>
-
             {/* New Cash Shop Section */}
             <div 
   id="cash-section"
