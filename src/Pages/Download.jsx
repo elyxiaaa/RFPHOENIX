@@ -60,10 +60,10 @@ function Download() {
 
         </div>
 
-{/* Bottom Links Section as Buttons/Links - Positioned Absolute */}
+{/* Bottom Links Section as Buttons/Links - Positioned Absolute
 <div className="absolute bottom-0 left-0 right-0 bg-black/30 text-white py-12">
   <div className="max-w-7xl mx-auto flex justify-center gap-20 px-4 "> 
-    {/* Install Guide Link */}
+    {/* Install Guide Link 
     <div className="text-center flex flex-col items-center gap-4">
       <div className="flex items-center gap-2 group"> 
         <IoInformationCircleOutline className="text-3xl text-white/70 group-hover:text-white transition-colors duration-300" />
@@ -73,9 +73,9 @@ function Download() {
       </div>
       <p className="text-sm">Step-by-step instructions to get started.</p>
     </div>
-
+*/}
     
-    {/* Community Link */}
+    {/* Community Link 
     <div className="text-center flex flex-col items-center gap-4"> 
       <div className="flex items-center gap-2 group"> 
         <IoChatboxEllipsesOutline className="text-3xl text-white/70 group-hover:text-white transition-colors duration-300" />
@@ -85,9 +85,9 @@ function Download() {
       </div>
       <p className="text-sm">Join our community of RF Online players.</p>
     </div>
-    
-    {/* Support Link */}
-    <div className="text-center flex flex-col items-center gap-4"> {/* Increased gap from 2 to 4 */}
+    */}
+    {/* Support Link 
+    <div className="text-center flex flex-col items-center gap-4"> 
       <div className="flex items-center gap-2 group"> 
         <BiSupport className="text-3xl text-white/70 group-hover:text-white transition-colors duration-300" />
         <Link to="https://www.facebook.com/rfonlinePhoenix" className="text-xl font-semibold text-white/70 group-hover:text-white transition-colors duration-300">
@@ -97,7 +97,8 @@ function Download() {
       <p className="text-sm">Need help? Our support team is here for you.</p>
     </div>
   </div>
-</div>
+</div>*/}
+
       </div>
       <div className="bg-black text-white p-8">
   <h2 className="text-2xl font-bold mb-4 text-center">System Requirements</h2>

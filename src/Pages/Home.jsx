@@ -1029,7 +1029,7 @@ function Home() {
     <div className="container mx-auto">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 mb-10">
 
-
+{/** 
 <div
 className="group relative cursor-pointer overflow-hidden w-full h-full"
 onMouseEnter={() => handleMouseEnter(videoRef2)}
@@ -1043,7 +1043,7 @@ onMouseLeave={() => handleMouseLeave(videoRef2)}
   />
   <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
 </Link>
-</div>
+</div>*/} 
  
       </div>
     </div>

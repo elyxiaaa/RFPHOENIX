@@ -309,14 +309,6 @@ Object.values(row).some(value =>
             <span>Type C Weapon/Armor</span>
             <span>150/pc</span>
           </li>
-          <li className="flex justify-between">
-            <span>Apex Armor/Weapon</span>
-            <span>200/pc</span>
-          </li>
-          <li className="flex justify-between">
-            <span>Apex Elemental</span>
-            <span>100/pc</span>
-          </li>
         </ul>
 
         <h3 className="text-center text-xl font-bold text-shadow-red-glow text-white mt-6">Transfer Fees</h3>
@@ -328,18 +320,6 @@ Object.values(row).some(value =>
           <li className="flex justify-between">
             <span>Type C Weapon/Armor</span>
             <span>150/pc</span>
-          </li>
-          <li className="flex justify-between">
-            <span>Apex Armor/Weapon</span>
-            <span>200/pc</span>
-          </li>
-          <li className="flex justify-between">
-            <span>Apex Advanced Glider</span>
-            <span>200/pc</span>
-          </li>
-          <li className="flex justify-between">
-            <span>Apex Elemental</span>
-            <span>100/pc</span>
           </li>
         </ul>
 
