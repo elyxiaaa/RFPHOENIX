@@ -161,10 +161,10 @@ function Navbar({ activeTab }) {
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleCombinationClick} >COMBINATION</button>
                 </li>
+                  {/**
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleDropListClick} >DROPLIST</button>
                 </li>
-                {/**
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleFarmSiteClick} >FARM SITES</button>
                 </li>
@@ -330,10 +330,10 @@ function Navbar({ activeTab }) {
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleCombinationClick} >COMBINATION</button>
                 </li>
+                 {/**
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleDropListClick} >DROPLIST</button>
                 </li>
-                {/**
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleFarmSiteClick} >FARM SITES</button>
                 </li>
