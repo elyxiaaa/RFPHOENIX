@@ -23,7 +23,7 @@ function Footer() {
           </div>
         </nav>
         <aside>
-          <p>Copyright © {new Date().getFullYear()} RF Apex - All rights reserved</p>
+          <p>Copyright © {new Date().getFullYear()} RF Phoenix - All rights reserved</p>
         </aside>
       </footer>
     </div>
