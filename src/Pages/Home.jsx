@@ -463,13 +463,7 @@ function Home() {
   onClick={handleOpenModal}
   className="fixed top-36 right-6 bg-black/50 text-white w-64 p-4 rounded-md shadow-lg cursor-pointer transition-all duration-300 hover:bg-red-700"
 >
-  {/* Image */}
-  <img
-    src={Poster1} // Replace with the actual image path
-    alt="Watch Trailer"
-    className="w-full h-24 rounded-md object-cover mb-2" // Adjust the height (h-24) and styles as needed
-  />
-  
+
   {/* Text */}
   <h3 className="text-lg font-semibold">Watch Trailer</h3>
   <p className="text-sm">Click to watch the trailer video</p>
