@@ -252,7 +252,7 @@ useEffect(() => {
 
 
   const [totalPlayers, setTotalPlayers] = useState(327);
-  const [serverStatus, setServerStatus] = useState("ONLINE");
+  const [serverStatus, setServerStatus] = useState("");
   const [orePercent, setOrePercent] = useState(82);
   const [chipAcc, setChipAcc] = useState(65);
   const [chipBcc, setChipBcc] = useState(48);
@@ -293,12 +293,12 @@ const [guildData, setGuildData] = useState({
     { name: "MoonGuard", avatar: "", kills: 310, deaths: 115, points: 5800 },
   ],
 });
-/*
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetching general server data
-        const response = await fetch("https://rfapex.gamecp.net/web_api/?do=satu");
+        const response = await fetch("https://phoenix.gamecp.net/web_api/?do=satu");
         const data = await response.json();
         console.log("API Response:", data);
         if (response.ok) {
@@ -316,7 +316,7 @@ const [guildData, setGuildData] = useState({
         }
   
         // Fetching Archons and Top Killers data
-        const responseTwo = await fetch("https://rfapex.gamecp.net/web_api/?do=dua");
+        const responseTwo = await fetch("https://phoenix.gamecp.net/web_api/?do=dua");
         const dataTwo = await responseTwo.json();
         console.log("API Response Two:", dataTwo);
   
@@ -367,7 +367,7 @@ const [guildData, setGuildData] = useState({
   
     fetchData();
   }, []);
-
+/*
   useEffect(() => {
     const fetchGuildData = async () => {
       try {
