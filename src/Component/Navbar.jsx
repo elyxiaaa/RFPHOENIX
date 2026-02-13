@@ -237,12 +237,12 @@ function Navbar({ activeTab }) {
         </button>
         <ul className="dropdown-content menu p-2 bg-black border border-red-500 rounded shadow-lg">
           <li>
-            <a href="https://rfapex.gamecp.net/register.php" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
+            <a href="https://phoenix.gamecp.net/register.php" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
               REGISTRATION
             </a>
           </li>
           <li>
-            <a href="https://rfapex.gamecp.net/index.php" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
+            <a href="https://phoenix.gamecp.net/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
               LOGIN
             </a>
           </li>
@@ -305,8 +305,8 @@ function Navbar({ activeTab }) {
       {/* GAMECP */}
       <div className="pt-2 border-t border-red-500/30">
         <p className="text-red-400 mb-2">GAMECP</p>
-        <a href="https://rfapex.gamecp.net/register.php" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Register</a>
-        <a href="https://rfapex.gamecp.net/index.php" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Login</a>
+        <a href="https://phoenix.gamecp.net/register.php" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Register</a>
+        <a href="https://phoenix.gamecp.net/" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Login</a>
       </div>
     </div>
   )}
