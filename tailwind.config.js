@@ -11,6 +11,29 @@ export default {
   theme: {
     extend: {
       keyframes: {
+         float: {
+          "0%": { transform: "translateY(0) scale(1)", opacity: "0" },
+          "10%": { opacity: "1" },
+          "100%": { transform: "translateY(-120vh) scale(0.5)", opacity: "0" },
+        },
+        egg: {
+          "0%, 100%": { transform: "rotate(0deg) scale(1)" },
+          "25%": { transform: "rotate(-2deg) scale(1.02)" },
+          "50%": { transform: "rotate(2deg) scale(1.04)" },
+          "75%": { transform: "rotate(-1deg) scale(1.02)" },
+        },
+         shine: {
+        '0%': { backgroundPosition: '-500%' },
+        '100%': { backgroundPosition: '500%' },
+      },
+      slideInLeft: {
+        '0%': { transform: 'translateX(-100%)', opacity: '0' },
+        '100%': { transform: 'translateX(0)', opacity: '1' },
+      },
+      slideInRight: {
+        '0%': { transform: 'translateX(100%)', opacity: '0' },
+        '100%': { transform: 'translateX(0)', opacity: '1' },
+      },
         fireGlowWave: {
           '0%, 100%': { boxShadow: '0 0 10px rgba(255, 0, 0, 0.6)' },
           '50%': { boxShadow: '0 0 25px rgba(255, 0, 0, 1)' },
@@ -37,6 +60,11 @@ export default {
         },
       },
       animation: {
+         float: "float linear infinite",
+        egg: "egg 3s ease-in-out infinite",
+         shine: 'shine 2s linear infinite',
+      'slide-in-left': 'slideInLeft 1s ease-out forwards',
+      'slide-in-right': 'slideInRight 1s ease-out forwards',
         glowPulse: 'glowPulse 1.5s infinite alternate',
         glowPulseOrange: "glowPulseOrange 1.5s infinite alternate",
         glowPulseYellow: "glowPulseYellow 1.5s infinite alternate",

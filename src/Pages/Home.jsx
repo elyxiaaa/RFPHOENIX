@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+
+
 import Navbar from '../Component/Navbar';
 import Footer from '../Component/Footer'
 import Card from '../Component/Card'
 import { FaUsers } from "react-icons/fa";
 import { FaLightbulb } from "react-icons/fa";
-import { Link } from "react-router-dom"; // Updated to use react-router-dom
-import Logo from '../assets/logo1.png'
+import { Link, useNavigate } from "react-router-dom"; // Updated to use react-router-dom
+import Logo from '../assets/Logotext.png'
 import Guild1 from '../assets/GALLERY/Poster1.jpg'
 import OreIcon from '../assets/OreIcon.png'
 import AccretiaIcon from '../assets/AccretiaIcon.png'
@@ -29,61 +32,34 @@ import { FaChessKing } from "react-icons/fa";
 import { LuSwords } from "react-icons/lu";
 import { GiMissileSwarm } from "react-icons/gi";
 import Slider from "react-slick";
-//PICTURES
-import Fenris from '../assets/GUILDS/Fenris.jpg'
-import Predators from '../assets/GUILDS/Predators.jpg'
-import Shadow from '../assets/GUILDS/Shadow.jpg'
-import Cruelty from '../assets/GUILDS/Cruelty.jpg'
-import Upheaval from '../assets/GUILDS/Upheaval.jpg'
-import Dominance from '../assets/GUILDS/Dominance.jpg'
-import ExileRonins from '../assets/GUILDS/ExileRonins.jpg'
-import Hurricane from '../assets/GUILDS/Hurricane.jpg'
-import Sentinels from '../assets/GUILDS/Sentinels.jpg'
-import Habitus from '../assets/GUILDS/Habitus.jpg'
-import MeetYourMasters from '../assets/GUILDS/MeetYourMasters.jpg'
-import Savage from '../assets/GUILDS/Savage.jpg'
-import Hellraios from '../assets/GUILDS/Hellraios.jpg'
-import Patriots from '../assets/GUILDS/Patriots.jpg'
-import Prodigy from '../assets/GUILDS/PRODIGY.jpg'
-import Resbak from '../assets/GUILDS/Resbak.jpg'
-import Assassins from '../assets/GUILDS/Assassins.jpg'
-import Gotspell from '../assets/GUILDS/Gotspell.jpg'
-import Imperium from '../assets/GUILDS/Imperium.jpg'
-import BelowJob from '../assets/GUILDS/BelowJob.jpg'
-import Manhunters from '../assets/GUILDS/Manhunters.jpg'
-import WeDontCare from '../assets/GUILDS/WeDontCare.jpg'
-import Azunites from '../assets/GUILDS/Azunites.jpg'
-import Akatsuki from '../assets/GUILDS/Akatsuki.jpg'
-import BrgyTagay from '../assets/GUILDS/BrgyTagay.jpg'
-import Cerberus from '../assets/GUILDS/Cerberus.jpg'
-import Invictus from '../assets/GUILDS/Invictus.jpg'
-import Nemesis from '../assets/GUILDS/Nemesis.jpg'
-import Retribution from '../assets/GUILDS/Retribution.jpg'
-import Kuyraisass from '../assets/GUILDS/Kuyraisass.jpg'
-import Supremacy from '../assets/GUILDS/Supremacy.jpg'
-import SDM from '../assets/GUILDS/SDM.jpg'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import DataTable, { createTheme } from 'react-data-table-component';
+createTheme('dark', {
+  background: {
+    default: 'transparent',
+  },
+});
 
+
+import TalkJade30 from '../assets/CASH/TalkJade30.jpg'
+import Magnet from '../assets/CASH/Magnet.jpg'
+import AttackAccuracy from '../assets/CASH/AttackAccuracy.jpg'
+import AttackAvoid from '../assets/CASH/AttackAvoid.jpg'
+import AttackDefense from '../assets/CASH/AttackDefense.jpg'
+import DefenseAvoid from '../assets/CASH/DefenseAvoid.jpg'
+import LGS from '../assets/CASH/LGS.jpg'
+import SGS from '../assets/CASH/SGS.jpg'
+
+
+//PICTURES
+import Akatsuki from '../assets/GUILDS/Akatsuki.jpg'
 import Trophy1 from '../assets/HONOR/Trophy1.png'
 import Trophy2 from '../assets/HONOR/trophy2.png'
 import Trophy3 from '../assets/HONOR/Trophy3.png'
 import Trophy4 from '../assets/HONOR/Trophy4.png'
 import Trophy5 from '../assets/HONOR/Trophy5.png'
 import BGBurn from '../assets/BGBurn.gif'
-
-//VIDEOS
-import FenrisVid from '../assets/VIDEOS/Fenris.gif'
-import PredatorsVid from '../assets/VIDEOS/Predators.gif'
-import ShadowVid from '../assets/VIDEOS/Shadow.gif'
-import UpheavalVid from '../assets/VIDEOS/Upheaval.gif'
-import DominanceVid from '../assets/VIDEOS/Dominance.gif'
-import ExileRoninsVid from '../assets/VIDEOS/ExileRonins.gif'
-import MeetYourMastersVid from '../assets/VIDEOS/MeetYourMasters.gif'
-import SentinelsVid from '../assets/VIDEOS/Sentinels.gif'
-import PatriotsVid from '../assets/VIDEOS/Patriots.gif'
-import CrueltyVid from '../assets/VIDEOS/Cruelty.gif'
-import GotspellVid from '../assets/VIDEOS/Gotspell.gif'
-import ImperiumVid from '../assets/VIDEOS/Imperium.gif'
-import Poster1 from '../assets/Poster.jpg'
 
 //ACC
 import ARF1 from '../assets/CLASS/ACC/ARF1.png'
@@ -135,21 +111,70 @@ import CWF2 from '../assets/CLASS/CCC/CWF2.png'
 import CWS1 from '../assets/CLASS/CCC/CWS1.png'
 import CWS2 from '../assets/CLASS/CCC/CWS2.png'
 import CWS3 from '../assets/CLASS/CCC/CWS3.png'
-import WidgetBot from '@widgetbot/react-embed'
-
-import Winner1 from '../assets/PVP/Winner1.jpg'
-import Winner2 from '../assets/PVP/Winner2.jpg'
-import Winner3 from '../assets/PVP/Winner3.jpg'
-import Winner4 from '../assets/PVP/Winner4.jpg'
-import Winner5 from '../assets/PVP/Winner5.jpg'
-import Winner6 from '../assets/PVP/Winner6.jpg'
-import Winner7 from '../assets/PVP/Winner7.jpg'
-import Winner8 from '../assets/PVP/Winner8.jpg'
 import backgroundMusic from '../assets/audio/background-music.mp3';
 
+
+import PreRegistrationRaffle from '../assets/EVENTS/PreRegistrationRaffle.jpg'
+import GuildRecruitment from '../assets/EVENTS/GuildRecruitment.jpg'
+import TopContri from '../assets/EVENTS/TopContri.jpg'
+import First50 from '../assets/EVENTS/First50.jpg'
+const events = [
+    {
+      id: 1,
+      title: "Pre Registration Raffle",
+      poster: PreRegistrationRaffle, 
+      mechanics: [
+      "Like and share post",
+      ],
+      rewards: [
+      "Exclusive Rewards",
+      ],
+    },
+    {
+      id: 2,
+      title: "Guild Recruitment Event",
+      poster: GuildRecruitment,
+      mechanics: [
+      "Recruit Guilds",
+      ],
+      rewards: [
+      "Monthly Salary",
+      "Guild Perks",
+      ],
+    },
+    {
+      id: 3,
+      title: "Top 1 Contribution Point Event",
+      poster: TopContri,
+      mechanics: [
+      "Reach the #1 Contribution Points in the leaderboard",
+      ],
+      rewards: [
+      "Cash",
+      ],
+    },
+    {
+      id: 4,
+      title: "First Level 50",
+      poster: First50,
+      mechanics: [
+      "Reach First Level 50",
+      ],
+      rewards: [
+      "Cash",
+      ],
+    },
+  ];
+
 function Home() {
+  
+   const navigate = useNavigate();
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef(null); 
+const [index, setIndex] = useState(0);
+
+const next = () => setIndex((prev) => (prev + 1) % events.length);
+const prev = () => setIndex((prev) => (prev - 1 + events.length) % events.length);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -188,69 +213,87 @@ function Home() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2, // Display 2 slides at a time
+    slidesToShow: 2, 
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
     centerMode: false,
     centerPadding: "0px",
-    afterChange: (current) => setActiveSlide(current), // Update active slide index
+    afterChange: (current) => setActiveSlide(current),
   };
-
-  const spotlightItems = [
-
-  ]
-
   const location = useLocation()
-  const [activeTab, setActiveTab] = useState('home-section'); // Default to 'home-section'
+  const [activeTab, setActiveTab] = useState('home-section'); 
   const leaderboardsSectionRef = useRef(null);
-  useEffect(() => {
-    // Create an IntersectionObserver to observe the leaderboards section
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveTab('leaderboards-section');
-          } else if (!entry.isIntersecting && activeTab === 'leaderboards-section') {
-            setActiveTab('home-section'); // Default back to home-section when not in view
-          }
-        });
-      },
-      {
-        root: null, // relative to viewport
-        threshold: 0.5, // When 50% of the section is visible
-      }
-    );
-
-    // Start observing the leaderboards section
-    if (leaderboardsSectionRef.current) {
-      observer.observe(leaderboardsSectionRef.current);
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveTab(entry.target.id); // ← works for BOTH sections
+        } else if (!entry.isIntersecting && activeTab === entry.target.id) {
+          setActiveTab('home-section');
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.5,
     }
+  );
+  if (leaderboardsSectionRef.current) {
+    observer.observe(leaderboardsSectionRef.current);
+  }
+  return () => {
+    if (leaderboardsSectionRef.current) {
+      observer.unobserve(leaderboardsSectionRef.current);
+    }
+  };
+}, [activeTab]);
 
-    return () => {
-      if (leaderboardsSectionRef.current) {
-        observer.unobserve(leaderboardsSectionRef.current);
-      }
-    };
-  }, [activeTab]);
 
-  const [totalPlayers, setTotalPlayers] = useState();
-  const [serverStatus, setServerStatus] = useState()
-  const [orePercent, setOrePercent] = useState(0);  // Initialize with a default value
-  const [chipAcc, setChipAcc] = useState(0);        // Initialize with a default value
-  const [chipBcc, setChipBcc] = useState(0);        // Initialize with a default value
-  const [chipCcc, setChipCcc] = useState(0);        // Initialize with a default value
+  const [totalPlayers, setTotalPlayers] = useState(327);
+  const [serverStatus, setServerStatus] = useState("ONLINE");
+  const [orePercent, setOrePercent] = useState(82);
+  const [chipAcc, setChipAcc] = useState(65);
+  const [chipBcc, setChipBcc] = useState(48);
+  const [chipCcc, setChipCcc] = useState(72);       
   
-  const [cbName, setCbName] = useState();
-  const [cbRace, setCbRace] = useState();
-  const [cbStatus, setCbStatus] = useState();
-  const [winRace, setWinRace] = useState();
-  const [loseRace, setLoseRace] = useState();
-  const [topKillers, setTopKillers] = useState([]); // Added topKillers state
-  const [guildData, setGuildData] = useState({});
+  const [cbName, setCbName] = useState("AetherQueen");
+  const [cbRace, setCbRace] = useState("Cora");
+  const [cbStatus, setCbStatus] = useState("GOAL");
+  const [winRace, setWinRace] = useState("Cora");
+  const [loseRace, setLoseRace] = useState("Bellato");
 
-  const [archons, setArchons] = useState([]);
+  const [topKillers, setTopKillers] = useState([
+  { name: "RagnarX", kills: 152, deaths: 21, class_code: "ARS3", avatar: "/src/assets/warrior.png" },
+  { name: "NyxBlade", kills: 139, deaths: 18, class_code: "ARS3", avatar: "/src/assets/assassin.png" },
+  { name: "VoltPrime", kills: 121, deaths: 25, class_code: "ARS3", avatar: "/src/assets/ranger.png" },
+  { name: "Seraphine", kills: 118, deaths: 30, class_code: "ARS3", avatar: "/src/assets/mage.png" },
+  { name: "IronClad", kills: 110, deaths: 40, class_code: "ARS3", avatar: "/src/assets/tank.png" },
+]);
 
+
+  const [archons, setArchons] = useState([
+  { name: "OverlordX", race: "Accretia", kills: 88, deaths: 12 },
+  { name: "MechaQueen", race: "Bellato", kills: 91, deaths: 15 },
+  { name: "AetherKing", race: "Cora", kills: 105, deaths: 9 },
+]);
+
+const [guildData, setGuildData] = useState({
+  Accretia: [
+    { name: "SteelReign", avatar: "", kills: 300, deaths: 120, points: 5400 },
+    { name: "IronLegion", avatar: "", kills: 280, deaths: 110, points: 5000 },
+  ],
+  Bellato: [
+    { name: "NovaCore", avatar: "", kills: 260, deaths: 140, points: 4700 },
+    { name: "GearForce", avatar: "", kills: 240, deaths: 150, points: 4300 },
+  ],
+  Cora: [
+    { name: "Celestial", avatar: "", kills: 350, deaths: 100, points: 6200 },
+    { name: "MoonGuard", avatar: "", kills: 310, deaths: 115, points: 5800 },
+  ],
+});
+/*
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -368,61 +411,261 @@ function Home() {
 
     fetchGuildData();
   }, []);
-
+*/
   function decodeHTML(html) {
     const txt = document.createElement("textarea");
     txt.innerHTML = html;
     return txt.value;
   }
 
-  const chipWarData = [
-    { icon: OreIcon, progress: `${orePercent}%`, color: "bg-green-500" },
-    { icon: AccretiaIcon, progress: `${chipAcc}%`, color: "bg-red-500" },
-    { icon: BellatoIcon, progress: `${chipBcc}%`, color: "bg-orange-500" },
-    { icon: CoraIcon, progress: `${chipCcc}%`, color: "bg-purple-500" },
-  ];
+const chipWarData = [
+  { icon: OreIcon, progress: `${orePercent}%`, color: "bg-gradient-to-r from-red-600 via-red-500 to-orange-500" },
+  { icon: AccretiaIcon, progress: `${chipAcc}%`, color: "bg-gradient-to-r from-red-600 via-red-500 to-orange-500" },
+  { icon: BellatoIcon, progress: `${chipBcc}%`, color: "bg-gradient-to-r from-red-600 via-red-500 to-orange-500" },
+  { icon: CoraIcon, progress: `${chipCcc}%`, color: "bg-gradient-to-r from-red-600 via-red-500 to-orange-500" },
+];
+
 
   const videoRef1 = useRef(null);
-  const videoRef2 = useRef(null);
-  const videoRef3 = useRef(null);
-  const videoRef4 = useRef(null);
-  const videoRef5 = useRef(null);
-  const videoRef6 = useRef(null);
-  const videoRef7 = useRef(null);
-  const videoRef8= useRef(null);
-  const videoRef9 = useRef(null);
-  const videoRef10 = useRef(null);
-  const videoRef11 = useRef(null);
-  const videoRef12 = useRef(null);
-  const videoRef13 = useRef(null);
-  const videoRef14 = useRef(null);
-  const videoRef15 = useRef(null);
-  const videoRef16 = useRef(null);
-  const videoRef17 = useRef(null);
-  const videoRef18 = useRef(null);
-  const videoRef19 = useRef(null);
-  const videoRef20 = useRef(null);
-  const videoRef21 = useRef(null);
-  const videoRef22 = useRef(null);
+
   const handleMouseEnter = (videoRef) => {
     if (videoRef.current) {
-      videoRef.current.currentTime = 0; // Restart the video
-      videoRef.current.play(); // Play the video
+      videoRef.current.currentTime = 0; 
+      videoRef.current.play(); 
     }
   };
 
   const handleMouseLeave = (videoRef) => {
     if (videoRef.current) {
-      videoRef.current.pause(); // Pause the video
-      videoRef.current.currentTime = 0; // Reset the video to start
+      videoRef.current.pause(); 
+      videoRef.current.currentTime = 0; 
     }
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Handle opening and closing the modal
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
+
+ const handleDownloadClick = () => {
+    navigate('/Download');
+    window.scrollTo(0, 0);
+  };
+
+ const [searchText, setSearchText] = useState('');
+  const columns = [
+    {
+      name: 'ID',
+      selector: row => row.id, 
+    },
+    {
+      name: 'Item',
+      selector: row => row.item,
+    },
+    {
+      name: 'Image',
+      selector: row => row.image,
+    },
+    {
+      name: 'Price',
+      selector: row => row.price
+    },
+    {
+      name: 'Category',
+      selector: row => row.category
+    },
+  ];
+  
+  const data = [
+      {
+      id: 1,
+      item: 'Red Stone Box',
+      image: <img src={TalkJade30} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '2,500 CC',
+      category: 'Booty',
+    },
+    {
+      id: 2,
+      item: 'Legacy Blade',
+      image: <img src={TalkJade30} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '100,000 CC',
+      category: 'Booty',
+    },
+    {
+      id: 3,
+      item: '[3D] Loot Magnet',
+      image: <img src={Magnet} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '30,000 CC',
+      category: 'Booty',
+    },
+    {
+      id: 4,
+      item: '[7D] Loot Magnet',
+      image: <img src={Magnet} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Booty',
+    },
+    {
+      id: 5,
+      item: '[14D] Loot Magnet',
+      image: <img src={Magnet} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '80,000 CC',
+      category: 'Booty',
+    },
+    {
+      id: 6,
+      item: '[30D] Loot Magnet ',
+      image: <img src={AttackAccuracy} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '150,000 CC',
+      category: 'Booty',
+    },
+    {
+      id: 7,
+      item: 'Phoenix Blessing [ATK] [7D]',
+      image: <img src={AttackAccuracy} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '30,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 8,
+      item: 'Phoenix Blessing [DEF] [7D]',
+      image: <img src={AttackAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '30,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 9,
+      item: 'Phoenix Blessing [ATK] [14D]',
+      image: <img src={AttackAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 10,
+      item: 'Phoenix Blessing [DEF] [14D]',
+      image: <img src={AttackDefense} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 11,
+      item: 'Phoenix Blessing [ATK] [30D]',
+      image: <img src={AttackDefense} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '80,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 12,
+      item: 'Phoenix Blessing [DEF] [30D]',
+      image: <img src={DefenseAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '80,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 13,
+      item: 'Infinity HP Potion 3500',
+      image: <img src={DefenseAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 14,
+      item: 'Infinity FP Potion 2000',
+      image: <img src={LGS} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 15,
+      item: 'Infinity SP Potion 1000',
+      image: <img src={SGS} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+  ]
+
+
+  const handleSearch = (event) => {
+    setSearchText(event.target.value);
+  };
+
+const filteredData = data.filter(row =>
+Object.values(row).some(value =>
+  value.toString().toLowerCase().includes(searchText.toLowerCase())
+)
+);
+
+const avatarMap = {
+  ARF1, ARF2, ARS1, ARS2, ARS3,
+  ASF1, ASS1, ASS2,
+  AWF1, AWF2, AWS1, AWS2, AWS3,
+
+  BFF1, BFF2, BFS1, BFS2, BFS3,
+  BRF1, BRF2, BRS1, BRS2, BRS3,
+  BSF1, BSS1, BSS2,
+  BWF1, BWF2, BWS1, BWS2, BWS3,
+
+  CFF1, CFS1, CFS2, CFS3,
+  CRF1, CRF2, CRS1, CRS2, CRS3,
+  CSF1, CSS1,
+  CWF1, CWF2, CWS1, CWS2, CWS3,
+};
+
+const getAvatar = (classCode) => {
+  const key = Object.keys(avatarMap).find(code =>
+    classCode?.includes(code)
+  );
+
+  return key ? avatarMap[key] : "/src/assets/default-avatar.png";
+};
+
+const renderRaceIcon = (race, color) => {
+  const commonClass = `mt-2 w-12 h-12 ${color}`;
+
+  const raceMap = {
+    Accretia: <img src={AccretiaIcon} alt="Accretia" className="mt-2 w-12 h-12 object-cover" />,
+    Bellato: <img src={BellatoIcon} alt="Bellato" className="mt-2 w-12 h-12 object-cover" />,
+    Cora: <img src={CoraIcon} alt="Cora" className="mt-2 w-12 h-12 object-cover" />,
+    DRAW: <LuSwords className={commonClass} />,
+    None: <LuSwords className={commonClass} />,
+    RUNNING: <FaRunning className={commonClass} />,
+  };
+
+  return raceMap[race] || null;
+};
+
+const raceColorMap = {
+  Accretia: "text-red-500",
+  Bellato: "text-orange-500",
+  Cora: "text-purple-500",
+};
+
+const statusIconMap = {
+  GOAL: GrAchievement,
+  WAFAT: FaGhost,
+  RUNNING: FaRunning,
+  KABUR: FaRunning,
+  DRAW: LuSwords,
+};
+
+const renderStatusIcon = (status, position) => {
+  const Icon = statusIconMap[status];
+  if (!Icon) return null;
+
+  const color =
+    status === "RUNNING" || status === "KABUR" || status === "DRAW"
+      ? position === "left"
+        ? "text-green-500"
+        : "text-red-500"
+      : "text-white";
+
+  return <Icon className={`inline-block w-6 h-6 ${color}`} />;
+};
+
+const raceAvatarMap = {
+  Accretia: AccretiaIconRed,
+  Bellato: BellatoIconOrange,
+  Cora: CoraIconPurple,
+};
 
   return (
     <>
@@ -433,101 +676,137 @@ function Home() {
       <Navbar activeTab={activeTab}/>
       <div
         id="home-section"
-        className="w-full h-screen bg-BG1 bg-cover bg-center relative"
+        className="w-full h-screen bg-BG1 bg-cover bg-center relative overflow-hidden"
       >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-65"></div>
-
-        {/* Content */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/90"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-red-600/20 blur-[150px] rounded-full"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-          <img
-            src={Logo}
-            alt="Logo"
-            className="w-72 h-72 md:w-96 md:h-96 "
-          />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-ITC2 font-bold text-shadow-red-glow">
-  Return to the Beginning. Reclaim the Glory
-</h1>
+      <div className="w-full max-w-md md:max-w-lg lg:max-w-xl mb-6
+        flex items-center justify-center
+        drop-shadow-[0_0_35px_rgba(255,80,0,0.8)]"
+      >
+        <img
+          src={Logo}
+          alt="Logo"
+          className="w-full h-full object-contain select-none pointer-events-none"
+        />
+      </div>
 
-          <p className="font-ITC text-xs md:text-sm lg:text-base mt-4 max-w-2xl">
-           The fires have never died. After 4 years of l egendary warfare, the king has returned to reclaim the throne. Rise from the ashes and experience the resurgence of the best RF Online server to ever grace the world of Novus
+
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-ITC2 font-bold
+            bg-gradient-to-r from-red-500 via-orange-400 to-red-600
+            bg-clip-text text-transparent
+            drop-shadow-[0_0_25px_rgba(255,80,0,0.9)]">
+            Return to the Beginning. Reclaim the Glory
+          </h1>
+          <p className="font-ITC text-xs md:text-sm lg:text-base mt-4 max-w-2xl
+            text-gray-200
+            drop-shadow-[0_6px_12px_rgba(0,0,0,0.9)]">
+            The fires have never died. After 4 years of legendary warfare, the king
+            has returned to reclaim the throne. Rise from the ashes and experience
+            the resurgence of the best RF Online server to ever grace the world of
+            Novus
           </p>
-
-          <Link to="/download">
-            <button className="flex items-center mt-6 bg-red-500 text-xl text-black font-bold py-3 px-10 md:px-6 rounded hover:bg-red-600 transform hover:scale-105 transition-all duration-300 mb-10">
-              DOWNLOAD NOW
-              <FaChevronCircleRight className="text-2xl ml-2 mt-1"/>
-            </button>
-          </Link>
-          <div
-  onClick={handleOpenModal}
-  className="fixed top-36 right-6 bg-black/50 text-white w-64 p-4 rounded-md shadow-lg cursor-pointer transition-all duration-300 hover:bg-red-700"
->
-
-  {/* Text */}
-  <h3 className="text-lg font-semibold">Watch Trailer</h3>
-  <p className="text-sm">Click to watch the trailer video</p>
-</div>
-
-
-          {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
-          <div className="relative w-11/12 md:w-3/4 lg:w-1/2 bg-black p-4 rounded-lg">
-            {/* Close Button */}
             <button
-              onClick={handleCloseModal}
-              className="absolute top-2 right-2 text-white text-3xl z-50 rounded-full p-1"
-              style={{ zIndex: 50 }}
-            >
-              &times;
+            onClick={handleDownloadClick}
+            className="
+              flex items-center mt-8
+              text-lg md:text-xl text-black font-bold
+              py-3 px-10 rounded-xl
+              bg-gradient-to-r from-red-600 via-red-500 to-orange-500
+              shadow-[0_0_25px_rgba(255,90,0,0.7)]
+              hover:from-red-500 hover:via-orange-500 hover:to-orange-400
+              hover:shadow-[0_0_40px_rgba(255,120,0,1)]
+              transform hover:scale-105
+              transition-all duration-300
+            ">
+              DOWNLOAD NOW
+              <FaChevronCircleRight className="text-2xl ml-2 mt-1" />
             </button>
-
-            {/* Facebook Video Embed */}
-            <div className="relative pb-[56.25%]">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-lg"
-                src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Frfonlineapex%2Fvideos%2F1103775624374923%2F&show_text=false&width=560&t=0"
-                width="560"
-                height="315"
-                frameBorder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title="Facebook Video"
-                style={{ zIndex: 10 }}
-              ></iframe>
-            </div>
+    
+          <div
+            onClick={handleOpenModal}
+            className="
+              fixed top-36 right-6
+              bg-black/40 backdrop-blur-md
+              border border-orange-500/40
+              text-white w-64 p-4 rounded-xl
+              shadow-[0_0_25px_rgba(255,80,0,0.5)]
+              cursor-pointer
+              transition-all duration-300
+              hover:bg-gradient-to-r hover:from-red-600/80 hover:to-orange-500/80
+              hover:shadow-[0_0_35px_rgba(255,120,0,0.9)]
+            "
+          >
+            <h3 className="text-lg font-semibold">Watch Trailer</h3>
+            <p className="text-sm text-gray-300">Click to watch the trailer video</p>
           </div>
-        </div>
-      )}
-
+          {isModalOpen && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-50">
+              <div className="
+                relative w-11/12 md:w-3/4 lg:w-1/2
+                bg-black/90 backdrop-blur-md
+                border border-orange-500/40
+                p-4 rounded-xl
+                shadow-[0_0_40px_rgba(255,80,0,0.6)]
+              ">
+                <button
+                  onClick={handleCloseModal}
+                  className="absolute top-2 right-3 text-white text-3xl hover:text-orange-400 transition"
+                >
+                  &times;
+                </button>
+                <div className="relative pb-[56.25%]">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full rounded-lg"
+                    src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Frfonlineapex%2Fvideos%2F1103775624374923%2F&show_text=false&width=560&t=0"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Facebook Video"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
-      <div
-        id="leaderboards-section"
-        ref={leaderboardsSectionRef} // Set the ref here
-  className="w-full min-h-fit bg-BGPoster2 bg-cover bg-center relative">
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black via-red-900 to-black opacity-90"></div>
+<div
+  id="leaderboards-section"
+  ref={leaderboardsSectionRef}
+  className="w-full min-h-fit bg-BG1 bg-cover bg-center relative overflow-hidden" >
+  <div className="absolute inset-0 bg-gradient-to-b from-black via-red-950/90 to-black"></div>
+  <div className="absolute inset-0 pointer-events-none
+    bg-[radial-gradient(circle_at_top,rgba(255,80,0,0.25),transparent_60%)]" />
+  <div className="font-ITC font-bold relative z-10 flex flex-col lg:flex-row items-stretch justify-around text-white">
+    <div className="w-full lg:w-1/2 py-10 px-4 lg:px-12
+      bg-black/60 backdrop-blur-xl
+border border-red-500/30
+shadow-[0_0_45px_rgba(255,60,0,0.25)]
+hover:shadow-[0_0_70px_rgba(255,90,0,0.45)]
+transition-all duration-500">
 
-  {/* Content */}
-  <div className="font-ITC font-bold relative z-10 flex flex-col lg:flex-row items-stretch justify-around text-white p-4 gap-6 bg-gray-800 bg-opacity-20 shadow-lg h-auto">
-    {/* Server Status Section */}
-   <div className="w-full lg:w-1/2 py-10 px-4 lg:px-12 border-r border-gray-700">
-      <h2 className="text-4xl font-semibold text-center mb-6 text-red-500">
+      <h2 className="text-4xl font-semibold text-center mb-6
+        bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+        bg-clip-text text-transparent
+        drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]">
         RISING FORCE PHOENIX
       </h2>
-      <h3 className="text-2xl text-center mb-4">SERVER STATUS</h3>
+
+      <h3 className="text-2xl text-center mb-4 text-orange-300 tracking-wide">
+        SERVER STATUS
+      </h3>
       <div className="flex items-center justify-between text-lg">
-        {/* Updated Online Status and Total Players */}
         <span
           className={`flex gap-1 items-center ${
-            serverStatus === "ONLINE" ? "text-green-500" : "text-red-500"
+            serverStatus === "ONLINE" ? "text-green-400 + green glow" : "text-red-500"
           }`}
         >
           <FaLightbulb /> {serverStatus}
         </span>
-        <span className="flex gap-1 items-center text-white">
+        <span className="flex gap-1 items-center text-orange-200">
           <FaUsers /> {totalPlayers}
         </span>
       </div>
@@ -538,7 +817,8 @@ function Home() {
         {chipWarData.map((item, index) => (
           <div key={index} className="flex items-center mb-4">
             <img src={item.icon} alt={`Chip Icon ${index}`} className="mr-3 w-8 h-8" />
-            <div className="w-full h-6 bg-gray-300 rounded relative overflow-hidden">
+            <div className="w-full h-6 bg-black/70 border border-red-500/20
+            shadow-[0_0_12px_rgba(255,80,0,0.6)]">
               <div
                 className={`h-full ${item.color} flex items-center justify-center`}
                 style={{ width: item.progress }}
@@ -550,85 +830,33 @@ function Home() {
         ))}
       </div>
       <div className="text-center mt-10">
-    {/* Win and Lose Section */}
 <div className="flex justify-between text-xl font-semibold">
-<div className="flex flex-col items-center">
-  <span className="text-green-500 text-shadow-green-glow">Win</span>
-  {winRace === "Accretia" ? (
-    <img src={AccretiaIcon} alt="Accretia" className="mt-2 w-12 h-12 object-cover" />
-  ) : winRace === "Bellato" ? (
-    <img src={BellatoIcon} alt="Bellato" className="mt-2 w-12 h-12 object-cover" />
-  ) : winRace === "Cora" ? (
-    <img src={CoraIcon} alt="Cora" className="mt-2 w-12 h-12 object-cover" />
-  ) : winRace === "DRAW" ? (
-    <LuSwords alt="Draw" className="text-green-500 mt-2 w-12 h-12 object-cover" />
-  ) : winRace === "None" ? (
-    <LuSwords alt="None" className="text-green-500 mt-2 w-12 h-12 object-cover" />
-  ) : winRace === "RUNNING" ? (
-    <FaRunning alt="Running" className="text-green-500 mt-2 w-12 h-12 object-cover" />
-  ) : null}
-</div>
-
   <div className="flex flex-col items-center">
-    <span className="text-red-500 text-shadow-red-glow">Lose</span>
-    {loseRace === "Accretia" ? (
-  <img src={AccretiaIcon} alt="Accretia" className="mt-2 w-12 h-12 object-cover" />
-) : loseRace === "Bellato" ? (
-  <img src={BellatoIcon} alt="Bellato" className="mt-2 w-12 h-12 object-cover" />
-) : loseRace === "Cora" ? (
-  <img src={CoraIcon} alt="Cora" className="mt-2 w-12 h-12 object-cover" />
-) : loseRace === "DRAW" ? (
-  <LuSwords alt="Draw" className="text-red-500 mt-2 w-12 h-12 object-cover" />
-) : loseRace === "None" ? (
-  <LuSwords alt="None" className="text-red-500 mt-2 w-12 h-12 object-cover" />
-)
-: loseRace === "RUNNING" ? (
-  <FaRunning alt="Running" className="text-red-500 mt-2 w-12 h-12 object-cover" />
-) : null}
-
+    <span className="text-green-400 drop-shadow-[0_0_6px_rgba(0,255,120,0.8)]">
+      Win
+    </span>
+    {renderRaceIcon(winRace, "text-green-500 object-cover")}
   </div>
+  <div className="flex flex-col items-center">
+    <span className="text-red-400 drop-shadow-[0_0_6px_rgba(255,60,60,0.8)]">
+      Lose
+    </span>
+    {renderRaceIcon(loseRace, "text-red-500 object-cover")}
+  </div>
+
 </div>
 
 
 
-   {/* Chip Breaker Section */}
-<div className={`mt-4 text-lg font-bold ${cbRace === "Accretia" ? "text-red-500" : 
-                cbRace === "Bellato" ? "text-orange-500" : 
-                cbRace === "Cora" ? "text-purple-500" : "text-white"}`}>
-  
-  {cbStatus === "GOAL" ? (
-    <GrAchievement className="inline-block text-white w-6 h-6 mr-2" />
-  ) : cbStatus === "WAFAT" ? (
-    <FaGhost className="inline-block text-white w-6 h-6 mr-2" />
-  ) : cbStatus === "RUNNING" ? (
-    <FaRunning className="inline-block text-green-500 w-6 h-6 mr-2" />
-  )  : cbStatus === "KABUR" ? (
-    <FaRunning className="inline-block text-green-500 w-6 h-6 mr-2" />
-  ) : cbStatus === "DRAW" ? (
-    <LuSwords className="inline-block text-green-500 w-6 h-6 mr-2" />
-  )
-  :(
-    null
-  )}
+ <div
+  className={`mt-4 text-lg font-bold drop-shadow-[0_0_10px_rgba(255,140,0,0.8)]
+    ${raceColorMap[cbRace] || "text-white"}`}
+>
+  {renderStatusIcon(cbStatus, "left")}
 
-  CHIP BREAKER: {cbName}
+  <span className="mx-2">CHIP BREAKER: {cbName}</span>
 
-  {cbStatus === "GOAL" ? (
-    <GrAchievement className="inline-block text-white w-6 h-6 ml-2" />
-  ) : cbStatus === "WAFAT" ? (
-    <FaGhost className="inline-block text-white w-6 h-6 ml-2" />
-  ) : cbStatus === "RUNNING" ? (
-    <FaRunning className="inline-block text-red-500 w-6 h-6 ml-2" />
-  )  : cbStatus === "KABUR" ? (
-    <FaRunning className="inline-block text-red-500 w-6 h-6 ml-2" />
-  ) : 
-  cbStatus === "DRAW" ? (
-    <LuSwords className="inline-block text-red-500 w-6 h-6 ml-2" />
-  ) :
-  (
-  null
-  )}
-
+  {renderStatusIcon(cbStatus, "right")}
 </div>
 
   </div>
@@ -636,10 +864,18 @@ function Home() {
 
 
     {/* Leaderboards Section */}
-    <div className="w-full lg:w-1/2 py-10 px-4">
-    <h2 className="text-4xl font-semibold text-center mb-6 text-red-500">
-        LEADERBOARDS
-      </h2>
+    <div className="w-full lg:w-1/2 py-10 px-4
+  bg-black/60 backdrop-blur-xl
+border border-red-500/30
+shadow-[0_0_45px_rgba(255,60,0,0.25)]
+hover:shadow-[0_0_70px_rgba(255,90,0,0.45)]
+transition-all duration-500">
+    <h2 className="text-4xl font-semibold text-center mb-6
+  bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+  bg-clip-text text-transparent
+  drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]">
+  LEADERBOARDS
+</h2>
 
       {/* Leaderboards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 divide-x divide-gray-700">
@@ -648,49 +884,48 @@ function Home() {
 <h4 className="text-2xl font-semibold mb-4 text-white flex items-center">
       <FaChessKing className="mr-2 text-white" /> Archon
     </h4>
-  <ul className="space-y-4">
-    {archons.length > 0 ? (
-      archons.map((archon, index) => {
-        // Dynamically set avatar based on race
-        let avatar;
-        if (archon.race === 'Accretia') {
-          avatar = AccretiaIconRed;
-        } else if (archon.race === 'Bellato') {
-          avatar = BellatoIconOrange;
-        } else if (archon.race === 'Cora') {
-          avatar = CoraIconPurple;
-        } else {
-          avatar = '/src/assets/default.png'; // Fallback if race is not recognized
-        }
+<ul className="space-y-4">
+  {archons.length > 0 ? (
+    archons.map((archon, index) => {
+      const avatar = raceAvatarMap[archon.race] || "/src/assets/default.png";
 
-        return (
-          <li
-            key={index}
-            className="flex items-center justify-between bg-gray-900 p-3 shadow-md text-lg"
-          >
-            <div className="flex items-center">
-              <img
-                src={avatar} // Use dynamically determined avatar
-                alt={archon.name}
-                className="w-10 h-10 rounded-full mr-3"
-              />
-              <span>{archon.name || 'Unknown'}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <span className="bg-green-500 w-16 text-center py-1 rounded-md">
-                K: {archon.kills || 0}
-              </span>
-              <span className="bg-red-500 w-16 text-center py-1 rounded-md">
-                D: {archon.deaths || 0}
-              </span>
-            </div>
-          </li>
-        );
-      })
-    ) : (
-      <li>No Archons Available</li>
-    )}
-  </ul>
+      return (
+        <li
+          key={index}
+          className="flex items-center justify-between
+          bg-black/60 backdrop-blur-md
+          border border-orange-500/20
+          rounded-xl p-3 text-lg
+          shadow-[0_0_18px_rgba(255,120,0,0.15)]
+          hover:shadow-[0_0_25px_rgba(255,150,0,0.35)]
+          hover:border-orange-400/40
+          transition-all duration-300"
+        >
+          <div className="flex items-center">
+            <img
+              src={avatar}
+              alt={archon.name}
+              className="w-10 h-10 rounded-full mr-3"
+            />
+            <span>{archon.name || "Unknown"}</span>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <span className="bg-gradient-to-r from-red-700 to-orange-500 w-16 text-center py-1 rounded-md">
+              K: {archon.kills || 0}
+            </span>
+            <span className="bg-gradient-to-r from-red-900 to-red-600 w-16 text-center py-1 rounded-md">
+              D: {archon.deaths || 0}
+            </span>
+          </div>
+        </li>
+      );
+    })
+  ) : (
+    <li>No Archons Available</li>
+  )}
+</ul>
+
 </div>
 
 
@@ -698,182 +933,45 @@ function Home() {
 <h4 className="text-2xl font-semibold mb-4 text-white flex items-center">
       <GiDwarfHelmet  className="mr-2 text-white" /> Top Killers
     </h4>
-  <ul className="space-y-4">
-    {topKillers.length > 0 ? (
-      topKillers.map((player, index) => {
-        // Conditionally set the avatar based on race
-        let avatar;
-        if (player.class_code.includes('ARF1')) {
-          avatar = ARF1;
-        } else if (player.class_code.includes('ARF2')) {
-          avatar = ARF2;
-        } else if (player.class_code.includes('ARS1')) {
-          avatar = ARS1;  
-        } else if (player.class_code.includes('ARS2')) {
-          avatar = ARS2;
-        }
-        else if (player.class_code.includes('ARS3')) {
-          avatar = ARS3;
-        }
-        else if (player.class_code.includes('ASF1')) {
-          avatar = ASF1;
-        }
-        else if (player.class_code.includes('ASS1')) {
-          avatar = ASS1;
-        }
-        else if (player.class_code.includes('ASS2')) {
-          avatar = ASS2;
-        }
-        else if (player.class_code.includes('AWF1')) {
-          avatar = AWF1;
-        }
-        else if (player.class_code.includes('AWF2')) {
-          avatar = AWF2;
-        }
-        else if (player.class_code.includes('AWS1')) {
-          avatar = AWS1;
-        }
-        else if (player.class_code.includes('AWS2')) {
-          avatar = AWS2;
-        }
-        else if (player.class_code.includes('AWS3')) {
-          avatar = AWS3;
-        }
-        else if (player.class_code.includes('BFF1')) {
-          avatar = BFF1;
-        }
-        else if (player.class_code.includes('BFF2')) {
-          avatar = BFF2;
-        }
-        else if (player.class_code.includes('BFS1')) {
-          avatar = BFS1;
-        }
-        else if (player.class_code.includes('BFS2')) {
-          avatar = BFS2;
-        }
-        else if (player.class_code.includes('BFS3')) {
-          avatar = BFS3;
-        }
-        else if (player.class_code.includes('BRF1')) {
-          avatar = BRF1;
-        }
-        else if (player.class_code.includes('BRF2')) {
-          avatar = BRF2;
-        }
-        else if (player.class_code.includes('BRS1')) {
-          avatar = BRS1;
-        }
-        else if (player.class_code.includes('BRS2')) {
-          avatar = BRS2;
-        }
-        else if (player.class_code.includes('BRS3')) {
-          avatar = BRS3;
-        }
-        else if (player.class_code.includes('BSF1')) {
-          avatar = BSF1;
-        }
-        else if (player.class_code.includes('BSS1')) {
-          avatar = BSS1;
-        }
-        else if (player.class_code.includes('BSS2')) {
-          avatar = BSS2;
-        }
-        else if (player.class_code.includes('BWF1')) {
-          avatar = BWF1;
-        }
-        else if (player.class_code.includes('BWF2')) {
-          avatar = BWF2;
-        }
-        else if (player.class_code.includes('BWS1')) {
-          avatar = BWS1;
-        }
-        else if (player.class_code.includes('BWS2')) {
-          avatar = BWS2;
-        }
-        else if (player.class_code.includes('BWS3')) {
-          avatar = BWS3;
-        }
-        else if (player.class_code.includes('CFF1')) {
-          avatar = CFF1;
-        }
-        else if (player.class_code.includes('CFS1')) {
-          avatar = CFS1;
-        }
-        else if (player.class_code.includes('CFS2')) {
-          avatar = CFS2;
-        }
-        else if (player.class_code.includes('CFS3')) {
-          avatar = CFS3;
-        }
-        else if (player.class_code.includes('CRF1')) {
-          avatar = CRF1;
-        }
-        else if (player.class_code.includes('CRF2')) {
-          avatar = CRF2;
-        }
-        else if (player.class_code.includes('CRS1')) {
-          avatar = CRS1;
-        }
-        else if (player.class_code.includes('CRS2')) {
-          avatar = CRS2;
-        }
-        else if (player.class_code.includes('CRS3')) {
-          avatar = CRS3;
-        }
-        else if (player.class_code.includes('CSF1')) {
-          avatar = CSF1;
-        }
-        else if (player.class_code.includes('CSS1')) {
-          avatar = CSS1;
-        }
-        else if (player.class_code.includes('CWF1')) {
-          avatar = CWF1;
-        }
-        else if (player.class_code.includes('CWF2')) {
-          avatar = CWF2;
-        }
-        else if (player.class_code.includes('CWS1')) {
-          avatar = CWS1;
-        }
-        else if (player.class_code.includes('CWS2')) {
-          avatar = CWS2;
-        }
-        else if (player.class_code.includes('CWS3')) {
-          avatar = CWS3;
-        }
-        else {
-          
-          avatar = '/src/assets/default-avatar.png'; // Fallback if the race is not recognized
-        }
+ <ul className="space-y-4">
+  {topKillers.length > 0 ? (
+    topKillers.map((player, index) => {
+      const avatar = getAvatar(player.class_code);
 
-        return (
-          <li
-            key={index}
-            className="flex items-center justify-between bg-gray-900 p-3 shadow-md text-lg"
-          >
-            <div className="flex items-center">
-              <img
-                src={avatar}
-                alt={player.race}
-                className="w-10 h-10 rounded-full mr-3"
-              />
-              <span>{player.name}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <span className="bg-green-500 w-16 text-center py-1 rounded-md">
-                K: {player.kills}
-              </span>
-              <span className="bg-red-500 w-16 text-center py-1 rounded-md">
-                D: {player.deaths}
-              </span>
-            </div>
-          </li>
-        );
-      })
-    ) : (
-      <li>No Top Killers Available</li>
-    )}
-  </ul>
+      return (
+        <li
+          key={index}
+          className="flex items-center justify-between bg-black/70 backdrop-blur-md
+          border border-red-500/20 rounded-xl p-3
+          shadow-[0_0_18px_rgba(255,80,0,0.25)]
+          hover:shadow-[0_0_30px_rgba(255,120,0,0.5)]
+          transition text-lg"
+        >
+          <div className="flex items-center">
+            <img
+              src={avatar}
+              alt={player.race}
+              className="w-10 h-10 rounded-full mr-3"
+            />
+            <span>{player.name}</span>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <span className="bg-gradient-to-r from-red-700 to-orange-500 w-16 text-center py-1 rounded-md">
+              K: {player.kills}
+            </span>
+            <span className="bg-gradient-to-r from-red-900 to-red-600 w-16 text-center py-1 rounded-md">
+              D: {player.deaths}
+            </span>
+          </div>
+        </li>
+      );
+    })
+  ) : (
+    <li>No Top Killers Available</li>
+  )}
+</ul>
+
 </div>
 
       </div>
@@ -881,99 +979,245 @@ function Home() {
   </div>
 </div>
 
-<div className="w-full min-h-fit bg-BG7 bg-cover bg-center relative">
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black via-red-900 to-black opacity-90"></div>
+<div className="relative w-full min-h-screen flex flex-col items-center justify-start p-6 text-white overflow-hidden">
+  <div className="absolute inset-0
+    bg-[radial-gradient(circle_at_50%_30%,rgba(255,80,0,0.35),transparent_60%)]" />
+  <div className="absolute inset-0
+    bg-gradient-to-br from-black via-red-950 to-orange-900" />
+  <div className="absolute inset-0
+    bg-[radial-gradient(circle,transparent_55%,rgba(0,0,0,0.9)_100%)]" />
+  <div className="relative z-10 px-4 py-12 sm:py-16 text-center font-ITC">
+    <h2
+      className="
+        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+        font-bold
+        bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+        bg-clip-text text-transparent
+        drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]
+      "
+    >
+      EVENTS
+    </h2>
 
-  <div className="font-ITC relative z-10 px-4 py-12 text-center text-white">
-    <h2 className="text-4xl sm:text-5xl md:text-6xl text-shadow-red-glow">Top Guild Honor</h2>
+    <div className="mt-4 mx-auto w-40 h-[2px]
+      bg-gradient-to-r from-transparent via-red-500 to-transparent
+      shadow-[0_0_12px_rgba(255,80,0,0.8)]" />
   </div>
+  <div className="relative z-10 w-full max-w-6xl
+    bg-gradient-to-br from-red-900/40 via-black/60 to-orange-900/40
+    border border-red-500/40 rounded-2xl
+    shadow-[0_0_60px_rgba(255,60,0,0.35)]
+    backdrop-blur-xl overflow-hidden">
+        <div className="relative grid md:grid-cols-2">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={events[index].id}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+              transition={{ duration: 0.4 }}
+              className="w-full h-full"
+            >
+              <img
+                src={events[index].poster}
+                alt={events[index].title}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
 
-  {/* Content Wrapper */}
-  <div className="relative z-10 p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-    {Object.entries(guildData).map(([race, guilds]) => (
-      <div key={race} className="bg-red-900/25 py-10 px-4 rounded-lg mb-24">
-        <div className="flex items-center  justify-center">
-         {race === 'Bellato' && < img src={BellatoIcon} className="h-20 w-20" />} 
-          {race === 'Cora' && <img src={CoraIcon} className="h-20 w-20"/>} 
-          {race === 'Accretia' && <img src={AccretiaIcon}  className="h-20 w-20"/>}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={events[index].title}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.4 }}
+              className="p-8 flex flex-col justify-center"
+            >
+              <h2 className="text-3xl font-bold text-red-400 mb-6">
+                {events[index].title}
+              </h2>
+              <div className="mb-6">
+                <h3 className="text-xl font-semibold text-orange-400 mb-2">
+                  Mechanics
+                </h3>
+                <ul className="space-y-1 text-gray-300">
+                  {events[index].mechanics.map((m, i) => (
+                    <li key={i}>• {m}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-yellow-400 mb-2">
+                  Rewards
+                </h3>
+                <ul className="space-y-1 text-gray-300">
+                  {events[index].rewards.map((r, i) => (
+                    <li key={i}>★ {r}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <div className="flex items-center justify-between px-6 py-4 border-t border-red-500/30 bg-black/60">
+          <button
+            onClick={prev}
+            className="px-4 py-2 border border-red-500 rounded-lg hover:bg-red-600 transition"
+          >
+            ← Prev
+          </button>
+
+          <div className="flex gap-2">
+            {events.map((_, i) => (
+              <div
+                key={i}
+                className={`h-2 w-2 rounded-full ${
+                  i === index ? "bg-red-500" : "bg-gray-600"
+                }`}
+              />
+            ))}
           </div>
-        <h2 className="text-xl text-center text-white font-ITC font-bold mb-2">{race} </h2>
-                
 
-        <div className="flex font-ITC text-lg text-white text-shadow-red-glow font-bold">
-  {/* Place Header */}
-  <div className="flex flex-1  text-left">
-    <p className="ml-4">TOP</p>
-    <p className="ml-10">GUILD</p>
+          <button
+            onClick={next}
+            className="px-4 py-2 border border-red-500 rounded-lg hover:bg-red-600 transition"
+          >
+            Next →
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+<div className="w-full min-h-screen bg-BG7 bg-cover bg-center relative overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-b from-black via-red-950/90 to-black" />
+  <div className="absolute inset-0 pointer-events-none
+    bg-[radial-gradient(circle_at_top,rgba(255,80,0,0.25),transparent_60%)]" />
+  <div className="font-ITC relative z-10 px-4 py-12 sm:py-16 text-center text-white">
+    <h2
+      className="
+        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+        font-bold
+        bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+        bg-clip-text text-transparent
+        drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]
+      "
+    >
+      TOP GUILD HONOR
+    </h2>
+    <div className="mt-4 mx-auto w-40 h-[2px]
+      bg-gradient-to-r from-transparent via-red-500 to-transparent
+      shadow-[0_0_12px_rgba(255,80,0,0.8)]" />
   </div>
-  {/* Total Points Header */}
-  <div className="flex-1 text-right mr-4">
-    <p>TOTAL POINTS</p>
-  </div>
-</div>
-<div className="border border-b"></div>
+  <div
+    className="
+      relative z-10
+      max-w-7xl mx-auto
+      px-4 sm:px-6 lg:px-8 pb-16
+      grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
+      gap-6 lg:gap-8
+    "
+  >
+    {Object.entries(guildData).map(([race, guilds]) => (
+      <div
+        key={race}
+        className="
+          bg-black/60 backdrop-blur-xl
+          border border-red-500/30
+          shadow-[0_0_45px_rgba(255,60,0,0.25)]
+          hover:shadow-[0_0_70px_rgba(255,90,0,0.45)]
+          transition-all duration-500
+          py-8 sm:py-10 px-4 sm:px-6
+          rounded-2xl
+        "
+      >
+        {/* Race Icon */}
+        <div className="flex items-center justify-center mb-3">
+          {race === "Bellato" && <img src={BellatoIcon} className="h-14 w-14 sm:h-20 sm:w-20" />}
+          {race === "Cora" && <img src={CoraIcon} className="h-14 w-14 sm:h-20 sm:w-20" />}
+          {race === "Accretia" && <img src={AccretiaIcon} className="h-14 w-14 sm:h-20 sm:w-20" />}
+        </div>
 
+        <h2 className="text-lg sm:text-xl text-center font-bold mb-4 text-orange-300 tracking-wide">
+          {race}
+        </h2>
 
-        <div className="mt-4">
+        {/* Header Row */}
+        <div className="flex text-sm sm:text-base font-bold text-orange-200 mb-2">
+          <div className="flex flex-1 text-left ml-1 sm:ml-2">
+            <p>TOP</p>
+            <p className="ml-6 sm:ml-10">GUILD</p>
+          </div>
+          <div className="flex-1 text-right mr-1 sm:mr-2">
+            <p>TOTAL POINTS</p>
+          </div>
+        </div>
+
+        <div className="border-b border-red-500/30 mb-4" />
+
+        {/* Guild List */}
+        <div className="space-y-3">
           {guilds.map((guild, index) => {
             let trophyImage = null;
-            let classNames = "flex items-center justify-between p-2 rounded mb-2"; // Default styling
-            let overlayClass = ""; // Default no overlay
-            let backgroundStyle = {}; // Default background style object
-            let imageClassNames = "w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"; // Default image size
+            let imageClassNames = "w-7 h-7 sm:w-10 sm:h-10";
+            let rowGlow = "";
 
-            // Assign trophy images and background for the top 3 ranks
             if (index === 0) {
-              trophyImage = Trophy1; // Top 1 trophy image
-              classNames += " bg-BGTexture border-b-4 border-red-500 text-2xl p-3"; // Increase size for Top 1 // GIF for Top 1
-              classNames += " text-shadow-red-glow ";
-              overlayClass = "absolute inset-0 bg-black opacity-50";
-              // Increase the size of the Trophy1 image
-              imageClassNames = "w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20"; // Set width and height for different screen sizes
+              trophyImage = Trophy1;
+              imageClassNames = "w-12 h-12 sm:w-20 sm:h-20";
+              rowGlow = "shadow-[0_0_25px_rgba(255,180,0,0.45)] border border-yellow-400/40";
             } else if (index === 1) {
-              trophyImage = Trophy2; // Top 2 trophy image
-              classNames += " bg-BGTexture4"; // Background for Top 2
-              overlayClass = "absolute inset-0 bg-black opacity-50"; // Darken background for Top 2
+              trophyImage = Trophy2;
+              rowGlow = "shadow-[0_0_18px_rgba(200,200,255,0.35)] border border-slate-300/40";
             } else if (index === 2) {
-              trophyImage = Trophy3; // Top 3 trophy image
-              classNames += " bg-BGTexture4"; // Background for Top 3
-              overlayClass = "absolute inset-0 bg-black opacity-50"; // Darken background for Top 3
+              trophyImage = Trophy3;
+              rowGlow = "shadow-[0_0_18px_rgba(255,120,60,0.35)] border border-orange-400/40";
             } else if (index === 3) {
-              trophyImage = Trophy4; // Top 3 trophy image
-              classNames += " bg-BGTexture4"; // Background for Top 3
-              overlayClass = "absolute inset-0 bg-black opacity-50"; // Darken background for Top 3
-            }
-            else if (index === 4) {
-              trophyImage = Trophy5; // Top 3 trophy image
-              classNames += " bg-BGTexture4"; // Background for Top 3
-              overlayClass = "absolute inset-0 bg-black opacity-50"; // Darken background for Top 3
+              trophyImage = Trophy4;
+            } else if (index === 4) {
+              trophyImage = Trophy5;
             }
 
             return (
-              <div key={index} className={`relative ${classNames}`} style={backgroundStyle}>
-                {/* Dark overlay for the background */}
-                {overlayClass && <div className={overlayClass}></div>}
-
-                {/* Replace guild.avatar with the respective trophy image */}
+              <div
+                key={index}
+                className={`
+                  flex items-center gap-3
+                  bg-black/70 backdrop-blur-md
+                  border border-red-500/20
+                  rounded-xl p-3 sm:p-4
+                  shadow-[0_0_18px_rgba(255,80,0,0.25)]
+                  hover:shadow-[0_0_30px_rgba(255,120,0,0.5)]
+                  transition-all duration-300
+                  ${rowGlow}
+                `}
+              >
                 <img
-  src={trophyImage}
-  alt={`Trophy ${index + 1}`}
-  className={`rounded-full relative z-10 ${imageClassNames}`} // Apply the imageClassNames here
-/>
-                <div className="text-white flex-1 ml-2 relative z-10">
-                  <p className="font-bold">{guild.name}</p>
-                  <div className="flex items-center mt-2 space-x-2">
-                    <span className="bg-green-500 w-12 sm:w-14 text-center py-0.5 text-sm sm:text-base rounded-md">
+                  src={trophyImage}
+                  alt={`Trophy ${index + 1}`}
+                  className={`rounded-full shrink-0 ${imageClassNames}`}
+                />
+
+                <div className="text-white flex-1 min-w-0">
+                  <p className="font-bold truncate">{guild.name}</p>
+
+                  <div className="flex items-center mt-1 gap-2 text-xs sm:text-sm">
+                    <span className="bg-gradient-to-r from-red-700 to-orange-500 w-12 sm:w-14 text-center py-0.5 rounded-md">
                       K: {guild.kills || 0}
                     </span>
-                    <span className="bg-red-500 w-12 sm:w-14 text-center py-0.5 text-sm sm:text-base rounded-md">
+                    <span className="bg-gradient-to-r from-red-900 to-red-600 w-12 sm:w-14 text-center py-0.5 rounded-md">
                       D: {guild.deaths || 0}
                     </span>
                   </div>
                 </div>
-                {/* The points are placed outside the dark overlay */}
-                <span className="text-white text-shadow-red-glow font-bold relative z-10">{guild.points} </span>
+
+                <span className="text-sm sm:text-base font-bold text-white
+                  drop-shadow-[0_0_10px_rgba(255,80,0,0.9)]">
+                  {guild.points}
+                </span>
               </div>
             );
           })}
@@ -984,42 +1228,151 @@ function Home() {
 </div>
 
 
-
-{/* Background image container */}
 <div
-  className="w-full min-h-screen bg-BG8 bg-cover bg-center relative">
-  <div className="absolute inset-0 bg-black opacity-80"></div> {/* Optional overlay */}
-  
-  {/* Text section */}
-  <div className="font-ITC relative z-10 px-4 py-12 text-center text-white">
-    <h2 className="text-6xl text-shadow-red-glow">Guilds</h2>
+  id="cash-section"
+  className="relative w-full min-h-screen bg-BG6 bg-cover bg-center py-10 px-6 text-white overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-b from-black via-red-950/90 to-black"></div>
+  <div className="absolute inset-0 pointer-events-none
+    bg-[radial-gradient(circle_at_top,rgba(255,80,0,0.25),transparent_60%)]" />
+
+
+<div className="font-ITC relative z-10 px-4 py-12 sm:py-16 text-center text-white">
+    <h2
+      className="
+        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+        font-bold
+        bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+        bg-clip-text text-transparent
+        drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]
+      "
+    >
+      CASH SHOP
+    </h2>
+    <div className="mt-4 mx-auto w-40 h-[2px]
+      bg-gradient-to-r from-transparent via-red-500 to-transparent
+      shadow-[0_0_12px_rgba(255,80,0,0.8)]" />
   </div>
 
-  {/* Image Gallery inside the background */}
-  <div className="relative inset-0 flex justify-center items-center z-20 px-4 overflow-auto">
-    <div className="container mx-auto">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 mb-10">
 
-{/** 
-<div
-className="group relative cursor-pointer overflow-hidden w-full h-full"
-onMouseEnter={() => handleMouseEnter(videoRef2)}
-onMouseLeave={() => handleMouseLeave(videoRef2)}
->
-<Link to="">
-  <img
-    src={Akatsuki}
-    alt="Gallery Image 2"
-    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-  />
-  <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-0 transition duration-500"></div>
-</Link>
-</div>*/} 
- 
+  <div className="relative max-w-7xl mx-auto">
+  
+    <div className="flex flex-col items-center lg:flex-row gap-12">
+      <div className="w-full">
+        <div className="rounded-2xl overflow-hidden
+          bg-black/60 backdrop-blur-xl
+          border border-red-500/30
+          shadow-[0_0_45px_rgba(255,60,0,0.25)]
+          hover:shadow-[0_0_70px_rgba(255,90,0,0.45)]
+          transition-all duration-500"
+        >
+          <DataTable
+            title={<h3 className="text-2xl font-semibold text-orange-300 px-6 pt-6">CASH SHOP ITEMS</h3>}
+            columns={columns}
+            data={filteredData}
+            theme="dark"
+            pagination
+            highlightOnHover
+            subHeader
+            subHeaderComponent={
+              <div className="px-6 pb-6">
+                <input
+                  type="text"
+                  placeholder="Search item..."
+                  value={searchText}
+                  onChange={handleSearch}
+                  className="w-full px-4 py-2 rounded-lg
+                  bg-black/40 text-white
+                  border border-orange-400/40
+                  focus:outline-none focus:ring-2 focus:ring-orange-400/40"
+                />
+              </div>
+            }
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div className="w-full min-h-screen bg-BG8 bg-cover bg-center relative overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-b from-black via-red-950/90 to-black"></div>
+  <div className="absolute inset-0 pointer-events-none
+    bg-[radial-gradient(circle_at_top,rgba(255,80,0,0.25),transparent_60%)]" />
+  <div className="font-ITC relative z-10 px-4 py-16 text-center text-white">
+    <h2 className="
+      text-6xl font-bold
+      bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+      bg-clip-text text-transparent
+      drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]
+    ">
+      GUILDS
+    </h2>
+  </div>
+
+  {/* ===== GALLERY WRAPPER ===== */}
+  <div className="relative z-10 flex justify-center items-center px-4 pb-20">
+    <div className="container mx-auto">
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+
+        {/* ===== GUILD CARD ===== */}
+          {/**
+        <div
+          className="
+            group relative cursor-pointer overflow-hidden rounded-2xl
+            bg-black/60 backdrop-blur-xl
+            border border-red-500/30
+            shadow-[0_0_35px_rgba(255,60,0,0.25)]
+            hover:shadow-[0_0_60px_rgba(255,100,0,0.45)]
+            transition-all duration-500
+          "
+          onMouseEnter={() => handleMouseEnter(videoRef2)}
+          onMouseLeave={() => handleMouseLeave(videoRef2)}
+        >
+          <Link to="">
+        
+            <img
+              src={Akatsuki}
+              alt="Guild"
+              className="
+                w-full h-full object-cover
+                transform group-hover:scale-110
+                transition duration-700
+              "
+            />
+
+            <div className="
+              absolute inset-0
+              bg-gradient-to-t from-black via-black/40 to-transparent
+              opacity-80 group-hover:opacity-40
+              transition duration-500
+            " />
+            <div className="
+              absolute inset-0 rounded-2xl
+              border border-transparent
+              group-hover:border-orange-400/60
+              group-hover:shadow-[0_0_25px_rgba(255,120,0,0.6)]
+              transition duration-500
+            " />
+
+            <div className="
+              absolute bottom-3 left-0 right-0 text-center
+              text-orange-300 font-bold tracking-wide
+              drop-shadow-[0_0_12px_rgba(255,80,0,0.8)]
+              opacity-0 group-hover:opacity-100
+              transition duration-500
+            ">
+              Akatsuki
+            </div>
+          </Link>
+          
+        </div>
+        */}
       </div>
     </div>
   </div>
 </div>
+
 
 {/** 
 <div className="w-full h-fit p-10 bg-BG6 bg-cover bg-center relative">

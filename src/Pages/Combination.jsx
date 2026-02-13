@@ -1,80 +1,49 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../Component/Navbar";
 import Footer from "../Component/Footer";
-import LGS from "../assets/COMBI/LGS.jpg";
-import GP from "../assets/COMBI/GP.jpg";
-import GP1m from "../assets/COMBI/GP1M.jpg";
-import CArmor from '../assets/COMBI/typecarmor.jpg'
-import CWeapon from '../assets/COMBI/typecwep.jpg'
-import Shield from '../assets/COMBI/typecshield.jpg'
-import SGS from '../assets/COMBI/SGS.jpg'
-import H1 from '../assets/COMBI/H1.jpg'
-import H11 from '../assets/COMBI/h11.jpg'
 
 function Combination() {
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState("guide-section"); // Default to 'home-section'
+
+  const [activeTab, setActiveTab] = useState("guide-section");
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openDropdown2, setOpenDropdown2] = useState(null);
-  const [openDropdown3, setOpenDropdown3] = useState(null);
 
   const dropdownRef = useRef(null);
   const dropdownRef2 = useRef(null);
-  const dropdownRef3 = useRef(null);
 
-  // Function to toggle dropdown and scroll to it
   const toggleDropdown = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
     if (dropdownRef.current && openDropdown !== index) {
-      dropdownRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      dropdownRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   const toggleDropdown2 = (index) => {
     setOpenDropdown2(openDropdown2 === index ? null : index);
     if (dropdownRef2.current && openDropdown2 !== index) {
-      dropdownRef2.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
-  const toggleDropdown3 = (index) => {
-    setOpenDropdown3(openDropdown3 === index ? null : index);
-    if (dropdownRef3.current && openDropdown3 !== index) {
-      dropdownRef3.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      dropdownRef2.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   const dropdownData = [
     {
-      title: 'RECYCLED GAMBLE BOX',
+      title: "RECYCLED GAMBLE BOX",
       content: (
-        <div className="font-COP1">
-        <h3 className="text-red-500 font-bold text-lg mb-2">RECYCLED GAMBLE BOX</h3>
-        <p className="text-gray-200 mb-4">
-          <strong>Material:</strong>
-          <ul className="list-disc list-inside">
+        <div className="space-y-3 font-Bai text-gray-200">
+          <p className="text-lg font-semibold text-orange-300">Material</p>
+          <ul className="list-disc list-inside space-y-1">
             <li>x1 Empty Cash Point Gamble Box</li>
-             <li className="text-green-500">Chance: 100%</li>
-               <li className="text-red-500">Fee: 10m Race Currency</li>
+            <li className="text-green-400">Chance: 100%</li>
+            <li className="text-red-400">Fee: 10m Race Currency</li>
           </ul>
-          <br />
-          <strong>Result:</strong>
+
+          <p className="text-lg font-semibold text-orange-300 pt-2">Result</p>
           <ul className="list-disc list-inside">
             <li>Cash Point Gamble Box</li>
           </ul>
-        </p>
-      </div>
+        </div>
       ),
     },
   ];
@@ -83,7 +52,7 @@ function Combination() {
     {
       title: 'TYPE C ARMOR',
       content: (
-        <div className="font-COP1">
+        <div className="Bai">
           <h3 className="text-red-500 font-bold text-lg">+3/5 TYPE C ARMOR</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
@@ -106,7 +75,7 @@ function Combination() {
     {
       title: 'TYPE C WEAPON',
       content: (
-        <div className="font-COP1">
+        <div className="">
           <h3 className="text-red-500 font-bold text-lg">+3/5 TYPE C WEAPON</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
@@ -129,7 +98,7 @@ function Combination() {
     {
       title: 'PARAGON HELM',
       content: (
-        <div className="font-COP1">
+        <div className="">
           <h3 className="text-red-500 font-bold text-lg">+5/5 Sharp / Strength / Strong Paragon Helm</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
@@ -154,7 +123,7 @@ function Combination() {
     {
       title: 'PARAGON CAPE',
       content: (
-        <div className="font-COP1">
+        <div className="">
           <h3 className="text-red-500 font-bold text-lg">+5/5 Paragon Cape</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
@@ -179,7 +148,7 @@ function Combination() {
     {
       title: 'PHOENIX GOLDEN WIND WEAPON',
       content: (
-        <div className="font-COP1">
+        <div className="">
           <h3 className="text-red-500 font-bold text-lg">PHOENIX GOLDEN WIND WEAPON</h3>
           <p className="text-gray-200 mb-4">
             <strong>Material:</strong>
@@ -202,104 +171,107 @@ function Combination() {
     },
 ];
 
-return (
-  <>
-    <Navbar activeTab={activeTab} />
+  const Panel = ({ children, className = "" }) => (
     <div
-       id="guide-section"
-       className="w-full min-h-screen bg-BG1 bg-cover bg-center relative"
-       style={{ position: 'relative', backgroundAttachment: 'fixed' }}
+      className={`rounded-2xl bg-black/60 backdrop-blur-xl border border-red-500/30
+      shadow-[0_0_45px_rgba(255,60,0,0.25)] hover:shadow-[0_0_70px_rgba(255,120,0,0.45)]
+      transition-all duration-500 ${className}`}
     >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-90"></div>
-
-      {/* Combination Guide Section */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-COP1 mb-10 text-white text-shadow-red-glow">
-          COMBINATION GUIDE
-        </h1>
-        
-        <div 
-          ref={dropdownRef}
-          className="w-full max-w-4xl bg-gray-900 bg-opacity-90 rounded-lg p-6 shadow-xl space-y-4">
-          {dropdownData.map((item, index) => (
-            <div
-              key={index}
-              className="border border-red-500 rounded-lg bg-gray-800 bg-opacity-80"
-            >
-              <div
-                className="flex justify-between items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors cursor-pointer"
-                onClick={() => toggleDropdown(index)}
-              >
-                <h2 className="text-lg font-semibold text-red-400 font-COP1">
-                  {item.title}
-                </h2>
-                <span className="text-red-400">
-                  {openDropdown === index ? "▲" : "▼"}
-                </span>
-              </div>
-              {/* Smooth transition for dropdown content */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  openDropdown === index ? "max-h-[2000px]" : "max-h-0"
-                }`}
-              >
-                {openDropdown === index && (
-                  <div className="p-4 bg-gray-800 rounded-b-lg shadow-inner font-COP1">
-                    {item.content}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Second dropdown section */}
-        <div
-         ref={dropdownRef2}
-          className="w-full max-w-4xl bg-gray-900 bg-opacity-90 rounded-lg p-6 shadow-xl space-y-4 mt-5">
-          <h1 className="text-2xl md:text-3xl font-extrabold font-COP1 mb-10 text-white text-shadow-red-glow">
-            PHOENIX GEARS
-          </h1>
-          {dropdownData2.map((item, index) => (
-            <div
-              key={index}
-              className="border border-red-500 rounded-lg bg-gray-800 bg-opacity-80"
-            >
-              <div
-                className="flex justify-between items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors cursor-pointer"
-                onClick={() => toggleDropdown2(index)}
-              >
-                <h2 className="text-lg font-semibold text-red-400 font-COP1">
-                  {item.title}
-                </h2>
-                <span className="text-red-400">
-                  {openDropdown2 === index ? "▲" : "▼"}
-                </span>
-              </div>
-              {/* Smooth transition for dropdown content */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  openDropdown2 === index ? "max-h-[2000px]" : "max-h-0"
-                }`}
-              >
-                {openDropdown2 === index && (
-                  <div className="p-4 bg-gray-800 rounded-b-lg shadow-inner font-COP1">
-                    {item.content}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-
-
-
-      </div>
+      {children}
     </div>
-    <Footer />
-  </>
-);
+  );
+
+  const Dropdown = ({ data, open, toggle, refProp }) => (
+    <div ref={refProp} className="space-y-4">
+      {data.map((item, index) => {
+        const isOpen = open === index;
+        return (
+          <Panel key={index}>
+            <button
+              onClick={() => toggle(index)}
+              className="w-full flex justify-between items-center px-6 py-4
+              text-left hover:bg-red-950/40 transition-all duration-300"
+            >
+              <span className="font-semibold bg-gradient-to-r from-red-400 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
+                {item.title}
+              </span>
+
+              <span
+                className={`text-orange-300 transition-transform duration-300 ${
+                  isOpen ? "rotate-180" : ""
+                }`}
+              >
+                ▼
+              </span>
+            </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-500 ${
+                isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="px-6 pb-6">{item.content}</div>
+            </div>
+          </Panel>
+        );
+      })}
+    </div>
+  );
+
+  return (
+    <>
+      <Navbar activeTab={activeTab} />
+
+      <div
+        id="guide-section"
+        className="relative w-full min-h-screen bg-BG1 bg-cover bg-center overflow-hidden"
+      >
+        {/* Cinematic gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-red-950/90 to-black" />
+
+        {/* Radial fire glow */}
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top,rgba(255,80,0,0.25),transparent_60%)]" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 space-y-16 text-white">
+          {/* Title */}
+          <h1 className="text-5xl font-COP1 md:text-6xl font-extrabold text-center
+          bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+          bg-clip-text text-transparent
+          drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]">
+            COMBINATION GUIDE
+          </h1>
+
+          {/* Section 1 */}
+          <Panel className="p-8">
+            <Dropdown
+              data={dropdownData}
+              open={openDropdown}
+              toggle={toggleDropdown}
+         
+            />
+          </Panel>
+
+          {/* Section 2 */}
+          <div className="space-y-8">
+            <h2 className="text-3xl font-bold text-center text-orange-300 tracking-wide">
+              PHOENIX GEARS
+            </h2>
+
+            <Panel className="p-8">
+              <Dropdown
+                data={dropdownData2}
+                open={openDropdown2}
+                toggle={toggleDropdown2}
+             
+              />
+            </Panel>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </>
+  );
 }
 
 export default Combination;

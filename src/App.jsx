@@ -18,6 +18,7 @@ import CoraRanger from "./Pages/CoraRanger"
 import CoraForce from "./Pages/CoraForce"
 import Battlepass from "./Pages/Battlepass"
 import DailyQuest from "./Pages/DailyQuest"
+import PhoenixEgg from "./Pages/PhoenixEgg"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/coraForce" element={<CoraForce />} />
           <Route path="/battlepass" element={<Battlepass />} />
           <Route path="/dailyquest" element={<DailyQuest />} />
+           <Route path="/phoenixEgg" element={<PhoenixEgg />} />
 
 
         </Routes>

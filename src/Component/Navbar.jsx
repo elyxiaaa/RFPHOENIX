@@ -9,10 +9,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from 'react-scroll'; 
 import { FaList } from "react-icons/fa";
 import Icon from '../assets/logo1.png'
+import { GiEggEye } from "react-icons/gi";
+
 
 function Navbar({ activeTab }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate(); // useNavigate hook for programmatic navigation
+
 
   const handleHomeClick = () => {
     navigate('/');
@@ -38,7 +41,10 @@ function Navbar({ activeTab }) {
     navigate('/rules');
     window.scrollTo(0, 0);
   };
-  
+  const handleEggClick = () => {
+    navigate('/phoenixEgg');
+    window.scrollTo(0, 0);
+  };
   const handleBattlepassClick = () => {
     navigate('/battlepass');
     window.scrollTo(0, 0);
@@ -64,14 +70,14 @@ function Navbar({ activeTab }) {
   };
 
   const handleCashShopClick = () => {
-    navigate('/donation');
+    navigate('/');
   
     setTimeout(() => {
       const cashShopLink = document.getElementById('cash-section');
       if (cashShopLink) {
         cashShopLink.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 500); // Delay to ensure the new page is fully loaded
+    }, 500); 
   };
 
   const handlePackageClick = () => {
@@ -95,73 +101,224 @@ function Navbar({ activeTab }) {
         activeTab === tabName ? "text-red-500" : "text-white";
 
   return (
-    <nav className="bg-black text-white px-6 py-8 sticky top-0 z-50">
-    <div className="container mx-auto flex justify-between items-center relative">
-      {/* Logo (Visible on large screens only) */}
-      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 hidden lg:block">
-        <Link to="/">
-          <img
-            src={Icon}
-            alt="Logo"
-            className="h-16 w-auto mt-3" // Adjust size as needed
-          />
-        </Link>
+<nav className="bg-black text-white sticky top-0 z-50">
+  <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4 flex items-center justify-between">
+
+    {/* LEFT — Logo */}
+    <Link to="/" className="flex items-center gap-2">
+      <img src={Icon} alt="Logo" className="h-12 lg:h-14 w-auto" />
+    </Link>
+
+    {/* CENTER — Desktop Navigation */}
+    <ul className="hidden xl:flex items-center gap-6 text-lg font-medium">
+
+     <li className="relative group">
+      <button
+        onClick={handleHomeClick}
+        className={`flex items-center gap-2 hover:text-red-500 ${getTextClass("home-section")}`}
+      >
+        <FaHome />
+        HOME
+      </button>
+
+      <span
+        className={`absolute left-0 top-8 inline-block transition-all duration-300 ${
+          activeTab === "home-section"
+            ? "w-full h-[2px] bg-red-500 shadow-[0px_0px_10px_2px_rgba(255,0,0,0.8)]"
+            : "w-0 h-[2px] bg-red-500 group-hover:w-full"
+        }`}
+      />
+    </li>
+
+      <li className="relative group">
+      <button
+        onClick={handleEggClick}
+        className={`flex items-center gap-2 hover:text-red-500 ${getTextClass("egg-section")}`}
+      >
+        <GiEggEye />
+        PHOENIX EGG
+      </button>
+
+      <span
+        className={`absolute left-0 top-8 inline-block transition-all duration-300 ${
+          activeTab === "egg-section"
+            ? "w-full h-[2px] bg-red-500 shadow-[0px_0px_10px_2px_rgba(255,0,0,0.8)]"
+            : "w-0 h-[2px] bg-red-500 group-hover:w-full"
+        }`}
+      />
+    </li>
+
+{/* GAME GUIDES */}
+<li className="relative group cursor-pointer">
+  <div
+    className={`flex items-center gap-1 hover:text-red-500 ${getTextClass("guide-section")}`}
+  >
+    GAME GUIDES <IoMdArrowDropdown />
+  </div>
+
+  {/* UNDERLINE */}
+  <span
+    className={`absolute left-0 top-8 inline-block transition-all duration-300 ${
+      activeTab === "guide-section"
+        ? "w-full h-[2px] bg-red-500 shadow-[0px_0px_10px_2px_rgba(255,0,0,0.8)]"
+        : "w-0 h-[2px] bg-red-500 group-hover:w-full"
+    }`}
+  />
+
+  {/* DROPDOWN */}
+  <ul className="absolute left-0 hidden group-hover:block bg-black border border-red-500 rounded shadow-lg w-52 p-2 z-20">
+    <li>
+      <button onClick={handleCombinationClick} className="p-2 hover:text-red-500 w-full text-left">
+        COMBINATION
+      </button>
+    </li>
+    <li>
+      <button className="p-2 hover:text-red-500 w-full text-left">
+        LOOT BOARD
+      </button>
+    </li>
+    <li>
+      <button className="p-2 hover:text-red-500 w-full text-left">
+        FARM SITES
+      </button>
+    </li>
+    <li>
+      <button onClick={handleDailyQuestClick} className="p-2 hover:text-red-500 w-full text-left">
+        QUESTS
+      </button>
+    </li>
+  </ul>
+</li>
+
+     <li className="relative group">
+      <button
+        onClick={handleRulesClick}
+        className={`flex items-center gap-2 hover:text-red-500 ${getTextClass("rule-section")}`}
+      >
+        <FaList />
+        SERVER RULES
+      </button>
+
+      <span
+        className={`absolute left-0 top-8 inline-block transition-all duration-300 ${
+          activeTab === "rule-section"
+            ? "w-full h-[2px] bg-red-500 shadow-[0px_0px_10px_2px_rgba(255,0,0,0.8)]"
+            : "w-0 h-[2px] bg-red-500 group-hover:w-full"
+        }`}
+      />
+    </li>
+
+      <li className="relative group">
+      <button
+        onClick={handleDonationClick}
+        className={`flex items-center gap-2 hover:text-red-500 ${getTextClass("donation-section")}`}
+      >
+        <FaDonate />
+        DONATION
+      </button>
+
+      <span
+        className={`absolute left-0 top-8 inline-block transition-all duration-300 ${
+          activeTab === "donation-section"
+            ? "w-full h-[2px] bg-red-500 shadow-[0px_0px_10px_2px_rgba(255,0,0,0.8)]"
+            : "w-0 h-[2px] bg-red-500 group-hover:w-full"
+        }`}
+      />
+    </li>
+    </ul>
+
+    {/* RIGHT — Desktop Dropdowns */}
+    <div className="hidden xl:flex items-center gap-3">
+
+      {/* GAMECP */}
+      <div className="dropdown dropdown-hover">
+        <button className="px-4 py-2 border border-red-500 rounded hover:bg-red-500 hover:text-black transition">
+          GAMECP
+        </button>
+        <ul className="dropdown-content menu p-2 bg-black border border-red-500 rounded shadow-lg">
+          <li>
+            <a href="https://rfapex.gamecp.net/register.php" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
+              REGISTRATION
+            </a>
+          </li>
+          <li>
+            <a href="https://rfapex.gamecp.net/index.php" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
+              LOGIN
+            </a>
+          </li>
+        </ul>
       </div>
 
-      {/* Navigation Links - Desktop Only */}
-      <div className="hidden lg:flex justify-center flex-1">
-        <ul className="flex gap-6 items-center text-lg font-medium">
-          {/* Home Button with React Scroll */}
-          <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
-            <button onClick={handleHomeClick} className="flex items-center">
-            <FaHome className={`mr-2 group-hover:text-red-500 ${getTextClass("home-section")}`} />
-              <span className={`group-hover:text-red-500 ${getTextClass("home-section")}`}>HOME</span>
-              <span className={getUnderlineClass("home-section")} />
-            </button>
+      {/* COMMUNITY */}
+      <div className="dropdown dropdown-hover">
+        <button className="px-4 py-2 border border-red-500 rounded hover:bg-red-500 hover:text-black transition">
+          COMMUNITY
+        </button>
+        <ul className="dropdown-content menu p-2 bg-black border border-red-500 rounded shadow-lg w-44">
+          <li>
+            <a href="https://discord.gg/qtFNVqFQb4" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
+              DISCORD
+            </a>
           </li>
-           {/* Leaderboards Button */}
-           <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
-              <ScrollLink
-                to="leaderboards-section" // This ID should match the section in your Home page
-                smooth={true} // Smooth scroll
-                duration={500} // Scroll duration in ms
-                offset={-200} // Adjust scroll offset
-                onClick={handleLeaderboardsClick} // Combine with handle click logic
-                className="flex items-center"
-              >
-                <FaRankingStar className={`mr-2 ${getTextClass("leaderboards-section")} group-hover:text-red-500`} />
-                <span className={`${getTextClass("leaderboards-section")} group-hover:text-red-500`}>LEADERBOARDS</span>
-                <span className={getUnderlineClass("leaderboards-section")} />
-              </ScrollLink>
-            </li>
+          <li>
+            <a href="https://www.facebook.com/rfonlinephoenix" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
+              FACEBOOK
+            </a>
+          </li>
+        </ul>
+      </div>
 
-             <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
-            <button onClick={handleCashShopClick} className="flex gap-2 items-center">
-            <FaDonate className={`${getTextClass("donation-section")} group-hover:text-red-500`} /> 
-              <span className={`${getTextClass("donation-section")} group-hover:text-red-500`}>CASH SHOP</span>
-                <span className={getUnderlineClass("donation-section")} />
-              </button>
-            </li>
+    </div>
+
+    {/* MOBILE MENU BUTTON */}
+    <button
+      className="xl:hidden text-white"
+      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+    >
+      ☰
+    </button>
+  </div>
+
+  {/* MOBILE DROPDOWN */}
+  {isMobileMenuOpen && (
+    <div className="xl:hidden bg-black border-t border-red-500 px-4 py-4 space-y-3">
+
+      <button onClick={handleHomeClick} className="block w-full text-left hover:text-red-500">HOME</button>
+      <button onClick={handleEggClick} className="block w-full text-left hover:text-red-500">PHOENIX EGG</button>
+      <button onClick={handleRulesClick} className="block w-full text-left hover:text-red-500">SERVER RULES</button>
+      <button onClick={handleDonationClick} className="block w-full text-left hover:text-red-500">DONATION</button>
 
 
-            {/* Game Guides Dropdown */}
-            <li className="relative cursor-pointer hover:text-red-500  group">
-              <div
-                tabIndex={0}
-                role="button"
-                className="flex items-center gap-2 text-white hover:text-red-500 cursor-pointer"
-              >
-                <span className={`${getTextClass("guide-section")} group-hover:text-red-500`}>GAME GUIDES</span>
-                                 <IoMdArrowDropdown className={`${getTextClass("guide-section")}`} /> 
-                <span className={getUnderlineClass("guide-section")} />
-              </div>
-              <ul
-                className="absolute left-0 hidden group-hover:block bg-black text-white rounded shadow-lg w-44 p-2 z-10"
-              >
-                <li className=" hover:text-red-500 p-2">
-                <button onClick={handleCombinationClick} >COMBINATION</button>
-                </li>
-                  {/**
+    <button onClick={handleCombinationClick} className="block w-full text-left hover:text-red-500">COMBINATION</button>
+      <button onClick={handleCombinationClick} className="block w-full text-left hover:text-red-500">LOOT BOARD</button>
+      <button onClick={handleCombinationClick} className="block w-full text-left hover:text-red-500">FARM SITES</button>
+      <button onClick={handleDailyQuestClick} className="block w-full text-left hover:text-red-500">QUESTS</button>
+
+
+      {/* COMMUNITY */}
+      <div className="pt-2 border-t border-red-500/30">
+        <p className="text-red-400 mb-2">COMMUNITY</p>
+        <a href="https://discord.gg/qtFNVqFQb4" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Discord</a>
+        <a href="https://www.facebook.com/rfonlinephoenix" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Facebook</a>
+      </div>
+
+      {/* GAMECP */}
+      <div className="pt-2 border-t border-red-500/30">
+        <p className="text-red-400 mb-2">GAMECP</p>
+        <a href="https://rfapex.gamecp.net/register.php" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Register</a>
+        <a href="https://rfapex.gamecp.net/index.php" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Login</a>
+      </div>
+    </div>
+  )}
+</nav>
+
+  );
+}
+
+export default Navbar;
+
+
+                 {/**
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleDropListClick} >DROPLIST</button>
                 </li>
@@ -170,99 +327,9 @@ function Navbar({ activeTab }) {
                 </li>
                 <li className=" hover:text-red-500 p-2">
                 <button onClick={handleDailyQuestClick} >DAILYQUEST</button>
-                </li> */}
-              </ul>
-            </li>
-            <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
-            <button onClick={handleRulesClick} className="flex gap-2 items-center">
-            <FaList className={`${getTextClass("rule-section")} group-hover:text-red-500`} /> 
-              <span className={`${getTextClass("rule-section")} group-hover:text-red-500`}>SERVER RULES</span>
-                <span className={getUnderlineClass("rule-section")} />
-              </button>
-            </li>
-    
-            
-          </ul>
-        </div>
-
-        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 hidden lg:block">
-  {/* DaisyUI Dropdown */}
-  <div className="dropdown dropdown-hover font-medium">
-    <button
-      className="px-4 py-2 bg-black text-white border border-red-500 rounded-md transition-all duration-300 hover:bg-red-500 hover:text-black shadow-lg"
-    >
-      GAMECP
-    </button>
-    <ul className="dropdown-content menu p-2 bg-black text-white border border-red-500 rounded-md shadow-lg">
-    <Link to="https://rfapex.gamecp.net/register.php">
-      <li>
-      <button className="block px-4 py-2 text-left hover:bg-red-500 transition duration-200">
-          REGISTRATION
-        </button>
-      </li>
-      </Link>
-      <Link to="https://rfapex.gamecp.net/index.php">
-      <li>
-        <button className="block px-4 py-2 text-left hover:bg-red-500 transition duration-200">
-          LOGIN
-        </button>
-      </li>
-      </Link>
-    </ul>
-  </div>
-</div>
-
-        {/* Mobile and Tablet Menu Button */}
-        <div className="lg:hidden flex items-center">
-          <button
-            className="text-white"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile and Tablet Menu Dropdown */}
-      {isMobileMenuOpen && (
-        <ul className="lg:hidden bg-black text-white font-COP1 mt-2 p-4 space-y-3 shadow-lg rounded">
-          {/* Home Button with React Scroll */}
-          <li className="flex items-center gap-2 cursor-pointer hover:text-red-500">
-          <button onClick={handleHomeClick} className="flex items-center">
-            <FaHome className={`mr-2 group-hover:text-red-500 ${getTextClass("home-section")}`} />
-              <span className={`group-hover:text-red-500 ${getTextClass("home-section")}`}>HOME</span>
-              
-            </button>
-          </li>
-
-           {/* Leaderboards Button */}
-           <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
-              <ScrollLink
-                to="leaderboards-section" // This ID should match the section in your Home page
-                smooth={true} // Smooth scroll
-                duration={500} // Scroll duration in ms
-                offset={-200} // Adjust scroll offset
-                onClick={handleLeaderboardsClick} // Combine with handle click logic
-                className="flex items-center"
-              >
-                <FaRankingStar className={`mr-2 ${getTextClass("leaderboards-section")} group-hover:text-red-500`} />
-                <span className={`${getTextClass("leaderboards-section")} group-hover:text-red-500`}>LEADERBOARDS</span>
-              </ScrollLink>
-            </li>
-
+                </li>
+                 */}
+                 
 {/* Apex Set 
 <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
   <button
@@ -289,71 +356,4 @@ function Navbar({ activeTab }) {
       PACKAGE
     </span>
   </ScrollLink>
-</li>
-
-
-   {/* Cash Shop */}
-<li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
-  <ScrollLink
-    to="cash-section" // Scroll target ID
-    smooth={true} // Enable smooth scrolling
-    duration={500} // Scroll duration
-    offset={-200} // Adjust scroll offset
-    className="flex gap-2 items-center"
-  >
-    <FaDonate className={`${getTextClass("cash-shop-section")} group-hover:text-red-500`} />
-    <span className={`${getTextClass("cash-shop-section")} group-hover:text-red-500`}>
-      CASH SHOP
-    </span>
-  </ScrollLink>
-</li>
-
-<li className="flex items-center gap-2 cursor-pointer hover:text-red-500">
-          <button onClick={handleBattlepassClick} className="flex items-center">
-            <FaDonate className={`mr-2 group-hover:text-red-500 ${getTextClass("battlepass-section")}`} />
-              <span className={`group-hover:text-red-500 ${getTextClass("battlepass-section")}`}>BATTLEPASS</span>
-              
-            </button>
-          </li>
-
-        
-            <li className="relative cursor-pointer hover:text-red-500  group">
-              <div
-                tabIndex={0}
-                role="button"
-                className="flex items-center gap-2 text-white hover:text-red-500 cursor-pointer"
-              >
-                <span className={`${getTextClass("guide-section")} group-hover:text-red-500`}>GAME GUIDES</span>
-                                 <IoMdArrowDropdown className={`${getTextClass("guide-section")}`} /> 
-              </div>
-              <ul className="bg-black ml-6 mt-1 space-y-1">
-                <li className=" hover:text-red-500 p-2">
-                <button onClick={handleCombinationClick} >COMBINATION</button>
-                </li>
-                 {/**
-                <li className=" hover:text-red-500 p-2">
-                <button onClick={handleDropListClick} >DROPLIST</button>
-                </li>
-                <li className=" hover:text-red-500 p-2">
-                <button onClick={handleFarmSiteClick} >FARM SITES</button>
-                </li>
-                <li className=" hover:text-red-500 p-2">
-                <button onClick={handleDailyQuestClick} >DAILYQUEST</button>
-                </li>
-                 */}
-              </ul>
-            </li>
-            <li className="relative flex items-center gap-2 cursor-pointer hover:text-red-500 group">
-              <button onClick={handleRulesClick} className="flex gap-2 items-center">
-              <FaList className={`${getTextClass("rule-section")} group-hover:text-red-500`} /> 
-                <span className={`${getTextClass("rule-section")} group-hover:text-red-500`}>SERVER RULES</span>
-                  <span className={getUnderlineClass("rule-section")} />
-                </button>
-            </li>
-        </ul>
-      )}
-    </nav>
-  );
-}
-
-export default Navbar;
+</li>*/}

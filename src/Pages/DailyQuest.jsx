@@ -1,278 +1,296 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import { useLocation } from 'react-router-dom';
-import Navbar from '../Component/Navbar';
-import Footer from '../Component/Footer';
-import Sette from '../assets/FARM/Sette.jpg'
-import VCQuest from '../assets/FARM/VCQuest.jpg'
-import MagnetQuest from '../assets/FARM/MagnetQuest.jpg'
-import WeeklyQuest from '../assets/FARM/WeeklyQuest.jpg'
-import BaalQuest from '../assets/FARM/BaalQuest.jpg'
+import React, { useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
+import Navbar from "../Component/Navbar";
+import Footer from "../Component/Footer";
+
+import VCQuest from "../assets/FARM/VCQuest.jpg";
+import MagnetQuest from "../assets/FARM/MagnetQuest.jpg";
+import WeeklyQuest from "../assets/FARM/WeeklyQuest.jpg";
+import BaalQuest from "../assets/FARM/BaalQuest.jpg";
 
 function DailyQuest() {
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState('guide-section'); // Default to 'home-section'
+  const [activeTab, setActiveTab] = useState("guide-section");
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [openDropdown2, setOpenDropdown2] = useState(null);
 
   const dropdownRef = useRef(null);
-  const dropdownRef2 = useRef(null);
 
-  // Function to toggle dropdown and scroll to it
   const toggleDropdown = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
     if (dropdownRef.current && openDropdown !== index) {
-      dropdownRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      dropdownRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  const toggleDropdown2 = (index) => {
-    setOpenDropdown2(openDropdown2 === index ? null : index);
-    if (dropdownRef2.current && openDropdown2 !== index) {
-      dropdownRef2.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
+  /* ================= AAA PANEL ================= */
+  const Panel = ({ children, className = "" }) => (
+    <div
+      className={`rounded-2xl bg-black/60 backdrop-blur-xl border border-red-500/30
+      shadow-[0_0_45px_rgba(255,60,0,0.25)] hover:shadow-[0_0_70px_rgba(255,120,0,0.45)]
+      transition-all duration-500 ${className}`}
+    >
+      {children}
+    </div>
+  );
 
+  /* ================= AAA DROPDOWN ================= */
+  const Dropdown = ({ data, open, toggle, refProp }) => (
+    <div ref={refProp} className="space-y-4">
+      {data.map((item, index) => {
+        const isOpen = open === index;
+
+        return (
+          <Panel key={index}>
+            <button
+              onClick={() => toggle(index)}
+              className="w-full flex justify-between items-center px-6 py-4
+              text-left hover:bg-red-950/40 transition-all duration-300"
+            >
+              <span className="font-semibold bg-gradient-to-r from-red-400 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
+                {item.title}
+              </span>
+
+              <span
+                className={`text-orange-300 transition-transform duration-300 ${
+                  isOpen ? "rotate-180" : ""
+                }`}
+              >
+                ▼
+              </span>
+            </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-500 ${
+                isOpen ? "max-h-[900px] opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="px-6 pb-6">{item.content}</div>
+            </div>
+          </Panel>
+        );
+      })}
+    </div>
+  );
+
+  /* ================= QUEST DATA ================= */
   const dropdownData = [
     {
-        title: "LOOT MAGNET QUEST",
-        content: (
-          <div className="font-COP1 flex flex-col md:flex-row items-start md:items-start">
-            {/* Text Content - Left Aligned */}
-            <div className="md:w-1/2 w-full text-white text-left">
-              <p className="text-gray-200 mb-4">
-                <strong>Claim at <span className="text-red-500">Server Quest NPC</span></strong>
-              </p>
-              <ul className="text-gray-300 mb-4">
-                <li>Quest Type: <span className="text-yellow-500">Solo</span></li>
-                <li>Quest Cooldown: <span className="text-yellow-500">24 Hrs</span></li>
-              </ul>
-      
-              <h3 className="text-green-500 font-bold text-lg mt-4">Progress:</h3>
-              <ul className="text-gray-300 mb-4">
-                <li>Hunt 100 Caliana Atrock</li>
-                <li>Hunt 100 Caliana Crew</li>
-              </ul>
-      
-              <h3 className="text-blue-400 font-bold text-lg mt-4">Rewards:</h3>
-              <ul className="list-disc list-inside text-gray-300">
-                <li>PvP Point 3,000</li>
-                <li>Loot Magnet [12h]</li>
-              </ul>
-            </div>
-            <img
-              src={MagnetQuest}
-              alt="Sette Guide"
-              className="md:w-1/2 w-full h-auto rounded-lg border border-gray-600 shadow-lg ml-0 md:ml-8 mt-4 md:mt-0 cursor-pointer"
-              onClick={()=>document.getElementById('magnet_modal').showModal()}
-            />
-          </div>
-        ),
-      }, 
-      {
-        title: "CAPTURING THE BAAL INVASION",
-        content: (
-          <div className="font-COP1 flex flex-col md:flex-row items-start md:items-start">
-            {/* Text Content - Left Aligned */}
-            <div className="md:w-1/2 w-full text-white text-left">
-              <p className="text-gray-200 mb-4">
-                <strong>Claim at <span className="text-red-500">Server Quest NPC</span></strong>
-              </p>
-              <ul className="text-gray-300 mb-4">
-                <li>Quest Type: <span className="text-yellow-500">Party</span></li>
-                <li>Quest Cooldown: <span className="text-yellow-500">24 Hrs</span></li>
-              </ul>
-      
-              <h3 className="text-green-500 font-bold text-lg mt-4">Progress:</h3>
-              <ul className="text-gray-300 mb-4">
-                <li>Hunt 350 Baal Hamon</li>
-                <li>Hunt 1 Baal Hamon[D Boss]</li>
-              </ul>
-      
-              <h3 className="text-blue-400 font-bold text-lg mt-4">Rewards:</h3>
-              <ul className="list-disc list-inside text-gray-300">
-                <li>PvP Point 5,000</li>
-                <li>Apex Weapon / Armor Gamble Box</li>
-                <li>Guild Honor Points +100</li>
-              </ul>
-            </div>
-            <img
-              src={BaalQuest}
-              alt="Sette Guide"
-              className="md:w-1/2 w-full h-auto rounded-lg border border-gray-600 shadow-lg ml-0 md:ml-8 mt-4 md:mt-0 cursor-pointer"
-              onClick={()=>document.getElementById('baal_modal').showModal()}
-            />
-          </div>
-        ),
-      }, 
-      {
-        title: "CLEARING THE LAND OF CAULDRON",
-        content: (
-          <div className="font-COP1 flex flex-col md:flex-row items-start md:items-start">
-            {/* Text Content - Left Aligned */}
-            <div className="md:w-1/2 w-full text-white text-left">
-              <p className="text-gray-200 mb-4">
-                <strong>Claim at <span className="text-red-500">Server Quest NPC</span></strong>
-              </p>
-              <ul className="text-gray-300 mb-4">
-                <li>Quest Type: <span className="text-yellow-500">Solo</span></li>
-                <li>Quest Cooldown: <span className="text-yellow-500">24 Hrs</span></li>
-              </ul>
-      
-              <h3 className="text-green-500 font-bold text-lg mt-4">Progress:</h3>
-              <ul className="text-gray-300 mb-4">
-                <li>Hunt 75 Hum Baba</li>
-                <li>Hunt 75 Giant Baba</li>
-                <li>Hunt 100 Hellar Wing Guard</li>
-              </ul>
-      
-              <h3 className="text-blue-400 font-bold text-lg mt-4">Rewards:</h3>
-              <ul className="list-disc list-inside text-gray-300">
-                <li>Guild Honor Points +100</li>
-              </ul>
-            </div>
-            <img
-              src={VCQuest}
-              alt="Sette Guide"
-              className="md:w-1/2 w-full h-auto rounded-lg border border-gray-600 shadow-lg ml-0 md:ml-8 mt-4 md:mt-0 cursor-pointer"
-              onClick={()=>document.getElementById('vc_modal').showModal()}
-            />
-          </div>
-        ),
-      }, 
-      {
-        title: "APEX WEEKLY QUEST",
-        content: (
-          <div className="font-COP1 flex flex-col md:flex-row items-start md:items-start">
-            {/* Text Content - Left Aligned */}
-            <div className="md:w-1/2 w-full text-white text-left">
-              <p className="text-gray-200 mb-4">
-                <strong>Buy Quest ticket at <span className="text-red-500">Ether Weekly Quest NPC</span></strong>
-              </p>
-              <ul className="text-gray-300 mb-4">
-                <li>Quest Type: <span className="text-yellow-500">Party</span></li>
-                <li>Quest Cooldown: <span className="text-yellow-500">Weekly</span></li>
-              </ul>
-      
-              <h3 className="text-green-500 font-bold text-lg mt-4">Progress:</h3>
-              <ul className="text-gray-300 mb-4">
-                <li>Hunt 500 Passer Beta</li>
-                <li>Hunt 500 Hobo Blade</li>
-                <li>Hunt 500 Hobo Rover</li>
-              </ul>
-      
-              <h3 className="text-blue-400 font-bold text-lg mt-4">Rewards:</h3>
-              <ul className="list-disc list-inside text-gray-300">
-                <li>Epic Weapon/Armor/Material Enhancer</li>
-                <li>Guild Honor Points +150</li>
-              </ul>
-            </div>
-            <img
-              src={WeeklyQuest}
-              alt="Sette Guide"
-              className="md:w-1/2 w-full h-auto rounded-lg border border-gray-600 shadow-lg ml-0 md:ml-8 mt-4 md:mt-0 cursor-pointer"
-              onClick={()=>document.getElementById('weekly_modal').showModal()}
-            />
-          </div>
-        ),
-      }, 
+      title: "CLEANSING SETTE DESERT I",
+      content: (
+        <QuestContent
+          img={MagnetQuest}
+          progress={[<>Hunt 100 Bellato Guard <span className="text-yellow-500">(Accretia Aim)</span> </>,
+             <>Hunt 100 Accretia Guard <span className="text-yellow-500">(Bellato Aim)</span></>,
+             <>Hunt 100 Accretia Guard <span className="text-yellow-500">(Cora Aim)</span></>,
+             <>Deliver Daily Quest Ticket</>
+            ]}
+          rewards={[<>Phoenix Blessing <span className="text-yellow-500">(Atk [1Day] )</span></>, <>25 Quest Points</>]}
+          type="Party"
+          cooldown="24 Hrs"
+          modal="magnet_modal"
+        />
+      ),
+    },
+    {
+      title: "CLEANSING SETTE DESERT II",
+      content: (
+        <QuestContent
+          img={MagnetQuest}
+          progress={[<>Hunt 100 Cora Guard <span className="text-yellow-500">(Accretia Aim)</span> </>,
+             <>Hunt 100 Cora Guard <span className="text-yellow-500">(Bellato Aim)</span></>,
+             <>Hunt 100 Bellato Guard <span className="text-yellow-500">(Cora Aim)</span></>,
+             <>Deliver Daily Quest Ticket</>
+            ]}
+          rewards={[<>Phoenix Blessing <span className="text-yellow-500">(Def [1Day] )</span></>, <>25 Quest Points</>]}
+          type="Party"
+          cooldown="24 Hrs"
+          modal="magnet_modal"
+        />
+      ),
+    },
+    {
+      title: "LOOT MAGNET QUEST",
+      content: (
+        <QuestContent
+          img={MagnetQuest}
+          progress={[<>Hunt 100 Caliana Atrock  </>,
+                    <>Hunt 100 Caliana Crew  </>,
+                    <>Deliver Daily Quest Ticket</>
+            ]}
+          rewards={[<>Phoenix Blessing <span className="text-yellow-500">(Def [1Day] )</span></>, <>25 Quest Points</>]}
+          type="Party"
+          cooldown="4 Hrs"
+          modal="magnet_modal"
+        />
+      ),
+    },
+    {
+      title: "QUEST MASTER I",
+      content: (
+        <QuestContent
+          img={MagnetQuest}
+          progress={[<>Hunt Rock Jaw </>,
+                    <>Hunt Taravern </>,
+                    <>Deliver Quest Master Ticket</>
+            ]}
+          rewards={[<>Quest Master I</>, <>100 Quest Points</>]}
+          type="Party"
+          cooldown="12 Days"
+          modal="magnet_modal"
+        />
+      ),
+    },
+    {
+      title: "QUEST MASTER II",
+      content: (
+        <QuestContent
+          img={MagnetQuest}
+          progress={[<>Hunt Blink </>,
+                    <>Hunt Caliana Queen </>,
+                     <>Deliver Quest Master I</>
+            ]}
+          rewards={[<>Quest Master II</>, <>100 Quest Points</>]}
+          type="Party"
+          cooldown="12 Days"
+          modal="magnet_modal"
+        />
+      ),
+    },
+    {
+      title: "QUEST MASTER III",
+      content: (
+        <QuestContent
+          img={MagnetQuest}
+          progress={[<>Hunt Soul Sinder </>,
+                    <>Hunt Dagon </>,
+                     <>Deliver Quest Master II</>
+            ]}
+          rewards={[<>Quest Master III</>, <>100 Quest Points</>]}
+          type="Party"
+          cooldown="12 Days"
+          modal="magnet_modal"
+        />
+      ),
+    },
+     {
+      title: "QUEST MASTER IV",
+      content: (
+        <QuestContent
+          img={MagnetQuest}
+          progress={[<>Hunt Dagan </>,
+                    <>Hunt Dagnue </>,
+                    <>Deliver Quest Master III</>
+            ]}
+          rewards={[<>Quest Master Blade</>,
+                    <>Phoenix Blessing <span className="text-yellow-500">(Atk) [14Day]</span></>,
+                    <>Phoenix Blessing <span className="text-yellow-500">(Def) [14Day]</span></>, 
+                    <>Infinity Burst Potion</>,
+                    <>100 Quest Points</>]}
+          type="Party"
+          cooldown="12 Days"
+          modal="magnet_modal"
+        />
+      ),
+    },
   ];
 
+  /* ================= RENDER ================= */
   return (
     <>
       <Navbar activeTab={activeTab} />
+
       <div
         id="guide-section"
-        className="w-full min-h-screen bg-BG1 bg-cover bg-center relative"
-        style={{ position: 'relative', backgroundAttachment: 'fixed' }} // Fixed background to prevent scrolling
+        className="relative w-full min-h-screen bg-BG1 bg-cover bg-center overflow-hidden"
       >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-90"></div>
+        {/* Cinematic gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-red-950/90 to-black" />
 
-         {/* Farmsite Guide Section */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-COP1 mb-10 text-white text-shadow-red-glow drop-shadow-md">
-          DAILY QUESTS
-        </h1>
+        {/* Radial glow */}
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top,rgba(255,80,0,0.25),transparent_60%)]" />
 
-        <div 
-          id={dropdownRef}
-          className="w-full max-w-4xl bg-gray-900 bg-opacity-90 rounded-lg p-6 shadow-xl space-y-4"
-        >
-          {dropdownData.map((item, index) => (
-            <div key={index} className="border border-red-500 rounded-lg bg-gray-800 bg-opacity-80">
-              <div
-                className="flex justify-between items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors cursor-pointer"
-                onClick={() => toggleDropdown(index)}
-              >
-                <h2 className="text-lg font-semibold text-red-400 font-COP1">{item.title}</h2>
-                <span className="text-red-400">
-                  {openDropdown === index ? "▲" : "▼"}
-                </span>
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 space-y-16 text-white">
+          <h1 className="text-5xl font-COP1 md:text-6xl font-extrabold text-center
+          bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+          bg-clip-text text-transparent
+          drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]">
+            DAILY QUESTS
+          </h1>
 
-              {/* Smooth transition for dropdown content */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  openDropdown === index ? "max-h-[1000px]" : "max-h-0"
-                }`}
-              >
-                {openDropdown === index && (
-                  <div className="p-4 bg-gray-800 rounded-b-lg shadow-inner font-COP1">
-                    {item.content}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
+          <Panel className="p-8">
+            <Dropdown
+              data={dropdownData}
+              open={openDropdown}
+              toggle={toggleDropdown}
+            />
+          </Panel>
         </div>
       </div>
-      </div>
+
       <Footer />
 
-                     <dialog id="magnet_modal" className="modal">
-                          <div className="modal-box w-full h-full max-w-[1600px] bg-transparent">
-                            <img src={MagnetQuest} className="w-full h-full object-cover  rounded-lg" />
-                              </div>
-                            <form method="dialog" className="modal-backdrop">
-                          <button>close</button>
-                        </form>
-                      </dialog>
-
-                      <dialog id="baal_modal" className="modal">
-                          <div className="modal-box w-full h-full max-w-[1600px] bg-transparent">
-                            <img src={BaalQuest} className="w-full h-full object-cover  rounded-lg" />
-                              </div>
-                            <form method="dialog" className="modal-backdrop">
-                          <button>close</button>
-                        </form>
-                      </dialog>
-
-                      <dialog id="weekly_modal" className="modal">
-                          <div className="modal-box w-full h-full max-w-[1600px] bg-transparent">
-                            <img src={WeeklyQuest} className="w-full h-full object-cover  rounded-lg" />
-                              </div>
-                            <form method="dialog" className="modal-backdrop">
-                          <button>close</button>
-                        </form>
-                      </dialog>
-
-                      <dialog id="vc_modal" className="modal">
-                          <div className="modal-box w-full h-full max-w-[1600px] bg-transparent">
-                            <img src={VCQuest} className="w-full h-full object-cover rounded-lg"/>
-                              </div>
-                            <form method="dialog" className="modal-backdrop">
-                          <button>close</button>
-                        </form>
-                      </dialog>
+      {/* MODALS */}
+      {["magnet", "baal", "weekly", "vc"].map((id) => (
+        <dialog key={id} id={`${id}_modal`} className="modal">
+          <div className="modal-box w-full h-full max-w-[1600px] bg-transparent">
+            <img
+              src={
+                id === "magnet"
+                  ? MagnetQuest
+                  : id === "baal"
+                  ? BaalQuest
+                  : id === "weekly"
+                  ? WeeklyQuest
+                  : VCQuest
+              }
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      ))}
     </>
   );
 }
+
+/* ================= QUEST CONTENT COMPONENT ================= */
+const QuestContent = ({ img, progress, rewards, type, cooldown, modal }) => (
+  <div className="flex flex-col md:flex-row items-start">
+    <div className="md:w-1/2 w-full text-gray-200">
+      <p className="mb-4">
+        <strong>
+          Claim at <span className="text-red-500">Server Quest NPC</span>
+        </strong>
+      </p>
+
+      <ul className="mb-4">
+        <li>
+          Quest Type: <span className="text-yellow-400">{type}</span>
+        </li>
+        <li>
+          Quest Cooldown: <span className="text-yellow-400">{cooldown}</span>
+        </li>
+      </ul>
+
+      <h3 className="text-orange-400 font-bold mt-4">Progress:</h3>
+      <ul className="mb-4">{progress.map((p, i) => <li key={i}>{p}</li>)}</ul>
+
+      <h3 className="text-orange-400 font-bold mt-4">Rewards:</h3>
+      <ul className="list-disc list-inside">
+        {rewards.map((r, i) => (
+          <li key={i}>{r}</li>
+        ))}
+      </ul>
+    </div>
+
+    <img
+      src={img}
+      className="md:w-1/2 w-full rounded-lg border border-gray-700 shadow-lg ml-0 md:ml-8 mt-6 md:mt-0 cursor-pointer"
+      onClick={() => document.getElementById(modal).showModal()}
+    />
+  </div>
+);
 
 export default DailyQuest;
