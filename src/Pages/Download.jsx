@@ -49,7 +49,8 @@ function Download() {
               label: 'MEGA',
               icon: <SiMega className="text-3xl" />,
             }].map((btn, i) => (
-              <a key={i} href={btn.href}>
+              <a key={i} href={btn.href}
+              target="_blank" rel="noopener noreferrer">
                 <button className="
                   flex items-center gap-3
                   text-lg md:text-xl text-black font-bold
@@ -60,7 +61,8 @@ function Download() {
                   hover:shadow-[0_0_40px_rgba(255,120,0,1)]
                   transform hover:scale-105
                   transition-all duration-300
-                ">
+                "
+                 >
                   DOWNLOAD {btn.label}
                   {btn.icon}
                 </button>
