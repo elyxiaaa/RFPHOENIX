@@ -1,173 +1,169 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import React, { useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../Component/Navbar';
 import Footer from '../Component/Footer';
-import Sette from '../assets/FARM/Sette.jpg'
-import Ether from '../assets/FARM/Ether.jpg'
-import Elan from '../assets/FARM/Elan.jpg'
-import Cauldron from '../assets/FARM/Cauldron.jpg'
+import Sette from '../assets/FARM/Sette.jpg';
+import Ether from '../assets/FARM/Ether.jpg';
+import Elan from '../assets/FARM/Elan.jpg';
+import Cauldron from '../assets/FARM/Cauldron.jpg';
 
 function Farmsite() {
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState('guide-section'); // Default to 'home-section'
+
+  const [activeTab, setActiveTab] = useState('guide-section');
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [openDropdown2, setOpenDropdown2] = useState(null);
 
   const dropdownRef = useRef(null);
-  const dropdownRef2 = useRef(null);
 
-  // Function to toggle dropdown and scroll to it
   const toggleDropdown = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
     if (dropdownRef.current && openDropdown !== index) {
-      dropdownRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
-  const toggleDropdown2 = (index) => {
-    setOpenDropdown2(openDropdown2 === index ? null : index);
-    if (dropdownRef2.current && openDropdown2 !== index) {
-      dropdownRef2.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      dropdownRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   const dropdownData = [
     {
-      title: 'SETTE DESERT',
+      title: 'RACE HEADQUARTERS',
       content: (
-        <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-xl mb-2">Mini Bellato / Cora / Accretia Warrior</h3>
-          <p className="text-gray-200 mb-4">
-            <ul className="list-disc list-inside">
-              <li>Gold Capsule+25</li>
-            </ul>
-          </p>
-          <img
-            src={Sette}
-            alt="Sette Guide"
-            className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-          />
+        <div className="space-y-4 font-Bai text-gray-200">
+          <h3 className="text-red-500 font-bold text-xl">Flymm</h3>
+          <ul className="list-disc list-inside">
+            <li>Wind Elven Blade</li>
+          </ul>
         </div>
       ),
     },
     {
       title: 'ETHER OF HEAVEN',
       content: (
-        <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-xl mb-2">Caliana Atrock / Caliana Crew / Assassin BuilderB / Calliana Archer</h3>
-          <p className="text-gray-200 mb-4">
-            <ul className="list-disc list-inside">
-              <li>Beam</li>
-            </ul>
-          </p>
-          <img
-            src={Ether}
-            alt="Ether Guide"
-            className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-          />
+        <div className="space-y-4 font-Bai text-gray-200">
+          <h3 className="text-red-500 font-bold text-xl">Caliana Atrock / Caliana Crew / Assassin BuilderB / Calliana Archer</h3>
+          <ul className="list-disc list-inside">
+            <li>Beam [HIGH]</li>
+            <li>Gli [HIGH]</li>
+          </ul>
+
+           <h3 className="text-red-500 font-bold text-xl">Hobo Rover / Hobo Blade / Passer Beta</h3>
+          <ul className="list-disc list-inside">
+            <li>Beam [LOW]</li>
+          </ul>
+          <img src={Ether} alt="Ether Guide" className="w-full rounded-xl border border-red-500/40 shadow-lg" />
         </div>
       ),
     },
     {
-      title: 'ELAN PLATEU',
+      title: 'SETTE DESERT',
       content: (
-        <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-xl mb-2">TURNCOAT 1 / TURNCOAT 2 / TURNCOAT 3 </h3>
-          <p className="text-gray-200 mb-4">
-            <ul className="list-disc list-inside">
-              <li>Strong Armor Ability</li>
-              <li>Strength Armor Ability</li>
-              <li>Sharp Armor Ability</li>
-              <li>Strong Ability Reaver</li>
-              <li>Protection Ability Reaver</li>
-              <li>Anti-Sharp Ability Reaver</li>
-            </ul>
-          </p>
-          <img
-            src={Elan}
-            alt="Elan Guide"
-            className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-          />
+        <div className="space-y-4 font-Bai text-gray-200">
+          <h3 className="text-red-500 font-bold text-xl">Bellato Guard / Accretia Guard / Cora Guard</h3>
+          <ul className="list-disc list-inside">
+            <li>T2 Gems</li>
+          </ul>
+          <img src={Sette} alt="Elan Guide" className="w-full rounded-xl border border-red-500/40 shadow-lg" />
         </div>
       ),
     },
     {
-      title: 'VOLCANIC CAULDRON',
+      title: 'CRAG MINE FIELD',
       content: (
-        <div className="font-COP1">
-          <h3 className="text-red-500 font-bold text-xl mb-2"> Hellar Wing Guard </h3>
-          <p className="text-gray-200 mb-4">
-            <ul className="list-disc list-inside">
-              <li>Namestice Stone</li>
-              <li>Azure Stone</li>
-            </ul>
-          </p>
-          <img
-            src={Cauldron}
-            alt="Elan Guide"
-            className="w-full h-auto rounded-lg border border-gray-600 shadow-lg"
-          />
+        <div className="space-y-4 font-Bai text-gray-200">
+          <h3 className="text-red-500 font-bold text-xl">RACE CONTROLLER DEVICE</h3>
+          <ul className="list-disc list-inside">
+            <li>Shiny Gold Box</li>
+            <li>Gold Bar</li>
+            <li>Mid Elems</li>
+          </ul>
+
         </div>
       ),
     },
   ];
 
+  const Panel = ({ children, className = '' }) => (
+    <div
+      className={`rounded-2xl bg-black/60 backdrop-blur-xl border border-red-500/30
+      shadow-[0_0_45px_rgba(255,60,0,0.25)] hover:shadow-[0_0_70px_rgba(255,120,0,0.45)]
+      transition-all duration-500 ${className}`}
+    >
+      {children}
+    </div>
+  );
+
+  const Dropdown = ({ data, open, toggle, refProp }) => (
+    <div ref={refProp} className="space-y-4">
+      {data.map((item, index) => {
+        const isOpen = open === index;
+        return (
+          <Panel key={index}>
+            <button
+              onClick={() => toggle(index)}
+              className="w-full flex justify-between items-center px-6 py-4
+              text-left hover:bg-red-950/40 transition-all duration-300"
+            >
+              <span className="font-semibold bg-gradient-to-r from-red-400 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
+                {item.title}
+              </span>
+
+              <span
+                className={`text-orange-300 transition-transform duration-300 ${
+                  isOpen ? 'rotate-180' : ''
+                }`}
+              >
+                ▼
+              </span>
+            </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-500 ${
+                isOpen ? 'max-h-[900px] opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="px-6 pb-6">{item.content}</div>
+            </div>
+          </Panel>
+        );
+      })}
+    </div>
+  );
+
   return (
     <>
       <Navbar activeTab={activeTab} />
+
       <div
         id="guide-section"
-        className="w-full min-h-screen bg-BG1 bg-cover bg-center relative"
-        style={{ position: 'relative', backgroundAttachment: 'fixed' }} // Fixed background to prevent scrolling
+        className="relative w-full min-h-screen bg-BG1 bg-cover bg-center overflow-hidden"
       >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-90"></div>
+        {/* Cinematic gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-red-950/90 to-black" />
 
-        {/* Farmsite Guide Section */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4 py-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold font-COP1 mb-10 text-white text-shadow-red-glow drop-shadow-md">
+        {/* Radial fire glow */}
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top,rgba(255,80,0,0.25),transparent_60%)]" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 space-y-16 text-white">
+          {/* Title */}
+          <h1
+            className="text-5xl font-COP1 md:text-6xl font-extrabold text-center
+          bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+          bg-clip-text text-transparent
+          drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]"
+          >
             FARMSITES
           </h1>
 
-          <div 
-          id={dropdownRef}
-          className="w-full max-w-4xl bg-gray-900 bg-opacity-90 rounded-lg p-6 shadow-xl space-y-4">
-            {dropdownData.map((item, index) => (
-              <div key={index} className="border border-red-500 rounded-lg bg-gray-800 bg-opacity-80">
-                <div
-                  className="flex justify-between items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors cursor-pointer"
-                  onClick={() => toggleDropdown(index)}
-                >
-                  <h2 className="text-lg font-semibold text-red-400 font-COP1">{item.title}</h2>
-                  <span className="text-red-400">
-                    {openDropdown === index ? "▲" : "▼"}
-                  </span>
-                </div>
-
-                {/* Smooth transition for dropdown content */}
-                <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    openDropdown === index ? "max-h-[1000px]" : "max-h-0"
-                  }`}
-                >
-                  {openDropdown === index && (
-                    <div className="p-4 bg-gray-800 rounded-b-lg shadow-inner font-COP1">
-                      {item.content}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Dropdown Section */}
+          <Panel className="p-8">
+            <Dropdown
+              data={dropdownData}
+              open={openDropdown}
+              toggle={toggleDropdown}
+              refProp={dropdownRef}
+            />
+          </Panel>
         </div>
       </div>
+
       <Footer />
     </>
   );

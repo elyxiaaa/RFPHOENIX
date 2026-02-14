@@ -173,12 +173,12 @@ function Navbar({ activeTab }) {
       </button>
     </li>
     <li>
-      <button className="p-2 hover:text-red-500 w-full text-left">
+      <button onClick={handleDropListClick} className="p-2 hover:text-red-500 w-full text-left">
         LOOT BOARD
       </button>
     </li>
     <li>
-      <button className="p-2 hover:text-red-500 w-full text-left">
+      <button onClick={handleFarmSiteClick} className="p-2 hover:text-red-500 w-full text-left">
         FARM SITES
       </button>
     </li>
@@ -290,8 +290,8 @@ function Navbar({ activeTab }) {
 
 
     <button onClick={handleCombinationClick} className="block w-full text-left hover:text-red-500">COMBINATION</button>
-      <button onClick={handleCombinationClick} className="block w-full text-left hover:text-red-500">LOOT BOARD</button>
-      <button onClick={handleCombinationClick} className="block w-full text-left hover:text-red-500">FARM SITES</button>
+      <button onClick={handleDropListClick} className="block w-full text-left hover:text-red-500">LOOT BOARD</button>
+      <button onClick={handleFarmSiteClick} className="block w-full text-left hover:text-red-500">FARM SITES</button>
       <button onClick={handleDailyQuestClick} className="block w-full text-left hover:text-red-500">QUESTS</button>
 
 

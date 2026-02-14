@@ -46,6 +46,25 @@ function Combination() {
         </div>
       ),
     },
+    {
+      title: "SEAL OF PHOENIX",
+      content: (
+        <div className="space-y-3 font-Bai text-gray-200">
+          <p className="text-lg font-semibold text-orange-300">Material</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Feathers of the Lost Phoenix</li>
+            <li>Energizer</li>
+            <li className="text-red-400">Chance: 20%</li>
+            <li className="text-red-400">Fee: 100m Race Currency</li>
+          </ul>
+
+          <p className="text-lg font-semibold text-orange-300 pt-2">Result</p>
+          <ul className="list-disc list-inside">
+            <li>Seal of Phoenix</li>
+          </ul>
+        </div>
+      ),
+    },
   ];
 
   const dropdownData2 = [
