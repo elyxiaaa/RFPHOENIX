@@ -42,14 +42,24 @@ createTheme('dark', {
 });
 
 
-import TalkJade30 from '../assets/CASH/TalkJade30.jpg'
+import AccuracyPotion from '../assets/CASH/AccuracyPotion.png'
+import AtkBlessing from '../assets/CASH/AtkBlessing.png'
+import BuildUpPotion from '../assets/CASH/BuildUpPotion.png'
+import BurstPotion from '../assets/CASH/BurstPotion.png'
+import CashPoint from '../assets/CASH/CashPoint.png'
+import CriticalPotion from '../assets/CASH/CriticalPotion.png'
+import CurePotion from '../assets/CASH/CurePotion.png'
+import DefBlessing from '../assets/CASH/DefBlessing.png'
+import DefPotion from '../assets/CASH/DefPotion.png'
+import FPPotion from '../assets/CASH/FPPotion.png'
+import HPPotion from '../assets/CASH/HPPotion.png'
+import LegacyBlade from '../assets/CASH/LegacyBlade.png'
 import Magnet from '../assets/CASH/Magnet.jpg'
-import AttackAccuracy from '../assets/CASH/AttackAccuracy.jpg'
-import AttackAvoid from '../assets/CASH/AttackAvoid.jpg'
-import AttackDefense from '../assets/CASH/AttackDefense.jpg'
-import DefenseAvoid from '../assets/CASH/DefenseAvoid.jpg'
-import LGS from '../assets/CASH/LGS.jpg'
-import SGS from '../assets/CASH/SGS.jpg'
+import QuickSkillPotion from '../assets/CASH/QuickSkillPotion.png'
+import Redstone from '../assets/CASH/Redstone.png'
+import SGS from '../assets/CASH/SGS.png'
+import SmartPotion from '../assets/CASH/SmartPotion.png'
+import StaminaPotion from '../assets/CASH/StaminaPotion.png'
 
 
 //PICTURES
@@ -479,14 +489,14 @@ const chipWarData = [
       {
       id: 1,
       item: 'Red Stone Box',
-      image: <img src={TalkJade30} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={Redstone} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '2,500 CC',
       category: 'Booty',
     },
     {
       id: 2,
       item: 'Legacy Blade',
-      image: <img src={TalkJade30} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={LegacyBlade} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '100,000 CC',
       category: 'Booty',
     },
@@ -514,69 +524,118 @@ const chipWarData = [
     {
       id: 6,
       item: '[30D] Loot Magnet ',
-      image: <img src={AttackAccuracy} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={Magnet} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '150,000 CC',
       category: 'Booty',
     },
     {
       id: 7,
       item: 'Phoenix Blessing [ATK] [7D]',
-      image: <img src={AttackAccuracy} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={AtkBlessing} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '30,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
       id: 8,
       item: 'Phoenix Blessing [DEF] [7D]',
-      image: <img src={AttackAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={DefBlessing} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '30,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
       id: 9,
       item: 'Phoenix Blessing [ATK] [14D]',
-      image: <img src={AttackAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={AtkBlessing} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '50,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
       id: 10,
       item: 'Phoenix Blessing [DEF] [14D]',
-      image: <img src={AttackDefense} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={DefBlessing} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '50,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
       id: 11,
       item: 'Phoenix Blessing [ATK] [30D]',
-      image: <img src={AttackDefense} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={AtkBlessing} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '80,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
       id: 12,
       item: 'Phoenix Blessing [DEF] [30D]',
-      image: <img src={DefenseAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={DefBlessing} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '80,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
       id: 13,
       item: 'Infinity HP Potion 3500',
-      image: <img src={DefenseAvoid} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={HPPotion} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '50,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
       id: 14,
       item: 'Infinity FP Potion 2000',
-      image: <img src={LGS} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      image: <img src={FPPotion} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '50,000 CC',
       category: 'Manufacturing Mat.',
     },
     {
       id: 15,
       item: 'Infinity SP Potion 1000',
+      image: <img src={StaminaPotion} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 16,
+      item: 'Infinity Accuracy Potion',
+      image: <img src={AccuracyPotion} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 17,
+      item: 'Infinity BuildUp Potion',
+      image: <img src={BuildUpPotion} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 18,
+      item: 'Infinity Burst Potion',
+      image: <img src={BurstPotion} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 19,
+      item: 'Infinity Critical Potion',
+      image: <img src={CriticalPotion} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 20,
+      item: 'Infinity Cure Potion',
+      image: <img src={CurePotion} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 21,
+      item: 'Infinity Defense Potion',
+      image: <img src={DefPotion} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
+      price: '50,000 CC',
+      category: 'Manufacturing Mat.',
+    },
+    {
+      id: 22,
+      item: 'Shiny Luck Jewel',
       image: <img src={SGS} alt="[30D] Talk Jade" className="w-16 h-16 rounded-lg p-1 object-cover" />,
       price: '50,000 CC',
       category: 'Manufacturing Mat.',
