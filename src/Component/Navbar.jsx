@@ -256,7 +256,7 @@ function Navbar({ activeTab }) {
         </button>
         <ul className="dropdown-content menu p-2 bg-black border border-red-500 rounded shadow-lg w-44">
           <li>
-            <a href="https://discord.gg/zSwkctxAag" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
+            <a href="https://discord.gg/rfphoenix" target="_blank" rel="noopener noreferrer" className="px-4 py-2 hover:bg-red-500">
               DISCORD
             </a>
           </li>
@@ -298,7 +298,7 @@ function Navbar({ activeTab }) {
       {/* COMMUNITY */}
       <div className="pt-2 border-t border-red-500/30">
         <p className="text-red-400 mb-2">COMMUNITY</p>
-        <a href="https://discord.gg/zSwkctxAag" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Discord</a>
+        <a href="https://discord.gg/rfphoenix" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Discord</a>
         <a href="https://www.facebook.com/rfonlinephoenix" target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-red-500">Facebook</a>
       </div>
 
