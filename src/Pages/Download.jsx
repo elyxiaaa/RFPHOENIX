@@ -37,15 +37,15 @@ function Download() {
           {/* Download Buttons AAA */}
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             {[{
-              href: 'https://www.mediafire.com/file/137k4peegssjlvw/RF_Phx_Main_Server.rar/file',
+              href: 'https://www.mediafire.com/file/sgs3iz1is7yx4dg/RF_Phx_Main_Server.rar/file',
               label: 'MEDIAFIRE',
               icon: <SiMediafire className="text-3xl" />,
             }, {
-              href: 'https://drive.google.com/file/d/1EGl0O9Ou-SwF9A7qSjLXLMZBSuIq-0wM/view?usp=sharing',
+              href: 'https://drive.google.com/file/d/1wG_Qc3wqQpDEfGobZAfJXVDuJSo_60vT/view?usp=sharing',
               label: 'GOOGLE DRIVE',
               icon: <FaGoogleDrive className="text-3xl" />,
             }, {
-              href: 'https://mega.nz/file/MukF2aTJ#iBgel4n4HfP1dgJTraeQEoBr0rkgcBDOZccZREdIIGk',
+              href: 'https://mega.nz/file/UjMD1L5T#tZSKiMDhA-wYWXEC0WB6cjCOax4xDgbqJIBLajGuiFo',
               label: 'MEGA',
               icon: <SiMega className="text-3xl" />,
             }].map((btn, i) => (
