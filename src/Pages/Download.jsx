@@ -37,7 +37,7 @@ function Download() {
           {/* Download Buttons AAA */}
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             {[{
-              href: 'https://www.mediafire.com/file/sgs3iz1is7yx4dg/RF_Phx_Main_Server.rar/file',
+              href: '',
               label: 'MEDIAFIRE',
               icon: <SiMediafire className="text-3xl" />,
             }, {
