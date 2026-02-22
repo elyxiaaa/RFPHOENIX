@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Vercel from "../assets/vercel.png";
+import Vercel from "../assets/Vercel.png";
 
 export default function GlobalServiceBlocker({
   isBlocked = true,
