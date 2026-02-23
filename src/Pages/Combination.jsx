@@ -34,7 +34,7 @@ function Combination() {
         <div className="space-y-3 font-Bai text-gray-200">
           <p className="text-lg font-semibold text-orange-300">Material</p>
           <ul className="list-disc list-inside space-y-1">
-            <li>x1 Empty Cash Point Gamble Box</li>
+            <li>x5 Empty Cash Point Gamble Box</li>
             <li className="text-green-400">Chance: 100%</li>
             <li className="text-red-400">Fee: 10m Race Currency</li>
           </ul>
@@ -62,6 +62,147 @@ function Combination() {
           <ul className="list-disc list-inside">
             <li>Seal of Phoenix</li>
           </ul>
+        </div>
+      ),
+    },
+    {
+      title: 'H11 TO H55 UPGRADING (ATK/DEF)',
+      content: (
+        <div className="">
+          <h3 className="text-red-500 font-bold text-lg">H11 ⮞ H22 ⮞ H33 ⮞ H44 ⮞ H55 (Attack/Def)</h3>
+          <p className="text-gray-200 mb-4">
+            <strong>Material:</strong>
+            <ul className="list-inside">
+              <li>H11 Elemental</li>
+              <li>20pcs Keen Talic</li>
+              <li>20pcs Favor Talic</li>
+              <li>5pcs Lucky Set of Gem Exchanger</li>
+               <li>1pc Shiny Luck Jewel Coupon</li>
+              <li className="text-red-500">Chance: 20%</li>
+               <li className="text-red-500">Fee: 100m Race Currency</li>
+            </ul>
+            <strong>Result:</strong>
+            <ul className="list-disc list-inside">
+              <li>H22 up until H55 Elemental</li>
+            </ul>
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: 'H11 TO H55 UPGRADING (ATK/AVOID)',
+      content: (
+        <div className="">
+          <h3 className="text-red-500 font-bold text-lg">H11 ⮞ H22 ⮞ H33 ⮞ H44 ⮞ H55 (Attack/Avoid)</h3>
+          <p className="text-gray-200 mb-4">
+            <strong>Material:</strong>
+            <ul className="list-inside">
+              <li>H11 Elemental</li>
+              <li>20pcs Keen Talic</li>
+              <li>20pcs Mercy Talic</li>
+              <li>5pcs Lucky Set of Gem Exchanger</li>
+               <li>1pc Shiny Luck Jewel Coupon</li>
+              <li className="text-red-500">Chance: 20%</li>
+               <li className="text-red-500">Fee: 100m Race Currency</li>
+            </ul>
+            <strong>Result:</strong>
+            <ul className="list-disc list-inside">
+              <li>H22 up until H55 Elemental</li>
+            </ul>
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: 'H11 TO H55 UPGRADING (DEFENSE/AVOID)',
+      content: (
+        <div className="">
+          <h3 className="text-red-500 font-bold text-lg">H11 ⮞ H22 ⮞ H33 ⮞ H44 ⮞ H55 (Defense/Avoid)</h3>
+          <p className="text-gray-200 mb-4">
+            <strong>Material:</strong>
+            <ul className="list-inside">
+              <li>H11 Elemental</li>
+              <li>20pcs Favor Talic</li>
+              <li>20pcs Mercy Talic</li>
+              <li>5pcs Lucky Set of Gem Exchanger</li>
+               <li>1pc Shiny Luck Jewel Coupon</li>
+              <li className="text-red-500">Chance: 20%</li>
+               <li className="text-red-500">Fee: 100m Race Currency</li>
+            </ul>
+            <strong>Result:</strong>
+            <ul className="list-disc list-inside">
+              <li>H22 up until H55 Elemental</li>
+            </ul>
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: 'H1 TO H5 UPGRADING (ATTACK)',
+      content: (
+        <div className="">
+          <h3 className="text-red-500 font-bold text-lg">H1 ⮞ H2 ⮞ H3 ⮞ H4 ⮞ H5 (Attack)</h3>
+          <p className="text-gray-200 mb-4">
+            <strong>Material:</strong>
+            <ul className="list-inside">
+              <li>H1 Elemental</li>
+              <li>20pcs Keen Talic</li>
+              <li>5pcs Lucky Set of Gem Exchanger</li>
+               <li>1pc Shiny Luck Jewel Coupon</li>
+              <li className="text-red-500">Chance: 20%</li>
+               <li className="text-red-500">Fee: 100m Race Currency</li>
+            </ul>
+            <strong>Result:</strong>
+            <ul className="list-disc list-inside">
+              <li>H2 up until H5 Elemental</li>
+            </ul>
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: 'H1 TO H5 UPGRADING (DEFENSE)',
+      content: (
+        <div className="">
+          <h3 className="text-red-500 font-bold text-lg">H1 ⮞ H2 ⮞ H3 ⮞ H4 ⮞ H5 (Defense)</h3>
+          <p className="text-gray-200 mb-4">
+            <strong>Material:</strong>
+            <ul className="list-inside">
+              <li>H1 Elemental</li>
+              <li>20pcs Favor Talic</li>
+              <li>5pcs Lucky Set of Gem Exchanger</li>
+               <li>1pc Shiny Luck Jewel Coupon</li>
+              <li className="text-red-500">Chance: 20%</li>
+               <li className="text-red-500">Fee: 100m Race Currency</li>
+            </ul>
+            <strong>Result:</strong>
+            <ul className="list-disc list-inside">
+              <li>H2 up until H5 Elemental</li>
+            </ul>
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: 'H1 TO H5 UPGRADING (AVOID)',
+      content: (
+        <div className="">
+          <h3 className="text-red-500 font-bold text-lg">H1 ⮞ H2 ⮞ H3 ⮞ H4 ⮞ H5 (Avoid)</h3>
+          <p className="text-gray-200 mb-4">
+            <strong>Material:</strong>
+            <ul className="list-inside">
+              <li>H1 Elemental</li>
+              <li>20pcs Mercy Talic</li>
+              <li>5pcs Lucky Set of Gem Exchanger</li>
+               <li>1pc Shiny Luck Jewel Coupon</li>
+              <li className="text-red-500">Chance: 20%</li>
+               <li className="text-red-500">Fee: 100m Race Currency</li>
+            </ul>
+            <strong>Result:</strong>
+            <ul className="list-disc list-inside">
+              <li>H2 up until H5 Elemental</li>
+            </ul>
+          </p>
         </div>
       ),
     },
@@ -188,6 +329,7 @@ function Combination() {
         </div>
       ),
     },
+
 ];
 
   const Panel = ({ children, className = "" }) => (

@@ -21,41 +21,17 @@ import DailyQuest from "./Pages/DailyQuest"
 import PhoenixEgg from "./Pages/PhoenixEgg"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import GlobalServiceBlocker from "./Component/GlobalServiceBlocker";
+import PausedDeployment from "./Component/PausedDeployment";
 function App() {
 
 
   return (
     <>
-     <GlobalServiceBlocker 
-        isBlocked={false} 
+     <PausedDeployment 
+        isBlocked={true} 
         type="payment"   
       />
-<BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/combination" element={<Combination />} />
-          <Route path="/donation" element={<Donation />} />
-          <Route path="/droplist" element={<Droplist />} />
-          <Route path="/farmsite" element={<Farmsite />} />
-          <Route path="/rules" element={<Rules />} />
-          <Route path="/download" element={<Download />} />
-          <Route path="/install" element={<Install />} />
-          <Route path="/accretiaWarrior" element={<AccretiaWarrior />} />
-          <Route path="/accretiaRanger" element={<AccretiaRanger />} />
-          <Route path="/accretiaLauncher" element={<AccretiaLauncher />} />
-          <Route path="/bellatoWarrior" element={<BellatoWarrior />} />
-          <Route path="/bellatoRanger" element={<BellatoRanger />} />
-          <Route path="/bellatoForce" element={<BellatoForce />} />
-          <Route path="/coraWarrior" element={<CoraWarrior />} />
-          <Route path="/coraRanger" element={<CoraRanger />} />
-          <Route path="/coraForce" element={<CoraForce />} />
-          <Route path="/battlepass" element={<Battlepass />} />
-          <Route path="/dailyquest" element={<DailyQuest />} />
-           <Route path="/phoenixEgg" element={<PhoenixEgg />} />
 
-
-        </Routes>
-      </BrowserRouter>
     </>
   )
 }
