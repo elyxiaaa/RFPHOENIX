@@ -65,6 +65,353 @@ function Combination() {
         </div>
       ),
     },
+    {
+      title: 'H11 TO H55 UPGRADING (ATTACK/DEFENSE)',
+      content: (
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-[#111] border border-red-500/40 rounded-xl p-6 shadow-[0_0_30px_rgba(253,224,71,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-4 tracking-wide">
+              Chances
+            </h3>
+            <ul className="space-y-3 text-sm">
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H11 ➝ H22</span>
+                <span className="text-green-400 font-semibold">25%</span>
+              </li>
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H22 ➝ H33</span>
+                <span className="text-yellow-400 font-semibold">20%</span>
+              </li>
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H33 ➝ H44</span>
+                <span className="text-orange-400 font-semibold">15%</span>
+              </li>
+              <li className="flex justify-between">
+                <span>H44 ➝ H55</span>
+                <span className="text-red-500 font-semibold">10%</span>
+              </li>
+            </ul>
+          </div>
+          <div className="md:col-span-2 bg-[#0f0f0f] border border-red-500/40 rounded-xl p-6 shadow-[0_0_40px_rgba(239,68,68,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-2">
+              H11 ⮞ H22 ⮞ H33 ⮞ H44 ⮞ H55
+            </h3>
+            <div className="text-gray-200 space-y-6">
+              <div>
+                <strong className="block text-white mb-2">Materials:</strong>
+                <ul className="list-disc list-inside space-y-1 text-sm">
+                  <li>H11 Elemental</li>
+                  <li className="text-yellow-500">20pcs Keen Talic</li>
+                   <li className="text-purple-400">20pcs Favor Talic</li>
+                  <li>5pcs Lucky Set of Gem Exchanger</li>
+                  <li>1 Shiny Luck Jewel Coupon</li>
+                  <li className="text-green-400">SAFE: Elemental</li>
+                  <li className="text-red-400">Fee: 100m Race Currency</li>
+                </ul>
+              </div>
+              <div>
+                <strong className="block text-white mb-2">Result:</strong>
+                <ul className="list-disc list-inside text-sm">
+                  <li>H11 up to H55</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+        {
+      title: 'H11 TO H55 UPGRADING (ATTACK/AVOID)',
+      content: (
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-[#111] border border-red-500/40 rounded-xl p-6 shadow-[0_0_30px_rgba(253,224,71,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-4 tracking-wide">
+              Chances
+            </h3>
+
+            <ul className="space-y-3 text-sm">
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H11 ➝ H22</span>
+                <span className="text-green-400 font-semibold">25%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H22 ➝ H33</span>
+                <span className="text-yellow-400 font-semibold">20%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H33 ➝ H44</span>
+                <span className="text-orange-400 font-semibold">15%</span>
+              </li>
+
+              <li className="flex justify-between">
+                <span>H44 ➝ H55</span>
+                <span className="text-red-500 font-semibold">10%</span>
+              </li>
+            </ul>
+          </div>
+          <div className="md:col-span-2 bg-[#0f0f0f] border border-red-500/40 rounded-xl p-6 shadow-[0_0_40px_rgba(239,68,68,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-2">
+              H11 ⮞ H22 ⮞ H33 ⮞ H44 ⮞ H55
+            </h3>
+            <div className="text-gray-200 space-y-6">
+              <div>
+                <strong className="block text-white mb-2">Materials:</strong>
+                <ul className="list-disc list-inside space-y-1 text-sm">
+                  <li>H11 Elemental</li>
+                   <li className="text-yellow-500">20pcs Keen Talic</li>
+                   <li className="text-emerald-500">20pcs Mercy Talic</li>
+                  <li>5pcs Lucky Set of Gem Exchanger</li>
+                  <li>1 Shiny Luck Jewel Coupon</li>
+                  <li className="text-green-400">SAFE: Elemental</li>
+                  <li className="text-red-400">Fee: 100m Race Currency</li>
+                </ul>
+              </div>
+              <div>
+                <strong className="block text-white mb-2">Result:</strong>
+                <ul className="list-disc list-inside text-sm">
+                  <li>H11 up to H55</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+     {
+      title: 'H11 TO H55 UPGRADING (DEFENSE/AVOID)',
+      content: (
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-[#111] border border-red-500/40 rounded-xl p-6 shadow-[0_0_30px_rgba(253,224,71,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-4 tracking-wide">
+              Chances
+            </h3>
+
+            <ul className="space-y-3 text-sm">
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H11 ➝ H22</span>
+                <span className="text-green-400 font-semibold">25%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H22 ➝ H33</span>
+                <span className="text-yellow-400 font-semibold">20%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H33 ➝ H44</span>
+                <span className="text-orange-400 font-semibold">15%</span>
+              </li>
+
+              <li className="flex justify-between">
+                <span>H44 ➝ H55</span>
+                <span className="text-red-500 font-semibold">10%</span>
+              </li>
+            </ul>
+          </div>
+          <div className="md:col-span-2 bg-[#0f0f0f] border border-red-500/40 rounded-xl p-6 shadow-[0_0_40px_rgba(239,68,68,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-2">
+              H11 ⮞ H22 ⮞ H33 ⮞ H44 ⮞ H55
+            </h3>
+            <div className="text-gray-200 space-y-6">
+              <div>
+                <strong className="block text-white mb-2">Materials:</strong>
+                <ul className="list-disc list-inside space-y-1 text-sm">
+                  <li>H11 Elemental</li>
+                   <li className="text-purple-400">20pcs Favor Talic</li>
+                   <li className="text-emerald-500">20pcs Mercy Talic</li>
+                  <li>5pcs Lucky Set of Gem Exchanger</li>
+                  <li>1 Shiny Luck Jewel Coupon</li>
+                  <li className="text-green-400">SAFE: Elemental</li>
+                  <li className="text-red-400">Fee: 100m Race Currency</li>
+                </ul>
+              </div>
+              <div>
+                <strong className="block text-white mb-2">Result:</strong>
+                <ul className="list-disc list-inside text-sm">
+                  <li>H11 up to H55</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: 'H1 TO H5 UPGRADING (ATTACK)',
+      content: (
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-[#111] border border-red-500/40 rounded-xl p-6 shadow-[0_0_30px_rgba(253,224,71,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-4 tracking-wide">
+              Chances
+            </h3>
+
+            <ul className="space-y-3 text-sm">
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H1 ➝ H2</span>
+                <span className="text-green-400 font-semibold">25%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H2 ➝ H3</span>
+                <span className="text-yellow-400 font-semibold">20%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H3 ➝ H4</span>
+                <span className="text-orange-400 font-semibold">15%</span>
+              </li>
+
+              <li className="flex justify-between">
+                <span>H4 ➝ H5</span>
+                <span className="text-red-500 font-semibold">10%</span>
+              </li>
+            </ul>
+          </div>
+          <div className="md:col-span-2 bg-[#0f0f0f] border border-red-500/40 rounded-xl p-6 shadow-[0_0_40px_rgba(239,68,68,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-2">
+              H1 ⮞ H2 ⮞ H3 ⮞ H4 ⮞ H5
+            </h3>
+            <div className="text-gray-200 space-y-6">
+              <div>
+                <strong className="block text-white mb-2">Materials:</strong>
+                <ul className="list-disc list-inside space-y-1 text-sm">
+                  <li>H1 Elemental</li>
+                   <li className="text-yellow-500">20pcs Keen Talic</li>
+                  <li>5pcs Lucky Set of Gem Exchanger</li>
+                  <li>1 Shiny Luck Jewel Coupon</li>
+                  <li className="text-green-400">SAFE: Elemental</li>
+                  <li className="text-red-400">Fee: 100m Race Currency</li>
+                </ul>
+              </div>
+              <div>
+                <strong className="block text-white mb-2">Result:</strong>
+                <ul className="list-disc list-inside text-sm">
+                  <li>H1 up to H5</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: 'H1 TO H5 UPGRADING (DEFENSE)',
+      content: (
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-[#111] border border-red-500/40 rounded-xl p-6 shadow-[0_0_30px_rgba(253,224,71,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-4 tracking-wide">
+              Chances
+            </h3>
+
+            <ul className="space-y-3 text-sm">
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H1 ➝ H2</span>
+                <span className="text-green-400 font-semibold">25%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H2 ➝ H3</span>
+                <span className="text-yellow-400 font-semibold">20%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H3 ➝ H4</span>
+                <span className="text-orange-400 font-semibold">15%</span>
+              </li>
+
+              <li className="flex justify-between">
+                <span>H4 ➝ H5</span>
+                <span className="text-red-500 font-semibold">10%</span>
+              </li>
+            </ul>
+          </div>
+          <div className="md:col-span-2 bg-[#0f0f0f] border border-red-500/40 rounded-xl p-6 shadow-[0_0_40px_rgba(239,68,68,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-2">
+              H1 ⮞ H2 ⮞ H3 ⮞ H4 ⮞ H5
+            </h3>
+            <div className="text-gray-200 space-y-6">
+              <div>
+                <strong className="block text-white mb-2">Materials:</strong>
+                <ul className="list-disc list-inside space-y-1 text-sm">
+                  <li>H1 Elemental</li>
+                   <li className="text-purple-400">20pcs Favor Talic</li>
+                  <li>5pcs Lucky Set of Gem Exchanger</li>
+                  <li>1 Shiny Luck Jewel Coupon</li>
+                  <li className="text-green-400">SAFE: Elemental</li>
+                  <li className="text-red-400">Fee: 100m Race Currency</li>
+                </ul>
+              </div>
+              <div>
+                <strong className="block text-white mb-2">Result:</strong>
+                <ul className="list-disc list-inside text-sm">
+                  <li>H1 up to H5</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: 'H1 TO H5 UPGRADING (AVOID)',
+      content: (
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-[#111] border border-red-500/40 rounded-xl p-6 shadow-[0_0_30px_rgba(253,224,71,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-4 tracking-wide">
+              Chances
+            </h3>
+
+            <ul className="space-y-3 text-sm">
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H1 ➝ H2</span>
+                <span className="text-green-400 font-semibold">25%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H2 ➝ H3</span>
+                <span className="text-yellow-400 font-semibold">20%</span>
+              </li>
+
+              <li className="flex justify-between border-b border-red-500/10 pb-2">
+                <span>H3 ➝ H4</span>
+                <span className="text-orange-400 font-semibold">15%</span>
+              </li>
+
+              <li className="flex justify-between">
+                <span>H4 ➝ H5</span>
+                <span className="text-red-500 font-semibold">10%</span>
+              </li>
+            </ul>
+          </div>
+          <div className="md:col-span-2 bg-[#0f0f0f] border border-red-500/40 rounded-xl p-6 shadow-[0_0_40px_rgba(239,68,68,0.15)]">
+            <h3 className="text-red-500 font-bold text-lg mb-2">
+              H1 ⮞ H2 ⮞ H3 ⮞ H4 ⮞ H5
+            </h3>
+            <div className="text-gray-200 space-y-6">
+              <div>
+                <strong className="block text-white mb-2">Materials:</strong>
+                <ul className="list-disc list-inside space-y-1 text-sm">
+                  <li>H1 Elemental</li>
+                   <li className="text-emerald-500">20pcs Mercy Talic</li>
+                  <li>5pcs Lucky Set of Gem Exchanger</li>
+                  <li>1 Shiny Luck Jewel Coupon</li>
+                  <li className="text-green-400">SAFE: Elemental</li>
+                  <li className="text-red-400">Fee: 100m Race Currency</li>
+                </ul>
+              </div>
+              <div>
+                <strong className="block text-white mb-2">Result:</strong>
+                <ul className="list-disc list-inside text-sm">
+                  <li>H1 up to H5</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
   ];
 
   const dropdownData2 = [
@@ -114,6 +461,31 @@ function Combination() {
         </div>
       ),
     },
+    {
+      title: 'TYPE C SHIELD',
+      content: (
+        <div className="">
+          <h3 className="text-red-500 font-bold text-lg">+3/5 TYPE C SHIELD</h3>
+          <p className="text-gray-200 mb-4">
+            <strong>Material:</strong>
+            <ul className="list-inside">
+              <li>+5/5 Intense Lv50 or Lv45 Shield</li>
+              <li>10pcs Shield Blueprint</li>
+              <li>2pcs Protection / Anti-Sharp Ability Reaver</li>
+              <li className="text-green-500">SAFE: Shield</li>
+              <li className="text-red-500">Chance: 50%</li>
+               <li className="text-red-500">Fee: 50m Race Currency</li>
+            </ul>
+            <strong>Result:</strong>
+            <ul className="list-disc list-inside">
+              <li>+3/5 Type C Lv50 or Lv45 Shield</li>
+            </ul>
+          </p>
+        </div>
+      ),
+    },
+
+
     {
       title: 'PARAGON HELM',
       content: (
@@ -188,7 +560,6 @@ function Combination() {
         </div>
       ),
     },
-
 ];
 
   const Panel = ({ children, className = "" }) => (
