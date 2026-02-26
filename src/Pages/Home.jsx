@@ -261,7 +261,7 @@ useEffect(() => {
 }, [activeTab]);
 
 
-  const [totalPlayers, setTotalPlayers] = useState(327);
+  const [totalPlayers, setTotalPlayers] = useState(100);
   const [serverStatus, setServerStatus] = useState("");
   const [orePercent, setOrePercent] = useState(82);
   const [chipAcc, setChipAcc] = useState(65);
@@ -273,6 +273,7 @@ useEffect(() => {
   const [cbStatus, setCbStatus] = useState("GOAL");
   const [winRace, setWinRace] = useState("Cora");
   const [loseRace, setLoseRace] = useState("Bellato");
+  const [guildKillers, setGuildKillers] = useState([]);
 
   const [topKillers, setTopKillers] = useState([
   { name: "RagnarX", kills: 152, deaths: 21, class_code: "ARS3", avatar: "/src/assets/warrior.png" },
@@ -288,22 +289,6 @@ useEffect(() => {
   { name: "MechaQueen", race: "Bellato", kills: 91, deaths: 15 },
   { name: "AetherKing", race: "Cora", kills: 105, deaths: 9 },
 ]);
-
-const [guildData, setGuildData] = useState({
-  Accretia: [
-    { name: "SteelReign", avatar: "", kills: 300, deaths: 120, points: 5400 },
-    { name: "IronLegion", avatar: "", kills: 280, deaths: 110, points: 5000 },
-  ],
-  Bellato: [
-    { name: "NovaCore", avatar: "", kills: 260, deaths: 140, points: 4700 },
-    { name: "GearForce", avatar: "", kills: 240, deaths: 150, points: 4300 },
-  ],
-  Cora: [
-    { name: "Celestial", avatar: "", kills: 350, deaths: 100, points: 6200 },
-    { name: "MoonGuard", avatar: "", kills: 310, deaths: 115, points: 5800 },
-  ],
-});
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -329,9 +314,10 @@ const [guildData, setGuildData] = useState({
         const responseTwo = await fetch("https://phoenix.gamecp.net/web_api/?do=dua");
         const dataTwo = await responseTwo.json();
         console.log("API Response Two:", dataTwo);
+        dataTwo.result.killer_guild
   
         if (responseTwo.ok) {
-          // Fetch and set Archon data
+
           const raceAvatars = {
             accretia: "/src/assets/accretia.png",
             bellato: "/src/assets/bellato.png",
@@ -339,8 +325,8 @@ const [guildData, setGuildData] = useState({
           };
           const fetchedArchons = [
             {
-              name: dataTwo.result.arc_a?.name || "Accretia", // Make sure 'name' is correctly extracted
-              race: dataTwo.result.arc_a?.race || "Accretia", // Check for race
+              name: dataTwo.result.arc_a?.name || "Accretia", 
+              race: dataTwo.result.arc_a?.race || "Accretia",
               kills: dataTwo.result.arc_a?.kill || 0,
               deaths: dataTwo.result.arc_a?.dead || 0,
             },
@@ -369,59 +355,34 @@ const [guildData, setGuildData] = useState({
           }));
           setTopKillers(fetchedKillers); // Set top killers data
           console.log("Top Killers Data:", fetchedKillers);
+
+          
+        const fetchedGuildKillers = dataTwo.result.killer_guild
+          ?.slice(0, 9)
+          .map(guild => ({
+            name: guild.name,
+            race: guild.race,
+            grade: guild.grade,
+            kill: guild.kill,
+            dead: guild.dead,
+            leader: guild.leader,
+            leader_kill: guild.leader_kill,
+            leader_dead: guild.leader_dead,
+          })) || [];
+
+        setGuildKillers(fetchedGuildKillers);
         }
-      } catch (error) {
+        
+      } 
+
+      catch (error) {
         console.error("Error fetching data:", error);
       }
     };
   
     fetchData();
   }, []);
-/*
-  useEffect(() => {
-    const fetchGuildData = async () => {
-      try {
-        const response = await fetch("https://rfapex.gamecp.net/web_api/?do=rengking");
-        const data = await response.json();
-        console.log("API Ranking", data);
 
-        const rawGuilds = data?.result?.guild_points_odin || [];
-
-        const grouped = {
-          Accretia: [],
-          Bellato: [],
-          Cora: [],
-        };
-
-        rawGuilds.forEach(guild => {
-          if (guild.race === "Accretia") grouped.Accretia.push(guild);
-          else if (guild.race === "Bellato") grouped.Bellato.push(guild);
-          else if (guild.race === "Cora") grouped.Cora.push(guild);
-        });
-
-        const formattedData = {};
-        for (const race in grouped) {
-          formattedData[race] = grouped[race]
-            .slice(0, 5)
-            .map(guild => ({
-              name: decodeHTML(guild.guild_name),
-              avatar: `https://rfapex.gamecp.net/guild_mark/mark_${guild.back_idx}_${guild.mark_idx}.bmp`,
-              kills: guild.kill,
-              deaths: guild.dead,
-              points: guild.guild_points,
-              color: guild.color
-            }))
-        }
-
-        setGuildData(formattedData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchGuildData();
-  }, []);
-*/
   function decodeHTML(html) {
     const txt = document.createElement("textarea");
     txt.innerHTML = html;
@@ -1153,139 +1114,105 @@ transition-all duration-500">
 
 <div className="w-full min-h-screen bg-BG7 bg-cover bg-center relative overflow-hidden">
   <div className="absolute inset-0 bg-gradient-to-b from-black via-red-950/90 to-black" />
-  <div className="absolute inset-0 pointer-events-none
-    bg-[radial-gradient(circle_at_top,rgba(255,80,0,0.25),transparent_60%)]" />
-  <div className="font-ITC relative z-10 px-4 py-12 sm:py-16 text-center text-white">
-    <h2
-      className="
-        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-        font-bold
-        bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
-        bg-clip-text text-transparent
-        drop-shadow-[0_0_18px_rgba(255,80,0,0.9)]
-      "
-    >
-      TOP GUILD HONOR
+
+  <div className="relative z-10 px-4 py-12 text-center text-white font-ITC">
+    <h2 className="
+      text-4xl md:text-6xl font-bold
+      bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+      bg-clip-text text-transparent
+      drop-shadow-[0_0_20px_rgba(255,80,0,0.9)]
+    ">
+      TOP GUILD KILLERS
     </h2>
-    <div className="mt-4 mx-auto w-40 h-[2px]
-      bg-gradient-to-r from-transparent via-red-500 to-transparent
-      shadow-[0_0_12px_rgba(255,80,0,0.8)]" />
+
+    <div className="mt-4 mx-auto w-48 h-[2px]
+      bg-gradient-to-r from-transparent via-red-500 to-transparent" />
   </div>
-  <div
-    className="
-      relative z-10
-      max-w-7xl mx-auto
-      px-4 sm:px-6 lg:px-8 pb-16
-      grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
-      gap-6 lg:gap-8
-    "
-  >
-    {Object.entries(guildData).map(([race, guilds]) => (
-      <div
-        key={race}
-        className="
-          bg-black/60 backdrop-blur-xl
-          border border-red-500/30
-          shadow-[0_0_45px_rgba(255,60,0,0.25)]
-          hover:shadow-[0_0_70px_rgba(255,90,0,0.45)]
-          transition-all duration-500
-          py-8 sm:py-10 px-4 sm:px-6
-          rounded-2xl
-        "
-      >
-        {/* Race Icon */}
-        <div className="flex items-center justify-center mb-3">
-          {race === "Bellato" && <img src={BellatoIcon} className="h-14 w-14 sm:h-20 sm:w-20" />}
-          {race === "Cora" && <img src={CoraIcon} className="h-14 w-14 sm:h-20 sm:w-20" />}
-          {race === "Accretia" && <img src={AccretiaIcon} className="h-14 w-14 sm:h-20 sm:w-20" />}
-        </div>
 
-        <h2 className="text-lg sm:text-xl text-center font-bold mb-4 text-orange-300 tracking-wide">
-          {race}
-        </h2>
+  <div className="
+    relative z-10
+    max-w-7xl mx-auto
+    px-6 pb-16
+    grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+    gap-8
+  ">
 
-        {/* Header Row */}
-        <div className="flex text-sm sm:text-base font-bold text-orange-200 mb-2">
-          <div className="flex flex-1 text-left ml-1 sm:ml-2">
-            <p>TOP</p>
-            <p className="ml-6 sm:ml-10">GUILD</p>
+    {guildKillers.map((guild, index) => {
+
+      let glow = "";
+      if (index === 0 )
+        glow = "border-red-500 shadow-[0_0_45px_rgba(255,0,0,0.5)]";
+      const raceColor =
+        guild.race === "Accretia"
+          ? "text-red-500"
+          : guild.race === "Bellato"
+          ? "text-orange-400"
+          : guild.race === "Cora"
+          ? "text-purple-400"
+          : "text-white";
+
+      return (
+        <div
+          key={index}
+          className={`
+            bg-black/70 backdrop-blur-xl
+            border border-red-500/30
+            rounded-2xl p-6
+            transition-all duration-500
+            hover:scale-105
+            text-center
+            ${glow}
+          `}
+        >
+          {/* Rank */}
+          <div className="text-sm text-orange-400 font-bold mb-2">
+            # {index + 1}
           </div>
-          <div className="flex-1 text-right mr-1 sm:mr-2">
-            <p>TOTAL POINTS</p>
+
+          {/* Guild Name */}
+          <h3 className="text-2xl font-bold text-white mb-1 truncate">
+            {guild.name}
+          </h3>
+
+          {/* Race + Grade */}
+          <p className={`text-sm mb-3 font-semibold ${raceColor}`}>
+            {guild.race} • Grade {guild.grade}
+          </p>
+
+          {/* Guild Stats */}
+          <div className="flex justify-center gap-4 text-sm mb-4">
+            <div className="bg-gradient-to-r from-red-700 to-red-500 px-4 py-1 rounded-lg text-white font-semibold">
+              Total Kills: {guild.kill}
+            </div>
+            <div className="bg-gradient-to-r from-red-900 to-red-600 px-4 py-1 rounded-lg text-white font-semibold">
+              Total Deaths: {guild.dead}
+            </div>
           </div>
+
+          {/* Divider */}
+          <div className="border-t border-red-500/30 my-4" />
+
+          {/* Leader Info */}
+          <p className="text-sm text-orange-300 mb-3">
+            Leader: <span className="font-semibold">{guild.leader}</span>
+          </p>
+
+          {/* Leader Stats */}
+          <div className="flex justify-center gap-4 text-sm">
+            <div className="bg-gradient-to-r from-red-600 to-red-400 px-4 py-1 rounded-lg text-white font-semibold">
+              K: {guild.leader_kill}
+            </div>
+            <div className="bg-gradient-to-r from-red-800 to-red-500 px-4 py-1 rounded-lg text-white font-semibold">
+              D: {guild.leader_dead}
+            </div>
+          </div>
+
         </div>
+      );
+    })}
 
-        <div className="border-b border-red-500/30 mb-4" />
-
-        {/* Guild List */}
-        <div className="space-y-3">
-          {guilds.map((guild, index) => {
-            let trophyImage = null;
-            let imageClassNames = "w-7 h-7 sm:w-10 sm:h-10";
-            let rowGlow = "";
-
-            if (index === 0) {
-              trophyImage = Trophy1;
-              imageClassNames = "w-12 h-12 sm:w-20 sm:h-20";
-              rowGlow = "shadow-[0_0_25px_rgba(255,180,0,0.45)] border border-yellow-400/40";
-            } else if (index === 1) {
-              trophyImage = Trophy2;
-              rowGlow = "shadow-[0_0_18px_rgba(200,200,255,0.35)] border border-slate-300/40";
-            } else if (index === 2) {
-              trophyImage = Trophy3;
-              rowGlow = "shadow-[0_0_18px_rgba(255,120,60,0.35)] border border-orange-400/40";
-            } else if (index === 3) {
-              trophyImage = Trophy4;
-            } else if (index === 4) {
-              trophyImage = Trophy5;
-            }
-
-            return (
-              <div
-                key={index}
-                className={`
-                  flex items-center gap-3
-                  bg-black/70 backdrop-blur-md
-                  border border-red-500/20
-                  rounded-xl p-3 sm:p-4
-                  shadow-[0_0_18px_rgba(255,80,0,0.25)]
-                  hover:shadow-[0_0_30px_rgba(255,120,0,0.5)]
-                  transition-all duration-300
-                  ${rowGlow}
-                `}
-              >
-                <img
-                  src={trophyImage}
-                  alt={`Trophy ${index + 1}`}
-                  className={`rounded-full shrink-0 ${imageClassNames}`}
-                />
-
-                <div className="text-white flex-1 min-w-0">
-                  <p className="font-bold truncate">{guild.name}</p>
-
-                  <div className="flex items-center mt-1 gap-2 text-xs sm:text-sm">
-                    <span className="bg-gradient-to-r from-red-700 to-orange-500 w-12 sm:w-14 text-center py-0.5 rounded-md">
-                      K: {guild.kills || 0}
-                    </span>
-                    <span className="bg-gradient-to-r from-red-900 to-red-600 w-12 sm:w-14 text-center py-0.5 rounded-md">
-                      D: {guild.deaths || 0}
-                    </span>
-                  </div>
-                </div>
-
-                <span className="text-sm sm:text-base font-bold text-white
-                  drop-shadow-[0_0_10px_rgba(255,80,0,0.9)]">
-                  {guild.points}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    ))}
   </div>
 </div>
-
 
 <div
   id="cash-section"
