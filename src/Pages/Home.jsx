@@ -62,15 +62,6 @@ import SmartPotion from '../assets/CASH/SmartPotion.png'
 import StaminaPotion from '../assets/CASH/StaminaPotion.png'
 
 
-//PICTURES
-import Akatsuki from '../assets/GUILDS/Akatsuki.jpg'
-import Trophy1 from '../assets/HONOR/Trophy1.png'
-import Trophy2 from '../assets/HONOR/trophy2.png'
-import Trophy3 from '../assets/HONOR/Trophy3.png'
-import Trophy4 from '../assets/HONOR/Trophy4.png'
-import Trophy5 from '../assets/HONOR/Trophy5.png'
-import BGBurn from '../assets/BGBurn.gif'
-
 //ACC
 import ARF1 from '../assets/CLASS/ACC/ARF1.png'
 import ARF2 from '../assets/CLASS/ACC/ARF2.png'
